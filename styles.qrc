@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>styles/MaterialDesign.css</file>
+        <file>styles/SideNavigator.css</file>
+    </qresource>
+</RCC>

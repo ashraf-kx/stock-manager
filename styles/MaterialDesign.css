@@ -1,0 +1,78 @@
+QMainWindow
+{
+    background-color: rgb(255, 255, 255);
+}
+
+QFrame{
+    background-color: rgb(200, 200, 200);
+}
+
+QWidget
+{
+    background-color: rgb(255, 255, 255);
+}
+
+QLineEdit
+{
+    color: rgb(68, 68, 68);
+    background-color: #FFF;
+    border: 1px solid #2196F3;
+
+    vertical-align: middle;
+}
+
+QLineEdit:hover
+{
+   color: #000000;
+   border-top:1px solid #FFFFFF;
+   border-left:1px solid #FFFFFF;
+   border-right:1px solid #FFFFFF;
+   border-bottom:2px solid #2196F3;
+   border-right:0px solid #FFFFFF;
+}
+
+QLabel
+{
+    background-color: rgb(255, 255, 255);
+    color:Black;
+    font: italic 11pt "Calibri";
+}
+
+QLabel:hover
+{
+    background-color: rgb(255, 255, 255);
+    color:#212121;
+    font: italic 13pt "Calibri";
+    font-weight: bold;
+}
+
+QPushButton
+{
+    position: relative;
+    padding: 7px 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 15px;
+    font-family: Ubuntu;
+    color: #ffffff;
+    white-space: nowrap;
+    background-color: rgb(0, 163, 239);
+
+    border-radius: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    border: 1px solid rgb(0, 163, 239);
+
+    vertical-align: middle;
+}
+
+QPushButton:hover
+{
+    background-color: rgb(11, 109, 255);
+    border: 1px solid  rgb(11, 109, 255);
+    color: #ffffff;
+}
+
+

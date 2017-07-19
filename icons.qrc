@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/18x18/ic_format_list_bulleted_white_18dp.png</file>
+        <file>icons/24x24/ic_format_list_bulleted_white.png</file>
+        <file>icons/48x48/ic_format_list_bulleted_white_2x.png</file>
+        <file>icons/18x18/ic_add_box_white_18pt.png</file>
+        <file>icons/18x18/ic_add_circle_outline_white_18pt.png</file>
+        <file>icons/24x24/ic_add_circle_outline_white_24dp.png</file>
+        <file>icons/36x36/ic_add_circle_outline_white_18pt_2x.png</file>
+        <file>icons/48x48/ic_add_circle_outline_white_24dp.png</file>
+    </qresource>
+</RCC>
