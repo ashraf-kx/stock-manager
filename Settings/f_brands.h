@@ -1,7 +1,6 @@
 #ifndef F_BRANDS_H
 #define F_BRANDS_H
 
-
 #include <QFrame>
 #include "../classes.h"
 #include "../toast.h"
@@ -34,7 +33,6 @@ public:
 
 public slots:
     void addBrand();
-
     void deleteBrand();
 
 private:

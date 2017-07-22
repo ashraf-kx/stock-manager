@@ -1,20 +1,6 @@
 #include "f_brands.h"
 #include "ui_f_brands.h"
 
-#include <QFrame>
-#include "../classes.h"
-#include "../toast.h"
-#include <QGraphicsDropShadowEffect>
-#include <QEvent>
-#include <QKeyEvent>
-
-//! [DB QtSql ]
-#include <QSqlQueryModel>
-#include <QSqlQuery>
-#include <QSqlTableModel>
-#include <QSqlRelationalTableModel>
-#include <QSortFilterProxyModel>
-#include <QtWidgets/QDataWidgetMapper>
 
 F_Brands::F_Brands(QWidget *parent) :
     QFrame(parent),
