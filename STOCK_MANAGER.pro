@@ -232,8 +232,8 @@ DISTFILES += \
     StockManager_ar.qm
 
 
-##### Using MySql
-win32:CONFIG(release, debug|release): LIBS += -L'D:/MySql ConnectorC++/lib/opt/' -lmysqlcppconn
-else:win32:CONFIG(debug, debug|release): LIBS += -L'D:/MySql ConnectorC++/lib/opt/' -lmysqlcppconnd
+##### Using MySql Connector C++  #####################
+#win32:CONFIG(release, debug|release): LIBS += -L'D:/MySql ConnectorC++/lib/opt/' -lmysqlcppconn
+#else:win32:CONFIG(debug, debug|release): LIBS += -L'D:/MySql ConnectorC++/lib/opt/' -lmysqlcppconnd
 
-INCLUDEPATH += 'D:/MySql ConnectorC++/include'
+#INCLUDEPATH += 'D:/MySql ConnectorC++/include'

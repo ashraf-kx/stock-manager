@@ -96,7 +96,6 @@
 #include "Reports/f_MonthlySales.h"
 #include "Reports/f_SalesReport.h"
 
-using namespace sql;
 using namespace std;
 
 namespace Ui {

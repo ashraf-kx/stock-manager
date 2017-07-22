@@ -4,23 +4,22 @@
 #include <QObject>
 #include <QtDebug>
 
-//! [DB API linking ].
-#include <cppconn/connection.h>
-#include <cppconn/prepared_statement.h>
-#include <cppconn/driver.h>
-#include <cppconn/exception.h>
-#include <cppconn/resultset.h>
-#include <cppconn/prepared_statement.h>
+////! [DB API linking ].
+//#include <cppconn/connection.h>
+//#include <cppconn/prepared_statement.h>
+//#include <cppconn/driver.h>
+//#include <cppconn/exception.h>
+//#include <cppconn/resultset.h>
+//#include <cppconn/prepared_statement.h>
 
-
-using namespace sql;
+//using namespace sql;
 using namespace std;
 
-class Tables
-{
-public:
-    Tables();
-};
+//class Tables
+//{
+//public:
+//    Tables();
+//};
 
 class Unit
 {
@@ -43,48 +42,48 @@ public:
 
 };
 
-class DB {
-public:
-    explicit DB();
-    DB(const QString& hostName,const QString& userName,const QString& password,const QString& schemaName)
-    {
-        this->hostName   = hostName;
-        this->userName   = userName;
-        this->password   = password;
-        this->schemaName = schemaName;
-    }
+//class DB {
+//public:
+//    explicit DB();
+//    DB(const QString& hostName,const QString& userName,const QString& password,const QString& schemaName)
+//    {
+//        this->hostName   = hostName;
+//        this->userName   = userName;
+//        this->password   = password;
+//        this->schemaName = schemaName;
+//    }
 
-    ~DB();
+//    ~DB();
 
-    Connection* getConnection()
-    {
-        try{
-           this->mDriver      = get_driver_instance();
-           this->mConnection  = this->mDriver->connect(this->hostName.toStdString(),
-                                                       this->userName.toStdString(),
-                                                       this->password.toStdString());
-           this->mConnection->setAutoCommit(0);
-           this->mConnection->setSchema(this->schemaName.toStdString());
+//    Connection* getConnection()
+//    {
+//        try{
+//           this->mDriver      = get_driver_instance();
+//           this->mConnection  = this->mDriver->connect(this->hostName.toStdString(),
+//                                                       this->userName.toStdString(),
+//                                                       this->password.toStdString());
+//           this->mConnection->setAutoCommit(0);
+//           this->mConnection->setSchema(this->schemaName.toStdString());
 
-           qDebug()<<"Connected to "<<this->schemaName<<"\n";
+//           qDebug()<<"Connected to "<<this->schemaName<<"\n";
 
-        }catch(SQLException &ex){
-           std::cout<<"Exception Occurred > "<<ex.getErrorCode()<<endl;
-        }
-        return this->mConnection;
-    }
+//        }catch(SQLException &ex){
+//           std::cout<<"Exception Occurred > "<<ex.getErrorCode()<<endl;
+//        }
+//        return this->mConnection;
+//    }
 
 
-private:
-    Driver     *mDriver;
-    Connection *mConnection;
+//private:
+//    Driver     *mDriver;
+//    Connection *mConnection;
 
-    QString hostName;
-    QString userName;
-    QString password;
-    QString schemaName;
+//    QString hostName;
+//    QString userName;
+//    QString password;
+//    QString schemaName;
 
-};
+//};
 
 class Cfg_Db {
 

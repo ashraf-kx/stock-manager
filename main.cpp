@@ -1,7 +1,6 @@
 #include "dashboard.h"
 #include <QApplication>
 #include <QTranslator>
-#include <QtSql>
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -15,15 +14,6 @@ int main(int argc, char *argv[])
     QTranslator translator;
     translator.load(":StockManager_ar");
     a.installTranslator(&translator);
-
-    /*QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL","sunShine");
-    db.setHostName("localhost");
-    db.setDatabaseName("test");
-    db.setUserName("root");
-    db.setPassword("");
-    bool ok = db.open();
-    if(ok) qDebug() << "ok";
-    else qDebug() << "no";*/
 
     Dashboard w;
 
