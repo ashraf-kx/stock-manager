@@ -37,21 +37,22 @@ public slots:
     void getFips();
     void getCountry();
     void getCapital();
-    QString getArea();
-    QString getPopulation();
-    QString getContinent();
-    QString getTld();
-    QString getCurrencyCode();
-    QString getCurrencyName();
-    QString getPhone();
-    QString getPostal_Code_Format();
-    QString getPostal_Code_Regex();
-    QString getLanguages();
-    QString getGeonameid();
+    void getArea();
+    void getPopulation();
+    void getContinent();
+    void getTld();
+    void getCurrencyCode();
+    void getCurrencyName();
+    void getPhone();
+    void getPostal_Code_Format();
+    bool getPostal_Code_Regex();
+    void getLanguages();
+    void getGeonameid();
     QString getNeighbours();
     QString getEquivalentFipsCode();
-    void getRest();
     void getSplitOneLine();
+    void clearAllInputs();
+    void getUsefullText();
 private:
     Ui::F_SystemSettings *ui;
     Toast *mToast;
@@ -61,6 +62,8 @@ private:
 
     QStringList mainList;
     QStringList listCountries;
+
+    QString textOut;
 
 
 };

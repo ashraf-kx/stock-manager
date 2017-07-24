@@ -1,21 +1,6 @@
 #include "f_categories.h"
 #include "ui_f_categories.h"
 
-#include <QFrame>
-#include "../classes.h"
-#include "../toast.h"
-#include <QGraphicsDropShadowEffect>
-#include <QEvent>
-#include <QKeyEvent>
-
-//! [ DB QtSql ]
-#include <QSqlQueryModel>
-#include <QSqlQuery>
-#include <QSqlTableModel>
-#include <QSqlRelationalTableModel>
-#include <QSortFilterProxyModel>
-#include <QtWidgets/QDataWidgetMapper>
-
 F_Categories::F_Categories(QWidget *parent) :
     QFrame(parent),
     ui(new Ui::F_Categories)
@@ -87,7 +72,7 @@ F_Categories::F_Categories(QWidget *parent) :
 
     connect(ui->Bt_save,SIGNAL(clicked(bool)),this,SLOT(addCategory()));
 
-    //######################### Sub Section #########################
+    //######################### Sub Categories Section #########################
 
     mapperSub        = new QDataWidgetMapper();
     modelSubCategory = new QSqlTableModel(this,this->DBH);
