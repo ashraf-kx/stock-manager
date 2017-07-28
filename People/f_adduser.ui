@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>F_AddUser</class>
  <widget class="QFrame" name="F_AddUser">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>774</width>
-    <height>551</height>
+    <width>784</width>
+    <height>519</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,20 +36,53 @@
       <layout class="QVBoxLayout" name="layoutLeftSide">
        <item>
         <widget class="QLabel" name="L_firstName">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>First Name *</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="Le_FirstName">
+        <widget class="QLineEdit" name="Le_firstName">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="inputMask">
+          <string/>
+         </property>
          <property name="maxLength">
-          <number>50</number>
+          <number>45</number>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="L_lastName">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Last Name *</string>
          </property>
@@ -54,13 +90,35 @@
        </item>
        <item>
         <widget class="QLineEdit" name="Le_lastName">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="maxLength">
-          <number>50</number>
+          <number>45</number>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="L_gender">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Gender</string>
          </property>
@@ -71,8 +129,16 @@
          <property name="minimumSize">
           <size>
            <width>200</width>
-           <height>0</height>
+           <height>25</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
          </property>
          <item>
           <property name="text">
@@ -88,20 +154,47 @@
        </item>
        <item>
         <widget class="QLabel" name="L_company">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Company *</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="Le_company">
-         <property name="maxLength">
-          <number>255</number>
+        <widget class="QComboBox" name="Cb_company">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="L_phone">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Phone *</string>
          </property>
@@ -109,6 +202,20 @@
        </item>
        <item>
         <widget class="QLineEdit" name="Le_phone">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="maxLength">
           <number>20</number>
          </property>
@@ -116,6 +223,14 @@
        </item>
        <item>
         <widget class="QLabel" name="L_email">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Email </string>
          </property>
@@ -123,13 +238,35 @@
        </item>
        <item>
         <widget class="QLineEdit" name="Le_email">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="maxLength">
-          <number>255</number>
+          <number>100</number>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="L_username">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Username *</string>
          </property>
@@ -137,13 +274,35 @@
        </item>
        <item>
         <widget class="QLineEdit" name="Le_username">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="maxLength">
-          <number>50</number>
+          <number>45</number>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="L_password">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Password *</string>
          </property>
@@ -151,11 +310,25 @@
        </item>
        <item>
         <widget class="QLineEdit" name="Le_password">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="maxLength">
-          <number>50</number>
+          <number>45</number>
          </property>
          <property name="echoMode">
-          <enum>QLineEdit::Password</enum>
+          <enum>QLineEdit::PasswordEchoOnEdit</enum>
          </property>
         </widget>
        </item>
@@ -169,6 +342,14 @@
        </item>
        <item>
         <widget class="QLabel" name="L_confirmePass">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Confirm Password</string>
          </property>
@@ -176,11 +357,25 @@
        </item>
        <item>
         <widget class="QLineEdit" name="Le_confirmePass">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="maxLength">
           <number>50</number>
          </property>
          <property name="echoMode">
-          <enum>QLineEdit::Password</enum>
+          <enum>QLineEdit::PasswordEchoOnEdit</enum>
          </property>
         </widget>
        </item>
@@ -203,6 +398,14 @@
       <layout class="QVBoxLayout" name="layoutRightSide">
        <item>
         <widget class="QLabel" name="L_status">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Status</string>
          </property>
@@ -213,7 +416,7 @@
          <property name="minimumSize">
           <size>
            <width>200</width>
-           <height>0</height>
+           <height>25</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -221,6 +424,14 @@
            <width>350</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
          </property>
          <item>
           <property name="text">
@@ -251,13 +462,36 @@
        </item>
        <item>
         <widget class="QLabel" name="L_group">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Group *</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="Cb_group"/>
+        <widget class="QComboBox" name="Cb_group">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer">
@@ -273,9 +507,9 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="Bt_addUser">
          <property name="text">
-          <string>PushButton</string>
+          <string>Add User</string>
          </property>
         </widget>
        </item>
