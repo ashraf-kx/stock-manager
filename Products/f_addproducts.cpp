@@ -33,6 +33,11 @@ F_AddProducts::F_AddProducts(QWidget *parent) :
     connect(ui->Cb_Category,SIGNAL(currentTextChanged(QString)),this,SLOT(updateSubCategoryCombo()));
 }
 
+F_AddProducts::~F_AddProducts()
+{
+    delete ui;
+}
+
 void F_AddProducts::updateBrandCombo()
 {
     if(!this->DBH.isOpen())
@@ -131,9 +136,9 @@ void F_AddProducts::updateUnitCombo()
     this->DBH.commit();
 }
 
-F_AddProducts::~F_AddProducts()
+void F_AddProducts::keyPressEvent(QKeyEvent *e)
 {
-    delete ui;
+
 }
 
 void F_AddProducts::addProduct()
@@ -141,10 +146,7 @@ void F_AddProducts::addProduct()
 
 }
 
-void F_AddProducts::keyPressEvent(QKeyEvent *e)
-{
 
-}
 
 QStringList F_AddProducts::getAllWarehousesByStatus(const QString &status)
 {

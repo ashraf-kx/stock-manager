@@ -95,8 +95,8 @@ void F_Warhouses::addWarehouse()
 {
     if(ui->Le_WarehouseName->text().isEmpty() )
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("set a value for Warehouse name field"));
+        //mToast  = new Toast();
+        //mToast ->setMessage(tr("set a value for Warehouse name field"));
     }else
     {
         if(!this->DBH.isOpen())
@@ -111,8 +111,8 @@ void F_Warhouses::addWarehouse()
         query->exec();
 
         if (query->next()) {
-            mToast = new Toast();
-            mToast->setMessage(tr("Already Exists"));
+            //mToast  = new Toast();
+            //mToast ->setMessage(tr("Already Exists"));
         }else
         {
             query->prepare("INSERT INTO warehouses (id,name,status,description)"
@@ -156,8 +156,8 @@ void F_Warhouses::updateStatusWarehouse()
         ui->Sb_ID->setValue(-1);
     }else
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("Select a Warehouse"));
+        //mToast  = new Toast();
+        //mToast ->setMessage(tr("Select a Warehouse"));
     }
 }
 

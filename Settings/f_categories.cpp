@@ -149,8 +149,8 @@ void F_Categories::addCategory()
 {
     if(ui->Le_CategoryName->text().isEmpty() || ui->Le_Code->text().isEmpty())
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("Fill Both Values For Category Name & Code"));
+        //mToast  = new Toast();
+        //mToast ->setMessage(tr("Fill Both Values For Category Name & Code"));
     }else
     {
         if(!this->DBH.isOpen())
@@ -165,8 +165,8 @@ void F_Categories::addCategory()
         query->exec();
 
         if (query->next()) {
-            mToast = new Toast();
-            mToast->setMessage(tr("Already Exists"));
+            //mToast  = new Toast();
+            //mToast ->setMessage(tr("Already Exists"));
         }else
         {
             query->prepare("INSERT INTO categories (id,name,code)"
@@ -192,8 +192,8 @@ void F_Categories::addSubCategory()
 {
     if(ui->Le_SubCategoryName->text().isEmpty() || ui->Le_CodeSub->text().isEmpty())
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("Fill Both Values For Sub  Category Name & Code"));
+        //mToast  = new Toast();
+        //mToast ->setMessage(tr("Fill Both Values For Sub  Category Name & Code"));
     }else
     {
         if(!this->DBH.isOpen())
@@ -218,8 +218,8 @@ void F_Categories::addSubCategory()
         query->exec();
 
         if (query->next()) {
-            mToast = new Toast();
-            mToast->setMessage(tr("Already Exists"));
+            //mToast  = new Toast();
+            //mToast ->setMessage(tr("Already Exists"));
         }else
         {
             query->prepare("INSERT INTO subcategories (id,name,code,category_id)"
@@ -270,8 +270,8 @@ void F_Categories::deleteCategory()
 
     }else
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("Select a row Category"));
+        //mToast  = new Toast();
+        //mToast ->setMessage(tr("Select a row Category"));
     }
 }
 
@@ -296,8 +296,8 @@ void F_Categories::deleteSubCategory()
         ui->Sb_IDSub->setValue(-1);
     }else
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("Select a row unit"));
+        //mToast  = new Toast();
+        //mToast ->setMessage(tr("Select a row unit"));
     }
 }
 

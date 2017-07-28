@@ -30,7 +30,7 @@ public:
     explicit F_AddProducts(QWidget *parent = 0);
     ~F_AddProducts();
 
-    void keyPressEvent(QKeyEvent *e) override;
+     void keyPressEvent(QKeyEvent *e) override;
 
     void createWHList();
     QWidget *createWarehouseInputsWidget(const QString &nameWH);
@@ -39,7 +39,7 @@ public slots:
     void addProduct();
     QStringList getAllWarehousesByStatus(const QString& status);
     QStringList getAllWarehouses();
-    // void deleteBrand();
+
 
     void updateBarcodeSymCombo();
     void updateBrandCombo();

@@ -75,8 +75,8 @@ void F_Units::addUnit()
 {
     if(ui->Le_sizeName->text().isEmpty() || ui->Le_measurement->text().isEmpty())
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("Fill Both Values For Size Name & Measurement"));
+        //mToast = new Toast();
+        ////mToast->setMessage(tr("Fill Both Values For Size Name & Measurement"));
     }else
     {
         if(!this->DBH.isOpen())
@@ -92,8 +92,8 @@ void F_Units::addUnit()
         query->exec();
 
         if (query->next()) {
-            mToast = new Toast();
-            mToast->setMessage(tr("Already Exists"));
+            //mToast = new Toast();
+            //mToast->setMessage(tr("Already Exists"));
         }else
         {
             query->prepare("INSERT INTO units (id,size_name,measurement)"
@@ -135,8 +135,8 @@ void F_Units::deleteUnit()
         ui->Sb_ID->setValue(-1);
     }else
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("Select a row unit"));
+        //mToast = new Toast();
+        //mToast->setMessage(tr("Select a row unit"));
     }
 
 }

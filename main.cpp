@@ -3,6 +3,8 @@
 #include <QTranslator>
 #include <QDebug>
 
+using namespace std;
+
 int main(int argc, char *argv[])
 {
     Q_INIT_RESOURCE(icons);

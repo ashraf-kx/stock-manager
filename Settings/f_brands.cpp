@@ -79,8 +79,8 @@ void F_Brands::addBrand()
 {
     if(ui->Le_BrandName->text().isEmpty() || ui->Le_Code->text().isEmpty())
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("Fill Both Values For Brand Name & Code"));
+        //mToast  = new Toast();
+        //mToast ->setMessage(tr("Fill Both Values For Brand Name & Code"));
     }else
     {
         if(!this->DBH.isOpen())
@@ -96,8 +96,8 @@ void F_Brands::addBrand()
         query->exec();
 
         if (query->next()) {
-            mToast = new Toast();
-            mToast->setMessage(tr("Already Exists"));
+            //mToast  = new Toast();
+            //mToast ->setMessage(tr("Already Exists"));
         }else
         {
             query->prepare("INSERT INTO brands (id,name,code)"
@@ -139,8 +139,8 @@ void F_Brands::deleteBrand()
         ui->Sb_ID->setValue(-1);
     }else
     {
-        mToast = new Toast();
-        mToast->setMessage(tr("Select a row Brand"));
+        //mToast  = new Toast();
+        //mToast ->setMessage(tr("Select a row Brand"));
     }
 }
 

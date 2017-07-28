@@ -1,10 +1,7 @@
-#ifndef TOAST_H
-#define TOAST_H
+#ifndef DIALOG_H
+#define DIALOG_H
 
-#include <QFrame>
-#include <QTimer>
-#include <QGraphicsDropShadowEffect>
-#include <QDebug>
+#include <QtWidgets/QDialog>
 // QAnimate Framework
 #include <QPropertyAnimation>
 #include <QSequentialAnimationGroup>
@@ -14,22 +11,19 @@
 #include <QSignalTransition>
 
 namespace Ui {
-class Toast;
+class Dialog;
 }
 
-class Toast : public QFrame
+class Dialog : public QDialog
 {
     Q_OBJECT
-
+    
 public:
-    explicit Toast(QWidget *parent = 0);
-    void show(const QString& message, const QString &style);
-    ~Toast();
-
-public slots:
-    void slideInStart();
+    explicit Dialog(QWidget *parent = 0);
+    ~Dialog();
+    void setMessage(const QString &msg, const QString &typeM);
 private:
-    Ui::Toast *ui;
+    Ui::Dialog *ui;
 
     QStateMachine *machine;
     QState *stateShow;
@@ -39,4 +33,4 @@ private:
     QPropertyAnimation *animSlideIn;
 };
 
-#endif // TOAST_H
+#endif // DIALOG_H
