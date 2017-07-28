@@ -69,7 +69,6 @@ private:
 
     QStringList listCompanies;
     QStringList listCountries;
-
     QStringList listCities;
     QStringList listStates;
 

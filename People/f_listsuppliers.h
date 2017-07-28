@@ -3,6 +3,7 @@
 
 #include <QFrame>
 
+
 namespace Ui {
 class F_ListSuppliers;
 }
