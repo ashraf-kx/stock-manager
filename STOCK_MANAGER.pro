@@ -57,7 +57,6 @@ SOURCES += main.cpp\
     People/f_listcustomers.cpp \
     People/f_addcustomer.cpp \
     People/f_listsuppliers.cpp \
-    People/f_addsupplier.cpp \
     Quotations/f_listquotations.cpp \
     Quotations/f_addquotations.cpp \
     Purchases/f_listpurchases.cpp \
@@ -79,7 +78,9 @@ SOURCES += main.cpp\
     Reports/f_bandsreport.cpp \
     Reports/f_dailysales.cpp \
     Reports/f_monthlysales.cpp \
-    Reports/f_salesreport.cpp
+    Reports/f_salesreport.cpp \
+    People/f_addsupplier.cpp \
+    dialog.cpp
 
 HEADERS  += dashboard.h \
     toast.h \
@@ -125,7 +126,6 @@ HEADERS  += dashboard.h \
     People/f_listcustomers.h \
     People/f_addcustomer.h \
     People/f_listsuppliers.h \
-    People/f_addsupplier.h \
     Quotations/f_listquotations.h \
     Quotations/f_addquotations.h \
     Purchases/f_listpurchases.h \
@@ -148,7 +148,9 @@ HEADERS  += dashboard.h \
     Reports/f_dailysales.h \
     Reports/f_monthlysales.h \
     Reports/f_salesreport.h \
-    classes.h
+    classes.h \
+    People/f_addsupplier.h \
+    dialog.h
 
 FORMS    += dashboard.ui \
     toast.ui \
@@ -194,7 +196,6 @@ FORMS    += dashboard.ui \
     People/f_listcustomers.ui \
     People/f_addcustomer.ui \
     People/f_listsuppliers.ui \
-    People/f_addsupplier.ui \
     Quotations/f_listquotations.ui \
     Quotations/f_addquotations.ui \
     Purchases/f_listpurchases.ui \
@@ -216,9 +217,9 @@ FORMS    += dashboard.ui \
     Reports/f_bandsreport.ui \
     Reports/f_dailysales.ui \
     Reports/f_monthlysales.ui \
-    Reports/f_salesreport.ui
-
-
+    Reports/f_salesreport.ui \
+    People/f_addsupplier.ui \
+    dialog.ui
 
 RESOURCES += \
     icons.qrc \
@@ -229,7 +230,8 @@ TRANSLATIONS = StockManager_ar.ts
 
 DISTFILES += \
     StockManager_ar.ts \
-    StockManager_ar.qm
+    StockManager_ar.qm \
+    SM_Loggoer.ini
 
 
 ##### Using MySql Connector C++  #####################

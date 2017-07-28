@@ -2,24 +2,41 @@
 #define CLASSES_H
 
 #include <QObject>
-#include <QtDebug>
 
-////! [DB API linking ].
-//#include <cppconn/connection.h>
-//#include <cppconn/prepared_statement.h>
-//#include <cppconn/driver.h>
-//#include <cppconn/exception.h>
-//#include <cppconn/resultset.h>
-//#include <cppconn/prepared_statement.h>
+#include <QValidator>
+#include <QDateTime>
+#include <QDate>
+#include <QTime>
+#include <QByteArray>
 
-//using namespace sql;
-using namespace std;
+#include "toast.h"
+#include "dialog.h"
+#include <QGraphicsDropShadowEffect>
+#include <QEvent>
+#include <QKeyEvent>
+#include <QCryptographicHash>
 
-//class Tables
-//{
-//public:
-//    Tables();
-//};
+//! [DB QtSql ]
+#include <QSqlQueryModel>
+#include <QSqlQuery>
+#include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
+#include <QSortFilterProxyModel>
+#include <QtWidgets/QDataWidgetMapper>
+#include <QCompleter>
+
+//! [ LOGGER ]
+#include <QDebug>
+#include <QtMessageHandler>
+#include <QMessageLogger>
+#include <QLoggingCategory>
+#include <QDebugStateSaver>
+
+class Tables
+{
+public:
+    Tables();
+};
 
 class Unit
 {
@@ -41,49 +58,6 @@ public:
     QString getMeasurement(){return this->measurement;}
 
 };
-
-//class DB {
-//public:
-//    explicit DB();
-//    DB(const QString& hostName,const QString& userName,const QString& password,const QString& schemaName)
-//    {
-//        this->hostName   = hostName;
-//        this->userName   = userName;
-//        this->password   = password;
-//        this->schemaName = schemaName;
-//    }
-
-//    ~DB();
-
-//    Connection* getConnection()
-//    {
-//        try{
-//           this->mDriver      = get_driver_instance();
-//           this->mConnection  = this->mDriver->connect(this->hostName.toStdString(),
-//                                                       this->userName.toStdString(),
-//                                                       this->password.toStdString());
-//           this->mConnection->setAutoCommit(0);
-//           this->mConnection->setSchema(this->schemaName.toStdString());
-
-//           qDebug()<<"Connected to "<<this->schemaName<<"\n";
-
-//        }catch(SQLException &ex){
-//           std::cout<<"Exception Occurred > "<<ex.getErrorCode()<<endl;
-//        }
-//        return this->mConnection;
-//    }
-
-
-//private:
-//    Driver     *mDriver;
-//    Connection *mConnection;
-
-//    QString hostName;
-//    QString userName;
-//    QString password;
-//    QString schemaName;
-
-//};
 
 class Cfg_Db {
 
@@ -126,6 +100,87 @@ private:
     QString username;
     QString password;
     QString schemaName;
+};
+
+class Patterns
+{
+
+public:
+    explicit Patterns(){
+        // We Need To Run Tests On Them All.
+        pattern["firstname"] = QRegExp("^[a-z ,.'-]+$"); // UpVoted [111]
+        pattern["lastname"]  = QRegExp("^[a-z ,.'-]+$");
+        pattern["username"]  = QRegExp("^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\\w\\s-]{3,9}$"); // UpVoted 2
+        pattern["phone"]     = QRegExp("^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?$");
+        pattern["password"]  = QRegExp("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}");
+        pattern["email"]     = QRegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$");
+        pattern["search"]    = QRegExp("[^'\x22]+");
+    }
+
+    QRegExp operator[](const QString &index)
+    {
+        if(!index.isEmpty() && pattern.keys().contains(index))
+            return pattern[index];
+        else
+            return QRegExp("");
+    }
+
+private:
+    QMap<QString,QRegExp> pattern;
+};
+
+class ActionsStyle
+{
+public:
+    explicit ActionsStyle(){
+        //######## Text Color ##########
+        style["info"]     = setColor("#40c4ff");
+        style["warning"]  = setColor("#ffeb3b");
+        style["error"]    = setColor("#d50000");
+        style["danger"]   = setColor("#f44336");
+        style["accepted"] = setColor("#00e676");
+        //style["valide"]   = setColor("");
+        style["black"]    = setColor("#000000");
+        style["white"]    = setColor("#ffffff");
+
+        //######## Alerts Color ##########
+//        style["info_alert"]     = setAlertColors("#80d8ff","#40c4ff");
+//        style["warning_alert"]  = setAlertColors("#fff9c4","#ffeb3b");
+//        style["error_alert"]    = setAlertColors("#ff5722","#d50000");
+//        style["danger_alert"]   = setAlertColors("#ff5722","#f44336");
+//        style["accepted_alert"] = setAlertColors("#b2ff59","#00e676");
+        style["black_alert"]    = setAlertColors("#000000","#ffffff");
+        style["white_alert"]    = setAlertColors("#ffffff","#000000");
+
+        style["info_alert"]     = setAlertColors("#80d8ff","#ffffff");
+        style["warning_alert"]  = setAlertColors("#fff9c4","#ffffff");
+        style["error_alert"]    = setAlertColors("#ff5722","#ffffff");
+        style["danger_alert"]   = setAlertColors("#ff5722","#ffffff");
+        style["accepted_alert"] = setAlertColors("#b2ff59","#ffffff");
+    }
+
+    QString operator[](const QString &index)
+    {
+        if(!index.isEmpty() && style.keys().contains(index))
+            return style[index];
+        else
+            return ("");
+    }
+
+    QString setAlertColors(const QString& colorWidget,const QString& colorFont)
+    {
+        return ("border:1px solid "+colorWidget+";"
+                "background-color:"+colorWidget+";"
+                "color:"+colorFont+";");
+    }
+
+    QString setColor(const QString& color)
+    {
+        return ("color:"+color+";");
+    }
+
+private:
+    QMap<QString,QString> style;
 };
 
 #endif // CLASSES_H
