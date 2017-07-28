@@ -35,14 +35,14 @@ QLabel
 {
     background-color: rgb(255, 255, 255);
     color:Black;
-    font: italic 11pt "Calibri";
+/*    font: italic 11pt "Calibri";*/
 }
 
 QLabel:hover
 {
     background-color: rgb(255, 255, 255);
     color:#212121;
-    font: italic 13pt "Calibri";
+/*    font: italic 13pt "Calibri";*/
     font-weight: bold;
 }
 
@@ -52,8 +52,8 @@ QPushButton
     padding: 7px 12px;
     padding-top: 7px;
     padding-bottom: 7px;
-    font-size: 15px;
-    font-family: Ubuntu;
+/*    font-size: 15px;
+    font-family: Ubuntu;*/
     color: #ffffff;
     white-space: nowrap;
     background-color: rgb(0, 163, 239);
@@ -75,4 +75,14 @@ QPushButton:hover
     color: #ffffff;
 }
 
+QToolTip {
+    background-color:#212121;
+    color:white;
+    border:1px solid #212121;
+    border-radius: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
 
+}
