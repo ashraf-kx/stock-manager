@@ -18,7 +18,7 @@ Dialog::Dialog(QWidget *parent) :
     sh->setColor(QColor(63, 63, 63, 180));
     ui->frame->setGraphicsEffect(sh);
 
-    this->setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    this->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint | Qt::Popup);
 
     ui->frame->setWindowOpacity(0.99);
 
