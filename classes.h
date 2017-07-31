@@ -32,6 +32,9 @@
 #include <QLoggingCategory>
 #include <QDebugStateSaver>
 
+//! [ Custom DBH ]
+#include "dbh.h"
+
 class Tables
 {
 public:
@@ -68,6 +71,7 @@ public:
         username   = "root";
         password   = "";
         schemaName = "sma_db";
+        port       = 3306;
     }
     ~Cfg_Db();
 
@@ -76,6 +80,7 @@ public:
     void setUsername(const QString& val)  { this->username   = val; }
     void setPassword(const QString& val)  { this->password   = val; }
     void setSchemaName(const QString& val){ this->schemaName = val; }
+    void setPort(int val){ this->port = val; }
 
 
     QString getDriverName(){ return this->driverName; }
@@ -83,6 +88,7 @@ public:
     QString getUsername()  { return this->username;   }
     QString getPassword()  { return this->password;   }
     QString getSchemaName(){ return this->schemaName; }
+    QString getPort()      { return this->port; }
 
 
     void setCfgDb(const QString& driverName,const QString& hostname,const QString& username,const QString& password,const QString& schemaName)
@@ -100,6 +106,7 @@ private:
     QString username;
     QString password;
     QString schemaName;
+    int     port;
 };
 
 class Patterns
