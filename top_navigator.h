@@ -2,6 +2,7 @@
 #define TOP_NAVIGATOR_H
 
 #include <QFrame>
+#include "classes.h"
 #include <QGraphicsDropShadowEffect>
 
 namespace Ui {
@@ -16,6 +17,8 @@ public:
     explicit Top_navigator(QWidget *parent = 0);
     ~Top_navigator();
 
+public slots:
+    void updateInfo();
 private:
     Ui::Top_navigator *ui;
 };

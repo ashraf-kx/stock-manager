@@ -8,5 +8,8 @@
         <file>icons/24x24/ic_add_circle_outline_white_24dp.png</file>
         <file>icons/36x36/ic_add_circle_outline_white_18pt_2x.png</file>
         <file>icons/48x48/ic_add_circle_outline_white_24dp.png</file>
+        <file>icons/48x48/ic_layers_black_24dp.png</file>
+        <file>icons/inventory.png</file>
+        <file>icons/inventory2.png</file>
     </qresource>
 </RCC>

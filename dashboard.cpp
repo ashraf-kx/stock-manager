@@ -8,6 +8,7 @@ Dashboard::Dashboard(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowTitle(tr("Stock Manager V 0.0.1"));
+    this->setWindowIcon(QIcon("://icons/inventory.png"));
     this->setStyleSheet(QKStyle(1));
 
     mTopNav     = new Top_navigator();
@@ -17,6 +18,8 @@ Dashboard::Dashboard(QWidget *parent) :
     ui->layoutMain->addWidget(mSideNAV);
 
     this->showMaximized();
+
+
 
     //! [Stupidito ] 100%
     // Products
