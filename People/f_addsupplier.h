@@ -18,8 +18,6 @@ public:
     explicit F_AddSupplier(QWidget *parent = 0);
     ~F_AddSupplier();
 
-
-
 public slots:
     void addSupplier();
     bool emailCheck(const QString & email);
@@ -33,24 +31,16 @@ public slots:
     void clearInputs();
 
     bool inputsVerification();
-    QStringList getAllCompanies();
-    QStringList getAllCountries();
-    QStringList getAllCities(int country_id);
-    QStringList getAllStates(int country_id);
 
     bool companyCheck(const QString &company);
     bool countryCheck(const QString &country);
-
-    int getCountryID(const QString &name);
-    int getCompanyID(const QString &name);
-
 
 private:
     Ui::F_AddSupplier *ui;
     Toast *mToast;
 
     Cfg_Db *mCfgDb;
-    QSqlDatabase DBH;
+    DBH *DB;
 
     QStringList listCompanies;
     QStringList listCountries;

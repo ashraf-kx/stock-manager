@@ -29,15 +29,7 @@ public slots:
     void updatePostalCodeLEdit();
 
     void clearInputs();
-
     bool inputsVerification();
-    QStringList getAllCompanies();
-    QStringList getAllCountries();
-    QStringList getAllCities(int country_id);
-    QStringList getAllStates(int country_id);
-
-    int getCountryID(const QString &name);
-    int getCompanyID(const QString &name);
 
     bool checkCompany(const QString &company);
     bool checkCountry(const QString &country);
@@ -59,17 +51,15 @@ public slots:
     void updateAllComboLists();
     void initCustomerGroupCombo();
     void initPriceGroupCombo();
-
 private:
     Ui::F_AddCustomer *ui;
     Toast *mToast;
 
     Cfg_Db *mCfgDb;
-    QSqlDatabase DBH;
+    DBH    *DB;
 
     QStringList listCompanies;
     QStringList listCountries;
-
     QStringList listCities;
     QStringList listStates;
 

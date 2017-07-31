@@ -21,12 +21,8 @@ public slots:
     bool emailCheck(const QString & email);
     bool usernameCheck(const QString& username);
 
-    QStringList getAllGroups();
     bool groupCheck(const QString &group);
-
-    QStringList getAllCompanies();
     bool companyCheck(const QString &company);
-
     bool passwordCheck(const QString& password,const QString& Confirme);
     void clearInputs();
 
@@ -35,12 +31,9 @@ public slots:
     void initCompanyCombo();
 private:
     Ui::F_AddUser *ui;
-    Toast *mToast;
-
+    Toast        *mToast;
     Cfg_Db       *mCfgDb;
-    QSqlDatabase DBH;
-    QCryptographicHash *crypto;
-    QByteArray pwd;
+    DBH          *DB;
 
     QStringList listCompanies;
     QStringList listGroups;

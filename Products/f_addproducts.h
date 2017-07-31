@@ -18,6 +18,7 @@
 #include <QtWidgets/QDataWidgetMapper>
 #include <QtWidgets/QSpinBox>
 
+Q_DECLARE_LOGGING_CATEGORY(LC_ADDpro)
 namespace Ui {
 class F_AddProducts;
 }
@@ -40,13 +41,13 @@ public slots:
     QStringList getAllWarehousesByStatus(const QString& status);
     QStringList getAllWarehouses();
 
-
     void updateBarcodeSymCombo();
     void updateBrandCombo();
     void updateCategoryCombo();
     void updateSubCategoryCombo();
     void updateUnitCombo();
 
+    void createSupplierWidgetHundler();
 private:
     Ui::F_AddProducts *ui;
     Toast *mToast;

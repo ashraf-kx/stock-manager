@@ -11,47 +11,34 @@ F_AddUser::F_AddUser(QWidget *parent) :
     ui->setupUi(this);
     //########### Connect To Database ###################
     mCfgDb = new Cfg_Db();
-
-    this->DBH = QSqlDatabase::addDatabase(mCfgDb->getDriverName(),"CnxAddUser");
-    this->DBH.setHostName(mCfgDb->getHostname());
-    this->DBH.setDatabaseName(mCfgDb->getSchemaName());
-    this->DBH.setUserName(mCfgDb->getUsername());
-    this->DBH.setPassword(mCfgDb->getPassword());
-    this->DBH.open();
+    DB = new DBH("_addUser_");
 
     //############ Assign Completers ####################
-    listCompanies = getAllCompanies();
     initCompanyCombo();
-    listGroups = getAllGroups();
     initGroupCombo();
-
-    Dialog *mDialog = new Dialog();
-    mDialog->setMessage(tr("Hello you shiiit !"),"warning");
-    if(mDialog->exec() == 1)
-    {
-
-    }
 
     //########## Connectors Signal ~> slots #############
     connect(ui->Bt_addUser,SIGNAL(clicked(bool)),this,SLOT(addUser()));
-    this->setStatusTip(tr("Time elapsed : ")+QString::number(t.elapsed())+" ms.");
 
+    this->setStatusTip(tr("Time elapsed : ")+QString::number(t.elapsed())+" ms.");
 }
 
 F_AddUser::~F_AddUser()
 {
-    this->DBH.removeDatabase("CnxAddUser");
+    DB->mRemoveDatabase("_addUser_");
     delete ui;
 }
 
 void F_AddUser::initCompanyCombo()
 {
+    listCompanies = DB->getAllCompanies();
     ui->Cb_company->addItem(tr("Select Company"));
     ui->Cb_company->addItems(listCompanies);
 }
 
 void F_AddUser::initGroupCombo()
 {
+    listGroups = DB->getAllGroups();
     ui->Cb_group->addItem(tr("Select User Group"));
     ui->Cb_group->addItems(listGroups);
 }
@@ -287,50 +274,14 @@ void F_AddUser::addUser()
      //INSERT THE NEW USERS.
     if(inputsVerification())
     {
-        if(!this->DBH.isOpen())
-            this->DBH.open();
-        this->DBH.transaction();
+        int company_id = -1;
+        int group_id   = -1;
 
-        int idCompany = -1;
-        int idGroup   = -1;
-        //! [1] Execute Statements On `groups, companies, users` Table.
-        QSqlQuery *query = new QSqlQuery(this->DBH);
-
-        query->prepare("SELECT `id` FROM `companies` WHERE `name`=:name");
-        query->bindValue(":name",ui->Cb_company->currentText());
-        query->exec();
-        if(query->next())
-                idCompany = query->value("id").toInt();
-
-        query->prepare("SELECT `id` FROM `groups` WHERE `name`=:name");
-        query->bindValue(":name",ui->Cb_group->currentText());
-        query->exec();
-        if(query->next())
-                idGroup = query->value("id").toInt();
-
-        query->prepare("INSERT INTO `users` "
-                       "(`first_name`,`last_name`,`username`,`password`,`email`,"
-                       "`gendre`,`active`,`created_on`,`group_id`,`company_id`)"
-                       " VALUES (:first_name,:last_name,:username,:password,:email,"
-                       ":gendre,:active,:created_on,:group_id,:company_id)");
-
-        query->bindValue(":first_name",ui->Le_firstName->text() );
-        query->bindValue(":last_name", ui->Le_lastName->text());
-        query->bindValue(":username", ui->Le_username->text());
-        // Crypting password Md5.
-        QByteArray hashed;
-        hashed = QCryptographicHash::hash(hashed.fromStdString(ui->Le_password->text().toStdString()),QCryptographicHash::Md5);
-
-        query->bindValue(":password", QString(hashed.toHex()));
-        query->bindValue(":email", ui->Le_email->text());
-        query->bindValue(":gendre", ui->Cb_gender->currentText());
-        query->bindValue(":active", ui->Cb_status->currentText());
-        query->bindValue(":created_on", QDateTime::currentDateTime().toString(Qt::ISODate)); // TIME::now().tostring() Form BLABLA.
-        query->bindValue(":group_id", idGroup);
-        query->bindValue(":company_id", idCompany);
-        query->exec();
-
-        this->DBH.commit();
+        company_id  = DB->getCompanyID(ui->Cb_company->currentText());
+        group_id    = DB->getGroupID(ui->Cb_group->currentText());
+        int user_id = DB->addUser(ui->Le_firstName->text(), ui->Le_lastName->text(),ui->Le_username->text(),
+                                  ui->Le_password->text(), ui->Le_email->text(), ui->Cb_gender->currentText(),
+                                  ui->Cb_status->currentText(),group_id,company_id);
         clearInputs();
     }
     ui->Bt_addUser->setEnabled(true);
@@ -341,27 +292,10 @@ bool F_AddUser::emailCheck(const QString& email) /* IF does not exits return TRU
     if(email.isEmpty())
         return false;
 
-    bool check = false;
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `users` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT email FROM users");
-    query->exec();
-
-    while(query->next()){
-        if(query->value(0).toString() != email)
-        {
-            check = true;
-            break;
-        }
-    }
-
-    this->DBH.commit();
-    return check;
+    if(DB->getUserEmail(email) == -1)
+        return true;
+    else
+        return false;
 }
 
 bool F_AddUser::usernameCheck(const QString& username)
@@ -369,51 +303,10 @@ bool F_AddUser::usernameCheck(const QString& username)
     if(username.isEmpty())
         return false;
 
-    bool check = false;
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `users` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT username FROM users");
-    query->exec();
-
-    while(query->next()){
-        if(query->value(0).toString() != username)
-        {
-            check = true;
-            break;
-        }
-    }
-
-    this->DBH.commit();
-    return check;
-}
-
-QStringList F_AddUser::getAllGroups()
-{
-    QStringList tmpList;
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `groups` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT name FROM groups");
-    query->exec();
-
-    tmpList.clear();
-
-    while(query->next()){
-        if(!query->value(0).toString().isEmpty())
-            tmpList<<query->value(0).toString();
-    }
-
-    this->DBH.commit();
-    return tmpList;
+    if(DB->getUserName(username) == -1)
+        return true;
+    else
+        return false;
 }
 
 bool F_AddUser::groupCheck(const QString& group)
@@ -422,30 +315,6 @@ bool F_AddUser::groupCheck(const QString& group)
         return false;
     else
         return true;
-}
-
-QStringList F_AddUser::getAllCompanies()
-{
-    QStringList tmpList;
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `companies` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT name FROM companies");
-    query->exec();
-
-    tmpList.clear();
-
-    while(query->next()){
-        if(!query->value(0).toString().isEmpty())
-            tmpList<<query->value(0).toString();
-    }
-
-    this->DBH.commit();
-    return tmpList;
 }
 
 bool F_AddUser::companyCheck(const QString& company)
