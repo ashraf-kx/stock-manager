@@ -80,7 +80,8 @@ SOURCES += main.cpp\
     Reports/f_monthlysales.cpp \
     Reports/f_salesreport.cpp \
     People/f_addsupplier.cpp \
-    dialog.cpp
+    dialog.cpp \
+    dbh.cpp
 
 HEADERS  += dashboard.h \
     toast.h \
@@ -150,7 +151,8 @@ HEADERS  += dashboard.h \
     Reports/f_salesreport.h \
     classes.h \
     People/f_addsupplier.h \
-    dialog.h
+    dialog.h \
+    dbh.h
 
 FORMS    += dashboard.ui \
     toast.ui \

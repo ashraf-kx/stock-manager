@@ -29,9 +29,17 @@ DBH::DBH(const QString &name)
     query = new QSqlQuery(QSqlDatabase::database(name));
 }
 
+QSqlDatabase DBH::getCnx()
+{
+    if(connectionName.isEmpty())
+        return QSqlDatabase::database();
+    else
+        return QSqlDatabase::database(connectionName);
+}
+
 void DBH::mTransaction()
 {
-    if(connectionName == "")
+    if(connectionName.isEmpty())
     {
         if(!QSqlDatabase::database().isOpen())
             QSqlDatabase::database().open();
@@ -48,7 +56,7 @@ void DBH::mTransaction()
 
 void DBH::mCommit()
 {
-    if( connectionName == "")
+    if(connectionName.isEmpty())
         QSqlDatabase::database().commit();
     else
         QSqlDatabase::database(connectionName).commit();
@@ -489,4 +497,260 @@ int DBH::addUser(const QString& firstname,const QString& lastname,const QString&
 
     mCommit();
     return user_id;
+}
+
+int DBH::addBrand(const QString& name,const QString& code)
+{
+    int brand_id = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `id` FROM `brands` WHERE `name`=:name AND `code`=:code");
+    query->bindValue(":name",name);
+    query->bindValue(":code",code);
+    query->exec();
+
+    if (!query->next())
+    {
+        query->clear();
+        query->prepare("INSERT INTO `brands` (`name`,`code`) VALUES (:name,:code)");
+        query->bindValue(":name",name);
+        query->bindValue(":code",code);
+        query->exec();
+        brand_id = query->lastInsertId().toInt();
+    }
+
+    mCommit();
+    return brand_id;
+}
+
+int DBH::deleteBrand(int brand_id)
+{
+    int numRowsDel = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("DELETE FROM `brands` WHERE `id`=:id");
+    query->bindValue(":id",brand_id);
+    query->exec();
+    numRowsDel = query->numRowsAffected();
+
+    mCommit();
+    return numRowsDel;
+}
+
+int DBH::addCategory(const QString& name,const QString& code)
+{
+    int category_id = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `id` FROM `categories` WHERE `name`=:name");
+    query->bindValue(":name",name);
+    query->exec();
+
+    if (!query->next())
+    {
+        query->clear();
+        query->prepare("INSERT INTO `categories` (`name`,`code`)"
+                       " VALUES (:name,:code)");
+
+        query->bindValue(":name",name);
+        query->bindValue(":code",code);
+        query->exec();
+        category_id = query->lastInsertId().toInt();
+    }
+
+    mCommit();
+    return category_id;
+}
+
+int DBH::getCategoryID(const QString& parentName)
+{
+    int category_id = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `id` FROM `categories` WHERE `name`=:name");
+    query->bindValue(":name",parentName);
+    query->exec();
+
+    if (query->next()){
+        category_id = query->value("id").toInt();
+    }
+
+    mCommit();
+    return category_id;
+
+}
+
+int DBH::getSubCategoryID(const QString& name,const QString& code,int category_id)
+{
+    int subCategory_id = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `id` FROM `subcategories` WHERE `name`=:name AND `code`=:code AND `category_id`=:category_id");
+    query->bindValue(":name",name);
+    query->bindValue(":code",code);
+    query->bindValue(":category_id",category_id);
+    query->exec();
+
+    mCommit();
+    return subCategory_id;
+}
+
+int DBH::addSubCategory(const QString& name,const QString& code,int category_id)
+{
+    int subCategory_id = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("INSERT INTO `subcategories` (`name`,`code`,`category_id`)"
+                   " VALUES (:name,:code,:category_id)");
+
+    query->bindValue(":name",name);
+    query->bindValue(":code",code);
+    query->bindValue(":category_id",category_id);
+    query->exec();
+    subCategory_id = query->lastInsertId().toInt();
+
+    mCommit();
+    return subCategory_id;
+}
+
+int DBH::deleteCategory(int id)
+{
+    int numRowsDel = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("DELETE FROM `subcategories` WHERE `category_id`=:id");
+    query->bindValue(":id",id);
+    query->exec();
+
+    query->clear();
+    query->prepare("DELETE FROM `categories` WHERE `id`=:id");
+    query->bindValue(":id",id);
+    query->exec();
+    numRowsDel = query->numRowsAffected();
+
+    mCommit();
+    return numRowsDel;
+}
+
+int DBH::deleteSubCategory(int id)
+{
+    int numRowsDel = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("DELETE FROM `subcategories` WHERE `id`=:id");
+    query->bindValue(":id",id);
+    query->exec();
+    numRowsDel = query->numRowsAffected();
+
+    mCommit();
+    return numRowsDel;
+}
+
+QStringList DBH::getAllCategories()
+{
+    QStringList list;
+    list.clear();
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `name` FROM `categories`");
+    query->exec();
+
+    while (query->next()) {
+        if(!query->value("name").toString().isEmpty())
+            list<<query->value("name").toString();
+    }
+
+    mCommit();
+    return list;
+}
+
+int DBH::addUnit(const QString& name,const QString& measurement)
+{
+    int unit_id = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `id` FROM `units` WHERE `size_name`=:size_name AND `measurement`=:measurement");
+    query->bindValue(":size_name",name);
+    query->bindValue(":measurement",measurement);
+    query->exec();
+
+    if (!query->next()) {
+        query->clear();
+        query->prepare("INSERT INTO `units` (`size_name`,`measurement`)"
+                       " VALUES (:size_name,:measurement)");
+        query->bindValue(":size_name",name);
+        query->bindValue(":measurement",measurement);
+        query->exec();
+        unit_id = query->lastInsertId().toInt();
+    }
+
+    mCommit();
+    return unit_id;
+}
+
+int DBH::deleteUnit(int id)
+{
+    int numRowsDel = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("DELETE FROM `units` WHERE `id`=:id");
+    query->bindValue(":id",id);
+    query->exec();
+    query->numRowsAffected();
+
+    mCommit();
+    return numRowsDel;
+}
+
+int DBH::addWarehouse(const QString& name, const QString& status, const QString& description)
+{
+    int warehouse_id = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `id` FROM `warehouses` WHERE `name`=:name");
+    query->bindValue(":name",name);
+    query->exec();
+
+    if (!query->next()) {
+        query->clear();
+        query->prepare("INSERT INTO `warehouses` (`name`,`status`,`description`)"
+                       " VALUES (:name,:status,:description)");
+
+        query->bindValue(":name", name);
+        query->bindValue(":status", status);
+        query->bindValue(":description", description);
+
+        query->exec();
+        warehouse_id = query->lastInsertId().toInt();
+    }
+
+    mCommit();
+    return warehouse_id;
+}
+
+int DBH::deleteWarehouse(int id)
+{
+    int numRowsDel = -1;
+    mTransaction();
+
+    query->clear();
+    query->prepare("DELETE FROM `warehouses` WHERE `id`=:id");
+    query->bindValue(":id",id);
+    query->exec();
+    numRowsDel = query->numRowsAffected();
+
+    mCommit();
+    return numRowsDel;
 }

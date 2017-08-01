@@ -282,9 +282,10 @@ void F_AddUser::addUser()
 
         company_id  = DB->getCompanyID(ui->Cb_company->currentText());
         group_id    = DB->getGroupID(ui->Cb_group->currentText());
-        int user_id = DB->addUser(ui->Le_firstName->text(), ui->Le_lastName->text(),ui->Le_username->text(),
-                                  ui->Le_password->text(), ui->Le_email->text(), ui->Cb_gender->currentText(),
-                                  ui->Cb_status->currentText(),group_id,company_id);
+        DB->addUser(ui->Le_firstName->text(), ui->Le_lastName->text(),ui->Le_username->text(),
+                    ui->Le_password->text(), ui->Le_email->text(), ui->Cb_gender->currentText(),
+                    ui->Cb_status->currentText(),group_id,company_id);
+
         clearInputs();
     }
     ui->Bt_addUser->setEnabled(true);

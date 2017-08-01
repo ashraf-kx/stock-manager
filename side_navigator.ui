@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>166</width>
-    <height>352</height>
+    <width>200</width>
+    <height>449</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -26,26 +26,32 @@
    <string>Frame</string>
   </property>
   <property name="frameShape">
-   <enum>QFrame::StyledPanel</enum>
+   <enum>QFrame::Panel</enum>
   </property>
   <property name="frameShadow">
    <enum>QFrame::Raised</enum>
+  </property>
+  <property name="lineWidth">
+   <number>1</number>
+  </property>
+  <property name="midLineWidth">
+   <number>1</number>
   </property>
   <layout class="QVBoxLayout" name="layoutSideNavigator">
    <property name="spacing">
     <number>0</number>
    </property>
    <property name="leftMargin">
-    <number>5</number>
+    <number>0</number>
    </property>
    <property name="topMargin">
-    <number>10</number>
+    <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>5</number>
+    <number>0</number>
    </property>
    <property name="bottomMargin">
-    <number>10</number>
+    <number>0</number>
    </property>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -60,6 +66,20 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="frameShape">
         <enum>QFrame::NoFrame</enum>
        </property>
@@ -73,18 +93,35 @@
         <number>0</number>
        </property>
        <widget class="QWidget" name="ProductsItems">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>196</width>
+          <height>16</height>
+         </rect>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <underline>false</underline>
+         </font>
+        </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="autoFillBackground">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
+        <attribute name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/icons/48x48/ic_layers_black_24dp.png</normaloff>:/icons/48x48/ic_layers_black_24dp.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Products</string>
         </attribute>
@@ -107,6 +144,14 @@
         </layout>
        </widget>
        <widget class="QWidget" name="SalesItems">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>196</width>
+          <height>16</height>
+         </rect>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -117,12 +162,12 @@
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="autoFillBackground">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <attribute name="label">
          <string>Sales</string>
         </attribute>
-        <layout class="QVBoxLayout" name="layoutSalesItems" stretch="">
+        <layout class="QVBoxLayout" name="layoutSalesItems">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -145,7 +190,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>152</width>
+          <width>196</width>
           <height>16</height>
          </rect>
         </property>
@@ -156,7 +201,7 @@
          </sizepolicy>
         </property>
         <property name="autoFillBackground">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <attribute name="label">
          <string>Quotations</string>
@@ -184,12 +229,12 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>152</width>
+          <width>196</width>
           <height>69</height>
          </rect>
         </property>
         <property name="autoFillBackground">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <attribute name="label">
          <string>Purchases</string>
@@ -213,8 +258,16 @@
         </layout>
        </widget>
        <widget class="QWidget" name="TransfersItems">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>196</width>
+          <height>69</height>
+         </rect>
+        </property>
         <property name="autoFillBackground">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <attribute name="label">
          <string>Transfers</string>
@@ -238,8 +291,16 @@
         </layout>
        </widget>
        <widget class="QWidget" name="PeopleItems">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>196</width>
+          <height>69</height>
+         </rect>
+        </property>
         <property name="autoFillBackground">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <attribute name="label">
          <string>People</string>
@@ -263,8 +324,16 @@
         </layout>
        </widget>
        <widget class="QWidget" name="NotificationsItems">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>196</width>
+          <height>69</height>
+         </rect>
+        </property>
         <property name="autoFillBackground">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <attribute name="label">
          <string>Notifications</string>
@@ -288,8 +357,16 @@
         </layout>
        </widget>
        <widget class="QWidget" name="SettingsItems">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>196</width>
+          <height>69</height>
+         </rect>
+        </property>
         <property name="autoFillBackground">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <attribute name="label">
          <string>Settings</string>
@@ -313,8 +390,16 @@
         </layout>
        </widget>
        <widget class="QWidget" name="ReportsItems">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>196</width>
+          <height>69</height>
+         </rect>
+        </property>
         <property name="autoFillBackground">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <attribute name="label">
          <string>Reports</string>
@@ -359,6 +444,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -3,18 +3,6 @@
 
 #include <QFrame>
 #include "../classes.h"
-#include "../toast.h"
-#include <QGraphicsDropShadowEffect>
-#include <QEvent>
-#include <QKeyEvent>
-
-//! [DB QtSql ]
-#include <QSqlQueryModel>
-#include <QSqlQuery>
-#include <QSqlTableModel>
-#include <QSqlRelationalTableModel>
-#include <QSortFilterProxyModel>
-#include <QtWidgets/QDataWidgetMapper>
 
 namespace Ui {
 class F_Warhouses;
@@ -40,7 +28,7 @@ private:
     Toast *mToast;
 
     Cfg_Db *mCfgDb;
-    QSqlDatabase DBH;
+    DBH *DB;
 
     QSqlTableModel        *modelWarehouse;
     QDataWidgetMapper     *mapper;
