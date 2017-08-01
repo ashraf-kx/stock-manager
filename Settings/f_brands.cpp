@@ -19,15 +19,10 @@ F_Brands::F_Brands(QWidget *parent) :
 
     mCfgDb = new Cfg_Db();
 
-    this->DBH = QSqlDatabase::addDatabase(mCfgDb->getDriverName(),"CnxBrands");
-    this->DBH.setHostName(mCfgDb->getHostname());
-    this->DBH.setDatabaseName(mCfgDb->getSchemaName());
-    this->DBH.setUserName(mCfgDb->getUsername());
-    this->DBH.setPassword(mCfgDb->getPassword());
-    this->DBH.open();
+    DB = new DBH("_brands_");
 
     mapper    = new QDataWidgetMapper();
-    modelBrand = new QSqlTableModel(this,this->DBH);
+    modelBrand = new QSqlTableModel(this,DB->getCnx());
     modelBrand->setTable("brands");
     modelBrand->select();
 
@@ -72,6 +67,7 @@ F_Brands::F_Brands(QWidget *parent) :
 
 F_Brands::~F_Brands()
 {
+    DB->mRemoveDatabase("_brands_");
     delete ui;
 }
 
@@ -83,33 +79,7 @@ void F_Brands::addBrand()
         //mToast ->setMessage(tr("Fill Both Values For Brand Name & Code"));
     }else
     {
-        if(!this->DBH.isOpen())
-            this->DBH.open();
-        this->DBH.transaction();
-
-        //! [1] Execute Statements On `brands` Table.
-        QSqlQuery *query = new QSqlQuery(this->DBH);
-
-        query->prepare("SELECT id FROM brands WHERE name=:name AND code=:code");
-        query->bindValue(":name",ui->Le_BrandName->text());
-        query->bindValue(":code",ui->Le_Code->text());
-        query->exec();
-
-        if (query->next()) {
-            //mToast  = new Toast();
-            //mToast ->setMessage(tr("Already Exists"));
-        }else
-        {
-            query->prepare("INSERT INTO brands (id,name,code)"
-                           " VALUES (NULL,:name,:code)");
-
-            query->bindValue(":name",ui->Le_BrandName->text());
-            query->bindValue(":code",ui->Le_Code->text());
-
-            query->exec();
-        }
-
-        this->DBH.commit();
+        DB->addBrand(ui->Le_BrandName->text(),ui->Le_Code->text().toUpper());
         modelBrand->select();
 
         ui->Le_BrandName->clear();
@@ -120,21 +90,9 @@ void F_Brands::addBrand()
 
 void F_Brands::deleteBrand()
 {
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-
     if(ui->Sb_ID->value() >= 0)
     {
-        this->DBH.transaction();
-
-        //! [1] Execute Statements On `Brands` Table.
-        QSqlQuery *query = new QSqlQuery(this->DBH);
-
-        query->prepare("DELETE FROM brands WHERE id=:id");
-        query->bindValue(":id",ui->Sb_ID->value());
-        query->exec();
-
-        this->DBH.commit();
+        DB->deleteBrand(ui->Sb_ID->value());
         modelBrand->select();
         ui->Sb_ID->setValue(-1);
     }else

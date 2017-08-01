@@ -19,18 +19,11 @@ F_Categories::F_Categories(QWidget *parent) :
     ui->Sb_IDSub->setVisible(false);
 
     mCfgDb = new Cfg_Db();
-
-    this->DBH = QSqlDatabase::addDatabase(mCfgDb->getDriverName(),"CnxCategory");
-    this->DBH.setHostName(mCfgDb->getHostname());
-    this->DBH.setDatabaseName(mCfgDb->getSchemaName());
-    this->DBH.setUserName(mCfgDb->getUsername());
-    this->DBH.setPassword(mCfgDb->getPassword());
-    this->DBH.open();
+    DB = new DBH("_categories_");
 
     //###########  Categories Section ######################
-
     mapper        = new QDataWidgetMapper();
-    modelCategory = new QSqlTableModel(this,this->DBH);
+    modelCategory = new QSqlTableModel(this,DB->getCnx());
     modelCategory->setTable("categories");
     modelCategory->select();
 
@@ -75,7 +68,7 @@ F_Categories::F_Categories(QWidget *parent) :
     //######################### Sub Categories Section #########################
 
     mapperSub        = new QDataWidgetMapper();
-    modelSubCategory = new QSqlTableModel(this,this->DBH);
+    modelSubCategory = new QSqlTableModel(this,DB->getCnx());
     modelSubCategory->setTable("subcategories");
     modelSubCategory->select();
 
@@ -123,6 +116,7 @@ F_Categories::F_Categories(QWidget *parent) :
 
 F_Categories::~F_Categories()
 {
+    DB->mRemoveDatabase("_categories_");
     delete ui;
 }
 
@@ -153,33 +147,9 @@ void F_Categories::addCategory()
         //mToast ->setMessage(tr("Fill Both Values For Category Name & Code"));
     }else
     {
-        if(!this->DBH.isOpen())
-            this->DBH.open();
-        this->DBH.transaction();
+        DB->addCategory(ui->Le_CategoryName->text(),ui->Le_Code->text().toUpper());
 
-        //! [1] Execute Statements On `categories` Table.
-        QSqlQuery *query = new QSqlQuery(this->DBH);
-
-        query->prepare("SELECT id FROM categories WHERE name=:name");
-        query->bindValue(":name",ui->Le_CategoryName->text());
-        query->exec();
-
-        if (query->next()) {
-            //mToast  = new Toast();
-            //mToast ->setMessage(tr("Already Exists"));
-        }else
-        {
-            query->prepare("INSERT INTO categories (id,name,code)"
-                           " VALUES (NULL,:name,:code)");
-
-            query->bindValue(":name",ui->Le_CategoryName->text());
-            query->bindValue(":code",ui->Le_Code->text());
-            query->exec();
-        }
-
-        this->DBH.commit();
         modelCategory->select();
-
         updateCategoriesCombo();
 
         ui->Le_CategoryName->clear();
@@ -196,43 +166,19 @@ void F_Categories::addSubCategory()
         //mToast ->setMessage(tr("Fill Both Values For Sub  Category Name & Code"));
     }else
     {
-        if(!this->DBH.isOpen())
-            this->DBH.open();
-        this->DBH.transaction();
+        int category_id    = DB->getCategoryID(ui->Cb_ParentCat->currentText());
+        int subCategory_id = DB->getSubCategoryID(ui->Le_SubCategoryName->text(),ui->Le_CodeSub->text(),category_id);
 
-        //! [1] Execute Statements On `subcategories` Table.
-        QSqlQuery *query = new QSqlQuery(this->DBH);
+        if (subCategory_id == -1) {
+            // Doesn't exist > add the new record.
+            subCategory_id = DB->addSubCategory(ui->Le_SubCategoryName->text(),ui->Le_CodeSub->text().toUpper(),category_id);
 
-        query->prepare("SELECT id FROM categories WHERE name=:name");
-        query->bindValue(":name",ui->Cb_ParentCat->currentText());
-        query->exec();
-        int tmpID = -1;
-        if (query->next()){
-            tmpID = query->value(0).toInt();
-        }
-
-        query->prepare("SELECT id FROM subcategories WHERE name=:name AND code=:code AND category_id=:category_id");
-        query->bindValue(":name",ui->Le_SubCategoryName->text());
-        query->bindValue(":code",ui->Le_CodeSub->text());
-        query->bindValue(":category_id",tmpID);
-        query->exec();
-
-        if (query->next()) {
-            //mToast  = new Toast();
-            //mToast ->setMessage(tr("Already Exists"));
         }else
         {
-            query->prepare("INSERT INTO subcategories (id,name,code,category_id)"
-                           " VALUES (NULL,:name,:code,:category_id)");
-
-            query->bindValue(":name",ui->Le_SubCategoryName->text());
-            query->bindValue(":code",ui->Le_CodeSub->text());
-            query->bindValue(":category_id",tmpID);
-
-            query->exec();
+            //mToast  = new Toast();
+            //mToast ->setMessage(tr("Already Exists"));
         }
 
-        this->DBH.commit();
         modelSubCategory->select();
 
         ui->Le_SubCategoryName->clear();
@@ -245,25 +191,10 @@ void F_Categories::addSubCategory()
 
 void F_Categories::deleteCategory()
 {
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-
     if(ui->Sb_ID->value() >= 0)
     {
-        this->DBH.transaction();
+        DB->deleteCategory(ui->Sb_ID->value());
 
-        //! [1] Execute Statements On `subcategories` Table.
-        QSqlQuery *query = new QSqlQuery(this->DBH);
-
-        query->prepare("DELETE FROM subcategories WHERE category_id=:id");
-        query->bindValue(":id",ui->Sb_ID->value());
-        query->exec();
-
-        query->prepare("DELETE FROM categories WHERE id=:id");
-        query->bindValue(":id",ui->Sb_ID->value());
-        query->exec();
-
-        this->DBH.commit();
         modelCategory->select();
         updateCategoriesCombo();
         ui->Sb_ID->setValue(-1);
@@ -277,21 +208,10 @@ void F_Categories::deleteCategory()
 
 void F_Categories::deleteSubCategory()
 {
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-
     if(ui->Sb_ID->value() >= 0)
     {
-        this->DBH.transaction();
+        DB->deleteSubCategory(ui->Sb_IDSub->value());
 
-        //! [1] Execute Statements On `units` Table.
-        QSqlQuery *query = new QSqlQuery(this->DBH);
-
-        query->prepare("DELETE FROM subcategories WHERE id=:id");
-        query->bindValue(":id",ui->Sb_IDSub->value());
-        query->exec();
-
-        this->DBH.commit();
         modelSubCategory->select();
         ui->Sb_IDSub->setValue(-1);
     }else
@@ -303,22 +223,6 @@ void F_Categories::deleteSubCategory()
 
 void F_Categories::updateCategoriesCombo()
 {
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `categories` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT name FROM categories");
-    query->exec();
-
     ui->Cb_ParentCat->clear();
-
-    while(query->next()){
-        if(!query->value(0).toString().isEmpty())
-            ui->Cb_ParentCat->addItem(query->value(0).toString());
-    }
-
-    this->DBH.commit();
+    ui->Cb_ParentCat->addItems(DB->getAllCategories());
 }

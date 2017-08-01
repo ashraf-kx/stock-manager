@@ -1,21 +1,6 @@
 #include "f_warhouses.h"
 #include "ui_f_warhouses.h"
 
-#include <QFrame>
-#include "../classes.h"
-#include "../toast.h"
-#include <QGraphicsDropShadowEffect>
-#include <QEvent>
-#include <QKeyEvent>
-
-//! [DB QtSql ]
-#include <QSqlQueryModel>
-#include <QSqlQuery>
-#include <QSqlTableModel>
-#include <QSqlRelationalTableModel>
-#include <QSortFilterProxyModel>
-#include <QtWidgets/QDataWidgetMapper>
-
 F_Warhouses::F_Warhouses(QWidget *parent) :
     QFrame(parent),
     ui(new Ui::F_Warhouses)
@@ -33,15 +18,10 @@ F_Warhouses::F_Warhouses(QWidget *parent) :
 
     mCfgDb = new Cfg_Db();
 
-    this->DBH = QSqlDatabase::addDatabase(mCfgDb->getDriverName(),"CnxWarehouses");
-    this->DBH.setHostName(mCfgDb->getHostname());
-    this->DBH.setDatabaseName(mCfgDb->getSchemaName());
-    this->DBH.setUserName(mCfgDb->getUsername());
-    this->DBH.setPassword(mCfgDb->getPassword());
-    this->DBH.open();
+    DB     = new DBH("_warehouses_");
 
-    mapper    = new QDataWidgetMapper();
-    modelWarehouse = new QSqlTableModel(this,this->DBH);
+    mapper         = new QDataWidgetMapper();
+    modelWarehouse = new QSqlTableModel(this,DB->getCnx());
     modelWarehouse->setTable("warehouses");
     modelWarehouse->select();
 
@@ -79,7 +59,6 @@ F_Warhouses::F_Warhouses(QWidget *parent) :
     connect(ui->tableView->selectionModel(), SIGNAL(currentRowChanged(QModelIndex,QModelIndex)),
             mapper, SLOT(setCurrentModelIndex(QModelIndex)));
 
-
     connect(ui->Bt_AddNew,SIGNAL(clicked(bool)),ui->F_AddNew,SLOT(show()));
     connect(ui->Bt_cancel,SIGNAL(clicked(bool)),ui->F_AddNew,SLOT(hide()));
 
@@ -88,6 +67,7 @@ F_Warhouses::F_Warhouses(QWidget *parent) :
 
 F_Warhouses::~F_Warhouses()
 {
+    DB->mRemoveDatabase("_warehouses_");
     delete ui;
 }
 
@@ -99,33 +79,8 @@ void F_Warhouses::addWarehouse()
         //mToast ->setMessage(tr("set a value for Warehouse name field"));
     }else
     {
-        if(!this->DBH.isOpen())
-            this->DBH.open();
-        this->DBH.transaction();
+        DB->addWarehouse(ui->Le_WarehouseName->text(),ui->Cb_Status->currentText(),ui->Le_Description->text());
 
-        //! [1] Execute Statements On `Warehouses` Table.
-        QSqlQuery *query = new QSqlQuery(this->DBH);
-
-        query->prepare("SELECT id FROM warehouses WHERE name=:name");
-        query->bindValue(":name",ui->Le_WarehouseName->text());
-        query->exec();
-
-        if (query->next()) {
-            //mToast  = new Toast();
-            //mToast ->setMessage(tr("Already Exists"));
-        }else
-        {
-            query->prepare("INSERT INTO warehouses (id,name,status,description)"
-                           " VALUES (NULL,:name,:status,:description)");
-
-            query->bindValue(":name",ui->Le_WarehouseName->text());
-            query->bindValue(":status",ui->Cb_Status->currentText());
-            query->bindValue(":description",ui->Le_Description->text());
-
-            query->exec();
-        }
-
-        this->DBH.commit();
         modelWarehouse->select();
 
         ui->Le_WarehouseName->clear();
@@ -137,21 +92,9 @@ void F_Warhouses::addWarehouse()
 
 void F_Warhouses::updateStatusWarehouse()
 {
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-
     if(ui->Sb_ID->value() >= 0)
     {
-        this->DBH.transaction();
-
-        //! [1] Execute Statements On `Warehouses` Table.
-        QSqlQuery *query = new QSqlQuery(this->DBH);
-
-        query->prepare("DELETE FROM warehouses WHERE id=:id");
-        query->bindValue(":id",ui->Sb_ID->value());
-        query->exec();
-
-        this->DBH.commit();
+        // DB->deleteWarehouse(ui->Sb_ID->value()); // Delete ?? (o_0)
         modelWarehouse->select();
         ui->Sb_ID->setValue(-1);
     }else
@@ -164,13 +107,13 @@ void F_Warhouses::updateStatusWarehouse()
 void F_Warhouses::createMapper()
 {
     mapper->setModel(proxyModelWarehouse);
-
     mapper->addMapping(ui->Sb_ID,modelWarehouse->fieldIndex("id"));
 }
 
 void F_Warhouses::keyPressEvent(QKeyEvent *e)
 {
-    if (e->key() == Qt::Key_Delete) {
+    if (e->key() == Qt::Key_Delete)
+    {
         // deleteWarehouse();
     }
 }
