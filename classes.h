@@ -88,7 +88,7 @@ public:
     QString getUsername()  { return this->username;   }
     QString getPassword()  { return this->password;   }
     QString getSchemaName(){ return this->schemaName; }
-    QString getPort()      { return this->port; }
+    uint getPort()      { return this->port; }
 
 
     void setCfgDb(const QString& driverName,const QString& hostname,const QString& username,const QString& password,const QString& schemaName)

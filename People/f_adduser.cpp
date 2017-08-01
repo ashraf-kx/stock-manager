@@ -150,7 +150,8 @@ bool F_AddUser::inputsVerification()
     {
         v   = new QRegExpValidator(p["email"]);
         int pos=0;
-        switch (v->validate(ui->Le_email->text(),pos)) {
+        QString tmp_str = ui->Le_email->text();
+        switch (v->validate(tmp_str,pos)) {
         case v->Invalid:
             qDebug()<<"Error email";
             mToast = new Toast(this);
@@ -187,7 +188,8 @@ bool F_AddUser::inputsVerification()
         //ui->Le_username->setStyleSheet(s["accepted"]);
         v   = new QRegExpValidator(p["username"]);
         int pos=0;
-        switch (v->validate(ui->Le_username->text(),pos)) {
+        QString tmp_str = ui->Le_username->text();
+        switch (v->validate(tmp_str,pos)) {
         case v->Invalid:
             qDebug()<<"Error username";
            // ui->Le_username->setToolTip(tr("Error in username."));
@@ -218,7 +220,8 @@ bool F_AddUser::inputsVerification()
     {
         v   = new QRegExpValidator(p["password"]);
         int pos=0;
-        switch (v->validate(ui->Le_password->text(),pos)) {
+        QString tmp_str = ui->Le_password->text();
+        switch (v->validate(tmp_str,pos)) {
         case v->Invalid:
             qDebug()<<"Error password";
             ui->Le_password->setToolTip(tr("respect the password norme"));
