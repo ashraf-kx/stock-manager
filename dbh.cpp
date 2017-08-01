@@ -475,9 +475,9 @@ int DBH::addUser(const QString& firstname,const QString& lastname,const QString&
     query->clear();
     query->prepare("INSERT INTO `users` "
                    "(`first_name`,`last_name`,`username`,`password`,`email`,"
-                   "`gendre`,`active`,`created_on`,`group_id`,`company_id`)"
+                   "`gendre`,`status`,`created_on`,`group_id`,`company_id`)"
                    " VALUES (:first_name,:last_name,:username,:password,:email,"
-                   ":gendre,:active,:created_on,:group_id,:company_id)");
+                   ":gendre,:status,:created_on,:group_id,:company_id)");
 
     query->bindValue(":first_name",firstname);
     query->bindValue(":last_name", lastname);
@@ -489,7 +489,7 @@ int DBH::addUser(const QString& firstname,const QString& lastname,const QString&
     query->bindValue(":password", QString(hashed.toHex()));
     query->bindValue(":email", email);
     query->bindValue(":gendre", gender);
-    query->bindValue(":active", status);
+    query->bindValue(":status", status);
     query->bindValue(":created_on", QDateTime::currentDateTime().toString(Qt::ISODate)); // TIME::now().tostring() Form BLABLA.
     query->bindValue(":group_id", group_id);
     query->bindValue(":company_id", company_id);
