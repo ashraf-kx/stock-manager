@@ -56,7 +56,8 @@ bool F_AddSupplier::inputsVerification()
     {
         v   = new QRegExpValidator(p["email"]);
         int pos=0;
-        switch (v->validate(ui->Le_email->text(),pos)) {
+        QString tmp_str = ui->Le_email->text();
+        switch (v->validate(tmp_str,pos)) {
         case v->Invalid:
             qCDebug(LC_XD)<<__FILE__<<"Error email";
             mToast = new Toast(this);
