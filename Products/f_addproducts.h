@@ -3,20 +3,7 @@
 
 #include <QFrame>
 #include "../classes.h"
-#include "../toast.h"
-#include <QGraphicsDropShadowEffect>
-#include <QEvent>
-#include <QKeyEvent>
-
-//! [DB QtSql ]
-#include <QSqlQueryModel>
-#include <QSqlQuery>
-#include <QSqlTableModel>
-#include <QSqlRelationalTableModel>
-#include <QSortFilterProxyModel>
-
-#include <QtWidgets/QDataWidgetMapper>
-#include <QtWidgets/QSpinBox>
+#include <QSpinBox>
 
 Q_DECLARE_LOGGING_CATEGORY(LC_ADDpro)
 namespace Ui {
@@ -38,8 +25,6 @@ public:
 
 public slots:
     void addProduct();
-    QStringList getAllWarehousesByStatus(const QString& status);
-    QStringList getAllWarehouses();
 
     void updateBarcodeSymCombo();
     void updateBrandCombo();
@@ -53,11 +38,7 @@ private:
     Toast *mToast;
 
     Cfg_Db *mCfgDb;
-    QSqlDatabase DBH;
-
-//    QSqlTableModel        *modelProduct;
-//    QDataWidgetMapper     *mapper;
-//    QSortFilterProxyModel *proxyModelProduct;
+    DBH *DB;
 
 };
 

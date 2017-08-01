@@ -70,7 +70,7 @@ public slots:
     int addBrand(const QString &name, const QString &code);
     int deleteBrand(int brand_id);
     int addCategory(const QString &name, const QString &code);
-    int getCategoryID(const QString &parentName);
+    int getCategoryID(const QString &name);
     int getSubCategoryID(const QString &name, const QString &code, int category_id);
     int addSubCategory(const QString &name, const QString &code, int category_id);
     int deleteCategory(int id);
@@ -81,6 +81,11 @@ public slots:
     int addWarehouse(const QString &name, const QString &status, const QString &description);
     int deleteWarehouse(int id);
 
+    QStringList getAllBrands();
+    QStringList getAllSubCategories(int category_id);
+    QStringList getAllUnits();
+    QStringList getAllWarehouses(const QString &status);
+    QStringList getAllWarehouses();
 };
 
 #endif // DBH_H
