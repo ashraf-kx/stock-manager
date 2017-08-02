@@ -210,6 +210,8 @@ public:
     QPushButton* getBtnMonthlySales();
     QPushButton* getBtnSalesReport();
 
+public slots:
+    void ClickSound();
 };
 
 #endif // SIDE_NAVIGATOR_H

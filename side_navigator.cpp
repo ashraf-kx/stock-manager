@@ -1,6 +1,8 @@
 #include "side_navigator.h"
 #include "ui_side_navigator.h"
 
+#include <QtMultimedia/QSound>
+
 Side_navigator::Side_navigator(QWidget *parent) :
     QFrame(parent),
     ui(new Ui::Side_navigator)
@@ -27,11 +29,100 @@ Side_navigator::Side_navigator(QWidget *parent) :
 
    this->setMouseTracking(true);
 
+    // Products
+    connect(mListProducts,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddProducts,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mImportProducts,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mPrintBarcode,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mQuantityAdjustments,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddAdjustments,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mStockCounts,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mCountStock,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+        // Sales
+    connect(mListSales,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mPOSSales,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddSale,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddSaleByCSV,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mDeliveries,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mListGiftCards,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+        // Quotations
+    connect(mListQuotations,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddQuotations,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+        // Purchases
+    connect(mListPurchases,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddPurchase,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddPurchasesByCSV,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mListExpenses,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddExpense,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+        // Transfers
+    connect(mListTransfers,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddTransfer,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddTransferByCSV,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+        // People
+    connect(mListUsers,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddUser,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+    connect(mListBillers,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddBiller,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+    connect(mListCustomers,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddCustomer,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+    connect(mListSuppliers,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddSupplier,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+        // Notifications
+
+        // Settings
+    connect(mSystemSettings,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mPOSSettings,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mListPrinters,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAddPrinter,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mChangeLogo,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mCurrencies,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mCustomerGroups,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mPriceGroups,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mCategories,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mExpenseCategories,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mUnits,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mBrands,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mVariants,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mTaxRates,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mWarhouses,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mEmailTemplates,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mGroupPermissions,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mBackUps,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mUpdates,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
+        // Reports
+    connect(mOverViewChart,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mWarehouseStockChart,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mBestSellers,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mRegisterReport,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mProductQuantityAlerts,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mProductsReport,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mAdjutmentsReport,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mCategoriesReport,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mBandsReport,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mDailySales,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mMonthlySales,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+    connect(mSalesReport,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
+
 }
 
 Side_navigator::~Side_navigator()
 {
     delete ui;
+}
+
+void Side_navigator::ClickSound()
+{
+    QSound::play("://sounds/switchClick.wav");
 }
 
 void Side_navigator::createProductsItems()

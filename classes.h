@@ -35,6 +35,9 @@
 //! [ Custom DBH ]
 #include "dbh.h"
 
+//! [ Sound Effects ]
+#include <QtMultimedia/QSound>
+
 class Tables
 {
 public:

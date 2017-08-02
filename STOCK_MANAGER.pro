@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -226,7 +226,8 @@ FORMS    += dashboard.ui \
 RESOURCES += \
     icons.qrc \
     styles.qrc \
-    languages.qrc
+    languages.qrc \
+    sounds.qrc
 
 TRANSLATIONS = StockManager_ar.ts
 
