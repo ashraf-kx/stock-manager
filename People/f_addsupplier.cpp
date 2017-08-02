@@ -188,6 +188,7 @@ bool F_AddSupplier::emailCheck(const QString &email)
 void F_AddSupplier::initCompanyCombo()
 {
     listCompanies = DB->getAllCompanies();
+    ui->Cb_company->clear();
     ui->Cb_company->addItem(tr("Select Company"));
     ui->Cb_company->addItems(listCompanies);
 }
@@ -195,7 +196,8 @@ void F_AddSupplier::initCompanyCombo()
 void F_AddSupplier::initCountryCombo()
 {
     listCountries = DB->getAllCountries();
-    ui->Cb_company->addItem(tr("Select Country"));
+    ui->Cb_country->clear();
+    ui->Cb_country->addItem(tr("Select Country"));
     ui->Cb_country->addItems(listCountries);
 }
 
@@ -256,7 +258,7 @@ bool F_AddSupplier::companyCheck(const QString &company)
 
 bool F_AddSupplier::countryCheck(const QString &country)
 {
-    if(country == tr("Select Company") || !listCountries.contains(country))
+    if(country == tr("Select Country") || !listCountries.contains(country))
         return false;
     else
         return true;

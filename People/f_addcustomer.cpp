@@ -51,6 +51,7 @@ bool F_AddCustomer::checkEmail(const QString &email)
 void F_AddCustomer::initCompanyCombo()
 {
     listCompanies = DB->getAllCompanies();
+    ui->Cb_company->clear();
     ui->Cb_company->addItem(tr("Select Company"));
     ui->Cb_company->addItems(listCompanies);
 }
@@ -58,6 +59,7 @@ void F_AddCustomer::initCompanyCombo()
 void F_AddCustomer::initCountryCombo()
 {
     listCountries = DB->getAllCountries();
+    ui->Cb_company->clear();
     ui->Cb_company->addItem(tr("Select Country"));
     ui->Cb_country->addItems(listCountries);
 }

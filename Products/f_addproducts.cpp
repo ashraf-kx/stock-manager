@@ -1,6 +1,5 @@
 #include "f_addproducts.h"
 #include "ui_f_addproducts.h"
-#include <QPainter>
 
 #include "../People/f_addsupplier.h"
 
@@ -11,7 +10,6 @@ F_AddProducts::F_AddProducts(QWidget *parent) :
     ui(new Ui::F_AddProducts)
 {
     ui->setupUi(this);
-
 
     qCDebug(LC_ADDpro)<<"Add product fram isWindows ? "<<this->isWindow();
     qCDebug(LC_ADDpro)<<"Get Modilarity : "<<this->windowModality();
@@ -24,12 +22,7 @@ F_AddProducts::F_AddProducts(QWidget *parent) :
 
     mCfgDb = new Cfg_Db();
 
-    this->DBH = QSqlDatabase::addDatabase(mCfgDb->getDriverName(),"CnxBrands");
-    this->DBH.setHostName(mCfgDb->getHostname());
-    this->DBH.setDatabaseName(mCfgDb->getSchemaName());
-    this->DBH.setUserName(mCfgDb->getUsername());
-    this->DBH.setPassword(mCfgDb->getPassword());
-    this->DBH.open();
+    DB = new DBH("_addProducts_");
 
     // updateBarcodeSymCombo();
     updateBrandCombo();
@@ -40,111 +33,38 @@ F_AddProducts::F_AddProducts(QWidget *parent) :
     createWHList();
 
     connect(ui->Cb_Category,SIGNAL(currentTextChanged(QString)),this,SLOT(updateSubCategoryCombo()));
-
     connect(ui->Bt_AddSupplier,SIGNAL(clicked(bool)),this,SLOT(createSupplierWidgetHundler()));
 }
 
 F_AddProducts::~F_AddProducts()
 {
+    DB->mRemoveDatabase("_addProducts_");
     delete ui;
 }
 
 void F_AddProducts::updateBrandCombo()
 {
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `brands` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT name FROM brands");
-    query->exec();
-
     ui->Cb_Brand->clear();
-
-    while(query->next()){
-        if(!query->value(0).toString().isEmpty())
-            ui->Cb_Brand->addItem(query->value(0).toString());
-    }
-
-    this->DBH.commit();
+    ui->Cb_Brand->addItems(DB->getAllBrands());
 }
 
 void F_AddProducts::updateCategoryCombo()
 {
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `categories` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT name FROM categories");
-    query->exec();
-
     ui->Cb_Category->clear();
-
-    while(query->next()){
-        if(!query->value(0).toString().isEmpty())
-            ui->Cb_Category->addItem(query->value(0).toString());
-    }
-
-    this->DBH.commit();
+    ui->Cb_Category->addItems(DB->getAllCategories());
 }
 
 void F_AddProducts::updateSubCategoryCombo()
 {
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `subcategories` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    int tmpID = -1;
-    query->prepare("SELECT id FROM categories WHERE name=:name");
-    query->bindValue(":name",ui->Cb_Category->currentText());
-    query->exec();
-    if(query->next()){
-            if(query->value(0).toInt() >= 0)
-                tmpID = query->value(0).toInt();
-    }
-
-    query->prepare("SELECT name FROM subcategories WHERE category_id=:category_id");
-    query->bindValue(":category_id",tmpID);
-    query->exec();
-
     ui->Cb_SubCategory->clear();
-
-    while(query->next()){
-        if(!query->value(0).toString().isEmpty())
-            ui->Cb_SubCategory->addItem(query->value(0).toString());
-    }
-
-    this->DBH.commit();
+    int category_id = DB->getCategoryID(ui->Cb_Category->currentText());
+    ui->Cb_SubCategory->addItems(DB->getAllSubCategories(category_id));
 }
 
 void F_AddProducts::updateUnitCombo()
 {
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `units` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT size_name FROM units");
-    query->exec();
-
     ui->Cb_ProductUnit->clear();
-
-    while(query->next()){
-        if(!query->value(0).toString().isEmpty())
-            ui->Cb_ProductUnit->addItem(query->value(0).toString());
-    }
-
-    this->DBH.commit();
+    ui->Cb_ProductUnit->addItems(DB->getAllUnits());
 }
 
 void F_AddProducts::keyPressEvent(QKeyEvent *e)
@@ -155,55 +75,6 @@ void F_AddProducts::keyPressEvent(QKeyEvent *e)
 void F_AddProducts::addProduct()
 {
 
-}
-
-
-
-QStringList F_AddProducts::getAllWarehousesByStatus(const QString &status)
-{
-    QStringList tmpList;
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `warehouses` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT name FROM warehouses WHERE status=:status");
-    query->bindValue(":status",status);
-    query->exec();
-
-    while(query->next()){
-        if(!query->value(0).toString().isEmpty())
-            tmpList<<query->value(0).toString();
-    }
-
-    this->DBH.commit();
-    return tmpList;
-}
-
-QStringList F_AddProducts::getAllWarehouses()
-{
-    QStringList tmpList;
-    if(!this->DBH.isOpen())
-        this->DBH.open();
-    this->DBH.transaction();
-
-    //! [1] Execute Statements On `warehouses` Table.
-    QSqlQuery *query = new QSqlQuery(this->DBH);
-
-    query->prepare("SELECT name FROM warehouses");
-    query->exec();
-
-    ui->Cb_Category->clear();
-
-    while(query->next()){
-        if(!query->value(0).toString().isEmpty())
-            tmpList<<query->value(0).toString();
-    }
-
-    this->DBH.commit();
-    return tmpList;
 }
 
 void F_AddProducts::updateBarcodeSymCombo()
@@ -252,7 +123,7 @@ QWidget *F_AddProducts::createWarehouseInputsWidget(const QString& nameWH)
 
 void F_AddProducts::createWHList()
 {
-    QStringList list = getAllWarehousesByStatus("Active");
+    QStringList list = DB->getAllWarehouses("Active");
 
     for(int i=0; i < list.size(); i++)
         ui->Gb_Warehouses->layout()->addWidget(createWarehouseInputsWidget(list.at(i)));

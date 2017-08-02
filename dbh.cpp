@@ -565,14 +565,14 @@ int DBH::addCategory(const QString& name,const QString& code)
     return category_id;
 }
 
-int DBH::getCategoryID(const QString& parentName)
+int DBH::getCategoryID(const QString& name)
 {
     int category_id = -1;
     mTransaction();
 
     query->clear();
     query->prepare("SELECT `id` FROM `categories` WHERE `name`=:name");
-    query->bindValue(":name",parentName);
+    query->bindValue(":name",name);
     query->exec();
 
     if (query->next()){
@@ -754,3 +754,101 @@ int DBH::deleteWarehouse(int id)
     mCommit();
     return numRowsDel;
 }
+
+QStringList DBH::getAllBrands()
+{
+    QStringList list;
+    list.clear();
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `name` FROM `brands`");
+    query->exec();
+
+    while(query->next()){
+        if(!query->value("name").toString().isEmpty())
+            list<<query->value("name").toString();
+    }
+
+    mCommit();
+    return list;
+}
+
+QStringList DBH::getAllSubCategories(int category_id)
+{
+    QStringList list;
+    list.clear();
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `name` FROM `subcategories` WHERE `category_id`=:category_id");
+    query->bindValue(":category_id",category_id);
+    query->exec();
+
+    while(query->next()){
+        if(!query->value("name").toString().isEmpty())
+            list<<query->value("name").toString();
+    }
+
+    mCommit();
+    return list;
+}
+
+QStringList DBH::getAllUnits()
+{
+    QStringList list;
+    list.clear();
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `size_name` FROM `units`");
+    query->exec();
+
+    while(query->next()){
+        if(!query->value("size_name").toString().isEmpty())
+            list<<query->value("size_name").toString();
+    }
+
+    mCommit();
+    return list;
+}
+
+QStringList DBH::getAllWarehouses(const QString &status)
+{
+    QStringList list;
+    list.clear();
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `name` FROM `warehouses` WHERE `status`=:status");
+    query->bindValue(":status",status);
+    query->exec();
+
+    while(query->next()){
+        if(!query->value("name").toString().isEmpty())
+            list<<query->value("name").toString();
+    }
+
+    mCommit();
+    return list;
+}
+
+QStringList DBH::getAllWarehouses()
+{
+    QStringList list;
+    list.clear();
+    mTransaction();
+
+    query->clear();
+    query->prepare("SELECT `name` FROM `warehouses`");
+    query->exec();
+
+    while(query->next()){
+        if(!query->value("name").toString().isEmpty())
+            list<<query->value("name").toString();
+    }
+
+    mCommit();
+    return list;
+}
+

@@ -32,6 +32,7 @@ F_AddUser::~F_AddUser()
 void F_AddUser::initCompanyCombo()
 {
     listCompanies = DB->getAllCompanies();
+    ui->Cb_company->clear();
     ui->Cb_company->addItem(tr("Select Company"));
     ui->Cb_company->addItems(listCompanies);
 }
@@ -39,6 +40,7 @@ void F_AddUser::initCompanyCombo()
 void F_AddUser::initGroupCombo()
 {
     listGroups = DB->getAllGroups();
+    ui->Cb_group->clear();
     ui->Cb_group->addItem(tr("Select User Group"));
     ui->Cb_group->addItems(listGroups);
 }
