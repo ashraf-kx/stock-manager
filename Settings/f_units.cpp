@@ -43,13 +43,17 @@ F_Units::F_Units(QWidget *parent) :
 
     ui->tableView->setModel(proxyModelUnit);
 
+    ui->tableView->setVisible(false);
+    ui->tableView->setColumnHidden(0,true);
+    ui->tableView->setWordWrap(true);
+
+    ui->tableView->resizeColumnsToContents();
+    ui->tableView->resizeRowsToContents();
+    //ui->tableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
     ui->tableView->horizontalHeader()->stretchLastSection();
     ui->tableView->verticalHeader()->stretchLastSection();
-    ui->tableView->resizeColumnsToContents();
 
-    ui->tableView->setColumnHidden(0,true);
-    ui->tableView->show();
-    ui->tableView->setWordWrap(true);
+    ui->tableView->setVisible(true);
 
     mapper->setSubmitPolicy(mapper->ManualSubmit);
     createMapper();

@@ -23,16 +23,9 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     modelUser->setTable("users");
     modelUser->select();
 
-    modelUser->setHeaderData(0, Qt::Horizontal, tr("N#"));
-    modelUser->setHeaderData(1, Qt::Horizontal, tr("First Name"));
-    modelUser->setHeaderData(2, Qt::Horizontal, tr("Last Name"));
-    modelUser->setHeaderData(3, Qt::Horizontal, tr("User Name"));
-    modelUser->setHeaderData(4, Qt::Horizontal, tr("Group"));
-    modelUser->setHeaderData(5, Qt::Horizontal, tr("Email"));
-    modelUser->setHeaderData(6, Qt::Horizontal, tr("Company"));
-    modelUser->setHeaderData(7, Qt::Horizontal, tr("Created on"));
-    modelUser->setHeaderData(8, Qt::Horizontal, tr("Status"));
 
+
+    ui->tableView->setVisible(false);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
@@ -45,12 +38,8 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     proxyModelUser->setFilterRegExp(QRegExp("", Qt::CaseInsensitive,QRegExp::FixedString));
     proxyModelUser->setFilterKeyColumn(1);
 
-
     ui->tableView->setModel(proxyModelUser);
 
-    ui->tableView->horizontalHeader()->stretchLastSection();
-    ui->tableView->verticalHeader()->stretchLastSection();
-    ui->tableView->resizeColumnsToContents();
     // 6.7.8.10.11.12.13.15-22.24.26
     ui->tableView->setColumnHidden(0,true);
     ui->tableView->setColumnHidden(4,true);
@@ -72,8 +61,25 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     ui->tableView->setColumnHidden(24,true);
     ui->tableView->setColumnHidden(26,true);
 
-    ui->tableView->show();
+    modelUser->setHeaderData(0, Qt::Horizontal, tr("N#"));
+    modelUser->setHeaderData(1, Qt::Horizontal, tr("First Name"));
+    modelUser->setHeaderData(2, Qt::Horizontal, tr("Last Name"));
+    modelUser->setHeaderData(3, Qt::Horizontal, tr("User Name"));
+    modelUser->setHeaderData(4, Qt::Horizontal, tr("Group"));
+    modelUser->setHeaderData(5, Qt::Horizontal, tr("Email"));
+    modelUser->setHeaderData(6, Qt::Horizontal, tr("Company"));
+    modelUser->setHeaderData(7, Qt::Horizontal, tr("Created on"));
+    modelUser->setHeaderData(8, Qt::Horizontal, tr("Status"));
+
+    ui->tableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
+    ui->tableView->horizontalHeader()->stretchLastSection();
+    ui->tableView->verticalHeader()->stretchLastSection(); //setVisible(false);
+    ui->tableView->resizeColumnsToContents();
+    ui->tableView->resizeRowsToContents();
+    ui->tableView->horizontalHeader()->setResizeContentsPrecision(10);
     ui->tableView->setWordWrap(true);
+    ui->tableView->setVisible(true);
+
 
     mapper->setSubmitPolicy(mapper->ManualSubmit);
     createMapper();

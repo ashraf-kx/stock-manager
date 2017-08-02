@@ -30,7 +30,6 @@ private:
     QSqlTableModel        *modelUser;
     QDataWidgetMapper     *mapper;
     QSortFilterProxyModel *proxyModelUser;
-    QSqlQuery *query;
 };
 
 #endif // F_LISTUSERS_H

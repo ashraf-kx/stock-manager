@@ -75,7 +75,7 @@
       </layout>
      </item>
      <item>
-      <widget class="QSpinBox" name="Cb_IDUser">
+      <widget class="QSpinBox" name="Sb_IDCustomer">
        <property name="minimum">
         <number>-1</number>
        </property>
