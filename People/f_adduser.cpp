@@ -9,6 +9,12 @@ F_AddUser::F_AddUser(QWidget *parent) :
     t.start();
 
     ui->setupUi(this);
+
+    QFont f = QFont();
+    f.setPointSizeF(15);
+    this->setFont(f);
+
+    qDebug()<<this->objectName()<<" font Size of "<<this->fontInfo().pointSizeF();
     //########### Connect To Database ###################
     mCfgDb = new Cfg_Db();
     DB = new DBH("_addUser_");
@@ -146,30 +152,30 @@ bool F_AddUser::inputsVerification()
 //        check = false;
 //    }
 
-    if(emailCheck(ui->Le_email->text()))
+    if(emailCheck(ui->W_email->getLineEdit()->text()))
     {
         v   = new QRegExpValidator(p["email"]);
         int pos=0;
-        QString tmp_str = ui->Le_email->text();
+        QString tmp_str = ui->W_email->getLineEdit()->text();
         switch (v->validate(tmp_str,pos)) {
         case v->Invalid:
             qDebug()<<"Error email";
             mToast = new Toast(this);
             mToast->show(tr("Invalide Em@il"),s["error_alert"]);
-            ui->Le_email->setStyleSheet(s["error"]);
+            //ui->Le_email->setStyleSheet(s["error"]);
             check = false;
             break;
         case v->Acceptable:
             qDebug()<<"valide email";
             mToast = new Toast(this);
             mToast->show(tr("email verified"),s["accepted_alert"]);
-            ui->Le_email->setStyleSheet(s["accepted"]);
+            //ui->Le_email->setStyleSheet(s["accepted"]);
             break;
         case v->Intermediate:
             qDebug()<<"email not finished yet";
             mToast = new Toast(this);
             mToast->show(tr("Type Email"),s["info_alert"]);
-            ui->Le_email->setStyleSheet(s["error"]);
+            //ui->Le_email->setStyleSheet(s["error"]);
             check = false;
             break;
         default:
@@ -177,7 +183,7 @@ bool F_AddUser::inputsVerification()
         }
     }else
     {
-        ui->Le_email->setStyleSheet(s["error"]);
+        //ui->Le_email->setStyleSheet(s["error"]);
         mToast = new Toast(this);
         mToast->show(tr("Em@il Already Used."),s["warning_alert"]);
         check = false;
@@ -284,9 +290,14 @@ void F_AddUser::addUser()
 
         company_id  = DB->getCompanyID(ui->Cb_company->currentText());
         group_id    = DB->getGroupID(ui->Cb_group->currentText());
-        DB->addUser(ui->Le_firstName->text(), ui->Le_lastName->text(),ui->Le_username->text(),
-                    ui->Le_password->text(), ui->Le_email->text(), ui->Cb_gender->currentText(),
-                    ui->Cb_status->currentText(),group_id,company_id);
+        DB->addUser(ui->W_firstName->getLineEdit()->text(),
+                    ui->W_lastName->getLineEdit()->text(),
+                    ui->Le_username->text(),
+                    ui->Le_password->text(),
+                    ui->W_email->getLineEdit()->text(),
+                    ui->Cb_gender->currentText(),
+                    ui->Cb_status->currentText(),
+                    group_id,company_id);
 
         clearInputs();
     }
