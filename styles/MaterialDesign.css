@@ -1,21 +1,20 @@
-
 QMainWindow
 {
-    background-color: rgb(255, 255, 255);
+    background-color: #eeeeee;
+    font-family: "Titillium Web";
     border: none;
 }
 
 QFrame{
-    background-color: rgb(200, 200, 200);
+    background-color: #FFFFFF;
     border: none;
 }
 
 QWidget
 {
     background-color: rgb(255, 255, 255);
-    font-family: 'Titillium Web';
+/*    font-family: 'Titillium Web';*/
 }
-
 
 /*********************************************************************/
 QLineEdit, QLineEdit:hover {
@@ -30,7 +29,7 @@ QLineEdit:editable{
     border: none;
     padding-bottom: 2px;
     border-bottom: 2px solid #b2dfdb;
-    font-size: 17px;
+/*    font-size: 15pt;*/
 }
 
 QLineEdit:disabled{
@@ -56,16 +55,14 @@ QLabel
 {
     background-color: rgb(255, 255, 255);
     color:Black;
-    font-size: 18px;
-/*    font: italic 11pt "Calibri";*/
+/*    font-size: 15pt;*/
 }
 
 QLabel:hover
 {
     background-color: rgb(255, 255, 255);
     color:#212121;
-/*    font: italic 13pt "Calibri";*/
-    font-weight: bold;
+/*    font-weight: bold;*/
 }
 /*************************************************************/
 QPushButton, QPushButton:focus, QPushButton:focus {
@@ -106,7 +103,6 @@ QToolTip {
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
         border-bottom-left-radius: 3px;
-
 }
 
 /*******************************************************/
