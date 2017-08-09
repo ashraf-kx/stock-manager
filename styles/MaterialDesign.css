@@ -1,6 +1,6 @@
 QMainWindow
 {
-    background-color: #eeeeee;
+    background-color: #FFFFFF;
     font-family: "Titillium Web";
     border: none;
 }
@@ -8,12 +8,7 @@ QMainWindow
 QFrame{
     background-color: #FFFFFF;
     border: none;
-}
-
-QWidget
-{
-    background-color: rgb(255, 255, 255);
-/*    font-family: 'Titillium Web';*/
+    font-family:  "Titillium Web";
 }
 
 /*********************************************************************/
@@ -64,8 +59,8 @@ QLabel:hover
     color:#212121;
 /*    font-weight: bold;*/
 }
-/*************************************************************/
-QPushButton, QPushButton:focus, QPushButton:focus {
+/************************************************************/
+/*QPushButton, QPushButton:focus, QPushButton:focus {
   background-color: rgb(0, 163, 239);
   border: none;
   color: white;
@@ -93,7 +88,7 @@ QPushButton:disabled {
     border: none;
 
 }
-
+*/
 QToolTip {
     background-color:#212121;
     color:white;
@@ -259,3 +254,5 @@ QSlider::handle:vertical:disabled {
     margin: -1px -1px;
     border-radius: 4px;
 }
+
+

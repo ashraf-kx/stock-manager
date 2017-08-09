@@ -1,0 +1,78 @@
+
+
+QWidget
+{
+    background-color:black;
+}
+/*
+QLineEdit
+{
+    color: rgb(68, 68, 68);
+    background-color: #FFF;
+    border: 1px solid #2196F3;
+    border-right:0px solid #FFFFFF;
+    vertical-align: middle;
+}
+
+QLineEdit:hover
+{
+   color: #000000;
+   border-top:1px solid #FFFFFF;
+   border-left:1px solid #FFFFFF;
+   border-right:1px solid #FFFFFF;
+   border-bottom:2px solid #2196F3;
+   border-right:0px solid #FFFFFF;
+}
+
+QLabel
+{
+    background-color: rgb(255, 255, 255);
+    color:gray;
+    font: 75 italic 11pt "Arial";
+}
+
+QLabel:hover
+{
+    background-color: rgb(245, 245, 245);
+    color:black;
+    font: 75 italic 12pt "Arial";
+}*/
+
+QPushButton
+{
+    position: relative;
+    padding: 7px 3px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+   font: 75 13pt "Calibri";
+
+    color: #e0e0e0;
+    white-space: nowrap;
+    background-color: #212121;
+
+border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+    border: 1px solid #212121;
+
+    vertical-align: middle;
+    text-align: left;
+}
+
+QPushButton:hover
+{
+    background-color: #f44336; /*#424242 smoke Black*/
+    border: 1px solid  #f44336;
+    font: 75 13pt "Calibri";
+    font-weight: bold;
+    color: #ffffff;
+}
+
+QToolBox {
+
+}
+
+
