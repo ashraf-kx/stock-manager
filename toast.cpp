@@ -18,17 +18,17 @@ Toast::Toast(QWidget *parent) :
 
     animSlideOut = new QPropertyAnimation(this, "geometry");
 
-    animSlideOut->setDuration(1000);
+    animSlideOut->setDuration(200);
     animSlideOut->setStartValue(QRect(1,3, 1, 150));
     animSlideOut->setEndValue(QRect(1,3, 250, 150));
     animSlideOut->setEasingCurve(QEasingCurve::OutSine);
 
     animSlideIn = new QPropertyAnimation(this, "geometry");
 
-    animSlideIn->setDuration(1300);
+    animSlideIn->setDuration(200);
     animSlideIn->setStartValue(QRect(1,3, 250, 150));
     animSlideIn->setEndValue(QRect(1,3, 1, 150));
-    animSlideIn->setEasingCurve(QEasingCurve::OutSine);
+    animSlideIn->setEasingCurve(QEasingCurve::InSine);
 
     QTimer *mTimer = new  QTimer();
     mTimer->setInterval(2750);
