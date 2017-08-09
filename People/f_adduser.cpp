@@ -10,6 +10,8 @@ F_AddUser::F_AddUser(QWidget *parent) :
 
     ui->setupUi(this);
 
+    this->setStyleSheet(Style::loadStyle("addUser"));
+
     QFont f = QFont();
     f.setPointSizeF(15);
     this->setFont(f);
@@ -23,10 +25,16 @@ F_AddUser::F_AddUser(QWidget *parent) :
     initCompanyCombo();
     initGroupCombo();
 
+    ui->Cb_company->setGraphicsEffect(Style::shadow());
+    ui->Cb_gender->setGraphicsEffect(Style::shadow());
+    ui->Cb_group->setGraphicsEffect(Style::shadow());
+    ui->Cb_status->setGraphicsEffect(Style::shadow());
+
     //########## Connectors Signal ~> slots #############
     connect(ui->Bt_addUser,SIGNAL(clicked(bool)),this,SLOT(addUser()));
 
     this->setStatusTip(tr("Time elapsed : ")+QString::number(t.elapsed())+" ms.");
+//this->setGraphicsEffect(Style::shadow());
 }
 
 F_AddUser::~F_AddUser()
@@ -56,26 +64,26 @@ bool F_AddUser::inputsVerification()
     // Entries Verification
     ui->Bt_addUser->setDisabled(true);
     bool check = true;
-//    if(!ui->Le_firstName->text().isEmpty())
+//    if(!ui->W_firstName->text().isEmpty())
 //    {
 //        v   = new QRegExpValidator(p["firstname"]);
 //        int pos=0;
-//        switch (v->validate(ui->Le_firstName->text(),pos)) {
+//        switch (v->validate(ui->W_firstName->text(),pos)) {
 //        case v->Invalid:
 //            qDebug()<<"Error firstName";
-//           // ui->Le_firstName->setToolTip(tr("Error in firstName."));
-//            ui->Le_firstName->setStyleSheet(s["error"]);
+//           // ui->W_firstName->setToolTip(tr("Error in firstName."));
+//            ui->W_firstName->setStyleSheet(s["error"]);
 //            check = false;
 //            break;
 //        case v->Acceptable:
 //            qDebug()<<"valide firstName";
-//           // ui->Le_firstName->setToolTip(tr("Good Job"));
-//            ui->Le_firstName->setStyleSheet(s["accepted"]);
+//           // ui->W_firstName->setToolTip(tr("Good Job"));
+//            ui->W_firstName->setStyleSheet(s["accepted"]);
 //            break;
 //        case v->Intermediate:
 //            qDebug()<<"firstName not finished yet";
-//           // ui->Le_firstName->setToolTip(tr("Complete typing"));
-//            ui->Le_firstName->setStyleSheet(s["error"]);
+//           // ui->W_firstName->setToolTip(tr("Complete typing"));
+//            ui->W_firstName->setStyleSheet(s["error"]);
 //            check = false;
 //            break;
 //        default:
@@ -84,30 +92,30 @@ bool F_AddUser::inputsVerification()
 //    }else
 //    {
 //        qDebug()<<"firstName empty.";
-//        ui->Le_firstName->setStyleSheet(s["error"]);
+//        ui->W_firstName->setStyleSheet(s["error"]);
 //        check = false;
 //    }
 
-//    if(!ui->Le_lastName->text().isEmpty())
+//    if(!ui->W_lastName->text().isEmpty())
 //    {
 //        v   = new QRegExpValidator(p["lastname"]);
 //        int pos=0;
-//        switch (v->validate(ui->Le_lastName->text(),pos)) {
+//        switch (v->validate(ui->W_lastName->text(),pos)) {
 //        case v->Invalid:
 //            qDebug()<<"Error lastName";
-//           // ui->Le_lastName->setToolTip(tr("Error in lastName."));
-//            ui->Le_lastName->setStyleSheet(s["error"]);
+//           // ui->W_lastName->setToolTip(tr("Error in lastName."));
+//            ui->W_lastName->setStyleSheet(s["error"]);
 //            check = false;
 //            break;
 //        case v->Acceptable:
 //            qDebug()<<"valide lastName";
-//           // ui->Le_lastName->setToolTip(tr("Good Job"));
-//            ui->Le_lastName->setStyleSheet(s["accepted"]);
+//           // ui->W_lastName->setToolTip(tr("Good Job"));
+//            ui->W_lastName->setStyleSheet(s["accepted"]);
 //            break;
 //        case v->Intermediate:
 //            qDebug()<<"lastName not finished yet";
-//           // ui->Le_lastName->setToolTip(tr("Complete typing"));
-//            ui->Le_lastName->setStyleSheet(s["error"]);
+//           // ui->W_lastName->setToolTip(tr("Complete typing"));
+//            ui->W_lastName->setStyleSheet(s["error"]);
 //            check = false;
 //            break;
 //        default:
@@ -116,30 +124,30 @@ bool F_AddUser::inputsVerification()
 //    }else
 //    {
 //        qDebug()<<"Last Name empty.";
-//        ui->Le_lastName->setStyleSheet(s["error"]);
+//        ui->W_lastName->setStyleSheet(s["error"]);
 //        check = false;
 //    }
 
-//    if(!ui->Le_phone->text().isEmpty())
+//    if(!ui->W_phone->text().isEmpty())
 //    {
 //        v   = new QRegExpValidator(p["phone"]);
 //        int pos=0;
-//        switch (v->validate(ui->Le_phone->text(),pos)) {
+//        switch (v->validate(ui->W_phone->text(),pos)) {
 //        case v->Invalid:
 //            qDebug()<<"Error phone";
-//           // ui->Le_phone->setToolTip(tr("Error in phone."));
-//            ui->Le_phone->setStyleSheet(s["error"]);
+//           // ui->W_phone->setToolTip(tr("Error in phone."));
+//            ui->W_phone->setStyleSheet(s["error"]);
 //            check = false;
 //            break;
 //        case v->Acceptable:
 //            qDebug()<<"valide phone";
-//           // ui->Le_phone->setToolTip(tr("Good Job"));
-//            ui->Le_phone->setStyleSheet(s["accepted"]);
+//           // ui->W_phone->setToolTip(tr("Good Job"));
+//            ui->W_phone->setStyleSheet(s["accepted"]);
 //            break;
 //        case v->Intermediate:
 //            qDebug()<<"phone not finished yet";
-//           // ui->Le_phone->setToolTip(tr("Complete typing"));
-//            ui->Le_phone->setStyleSheet(s["error"]);
+//           // ui->W_phone->setToolTip(tr("Complete typing"));
+//            ui->W_phone->setStyleSheet(s["error"]);
 //            check = false;
 //            break;
 //        default:
@@ -148,34 +156,34 @@ bool F_AddUser::inputsVerification()
 //    }else
 //    {
 //        qDebug()<<"Last Name empty.";
-//        ui->Le_phone->setStyleSheet(s["error"]);
+//        ui->W_phone->setStyleSheet(s["error"]);
 //        check = false;
 //    }
 
-    if(emailCheck(ui->W_email->getLineEdit()->text()))
+    if(emailCheck(ui->W_email->text()))
     {
         v   = new QRegExpValidator(p["email"]);
         int pos=0;
-        QString tmp_str = ui->W_email->getLineEdit()->text();
+        QString tmp_str = ui->W_email->text();
         switch (v->validate(tmp_str,pos)) {
         case v->Invalid:
             qDebug()<<"Error email";
             mToast = new Toast(this);
             mToast->show(tr("Invalide Em@il"),s["error_alert"]);
-            //ui->Le_email->setStyleSheet(s["error"]);
+            //ui->W_email->setStyleSheet(s["error"]);
             check = false;
             break;
         case v->Acceptable:
             qDebug()<<"valide email";
             mToast = new Toast(this);
             mToast->show(tr("email verified"),s["accepted_alert"]);
-            //ui->Le_email->setStyleSheet(s["accepted"]);
+            //ui->W_email->setStyleSheet(s["accepted"]);
             break;
         case v->Intermediate:
             qDebug()<<"email not finished yet";
             mToast = new Toast(this);
             mToast->show(tr("Type Email"),s["info_alert"]);
-            //ui->Le_email->setStyleSheet(s["error"]);
+            //ui->W_email->setStyleSheet(s["error"]);
             check = false;
             break;
         default:
@@ -183,34 +191,34 @@ bool F_AddUser::inputsVerification()
         }
     }else
     {
-        //ui->Le_email->setStyleSheet(s["error"]);
+        //ui->W_email->setStyleSheet(s["error"]);
         mToast = new Toast(this);
         mToast->show(tr("Em@il Already Used."),s["warning_alert"]);
         check = false;
     }
 
-    if(usernameCheck(ui->Le_username->text()))
+    if(usernameCheck(ui->W_username->text()))
     {
-        //ui->Le_username->setStyleSheet(s["accepted"]);
+        //ui->W_username->setStyleSheet(s["accepted"]);
         v   = new QRegExpValidator(p["username"]);
         int pos=0;
-        QString tmp_str = ui->Le_username->text();
+        QString tmp_str = ui->W_username->text();
         switch (v->validate(tmp_str,pos)) {
         case v->Invalid:
             qDebug()<<"Error username";
-           // ui->Le_username->setToolTip(tr("Error in username."));
-            ui->Le_username->setStyleSheet(s["error"]);
+           // ui->W_username->setToolTip(tr("Error in username."));
+            ui->W_username->setStyleSheet(s["error"]);
             check = false;
             break;
         case v->Acceptable:
             qDebug()<<"valide username";
-           // ui->Le_username->setToolTip(tr("Good Job"));
-            ui->Le_username->setStyleSheet(s["accepted"]);
+           // ui->W_username->setToolTip(tr("Good Job"));
+            ui->W_username->setStyleSheet(s["accepted"]);
             break;
         case v->Intermediate:
             qDebug()<<"username not finished yet";
-           // ui->Le_username->setToolTip(tr("Complete typing"));
-            ui->Le_username->setStyleSheet(s["error"]);
+           // ui->W_username->setToolTip(tr("Complete typing"));
+            ui->W_username->setStyleSheet(s["error"]);
             check = false;
             break;
         default:
@@ -218,34 +226,34 @@ bool F_AddUser::inputsVerification()
         }
     }else
     {
-        ui->Le_username->setStyleSheet(s["error"]);
+        ui->W_username->setStyleSheet(s["error"]);
         check = false;
     }
 
-    if(passwordCheck(ui->Le_password->text(),ui->Le_confirmePass->text()))
+    if(passwordCheck(ui->W_password->text(),ui->W_confirmePass->text()))
     {
         v   = new QRegExpValidator(p["password"]);
         int pos=0;
-        QString tmp_str = ui->Le_password->text();
+        QString tmp_str = ui->W_password->text();
         switch (v->validate(tmp_str,pos)) {
         case v->Invalid:
             qDebug()<<"Error password";
-            ui->Le_password->setToolTip(tr("respect the password norme"));
-            ui->Le_password->setStyleSheet(s["error"]);
-            ui->Le_confirmePass->setStyleSheet(s["error"]);
+            ui->W_password->setToolTip(tr("respect the password norme"));
+            ui->W_password->setStyleSheet(s["error"]);
+            ui->W_confirmePass->setStyleSheet(s["error"]);
             check = false;
             break;
         case v->Acceptable:
             qDebug()<<"password verified";
-            ui->Le_password->setToolTip(tr("Good Job"));
-            ui->Le_password->setStyleSheet(s["accepted"]);
-            ui->Le_confirmePass->setStyleSheet(s["accepted"]);
+            ui->W_password->setToolTip(tr("Good Job"));
+            ui->W_password->setStyleSheet(s["accepted"]);
+            ui->W_confirmePass->setStyleSheet(s["accepted"]);
             break;
         case v->Intermediate:
             qDebug()<<"waiting...";
-            ui->Le_password->setToolTip(tr("Complete typing"));
-            ui->Le_password->setStyleSheet(s["error"]);
-            ui->Le_confirmePass->setStyleSheet(s["error"]);
+            ui->W_password->setToolTip(tr("Complete typing"));
+            ui->W_password->setStyleSheet(s["error"]);
+            ui->W_confirmePass->setStyleSheet(s["error"]);
             check = false;
             break;
         default:
@@ -255,8 +263,8 @@ bool F_AddUser::inputsVerification()
     }else
     {
       qDebug()<<"Mis-Match passwords";
-      ui->Le_password->setStyleSheet(s["error"]);
-      ui->Le_confirmePass->setStyleSheet(s["error"]);
+      ui->W_password->setStyleSheet(s["error"]);
+      ui->W_confirmePass->setStyleSheet(s["error"]);
       check = false;
     }
 
@@ -290,11 +298,11 @@ void F_AddUser::addUser()
 
         company_id  = DB->getCompanyID(ui->Cb_company->currentText());
         group_id    = DB->getGroupID(ui->Cb_group->currentText());
-        DB->addUser(ui->W_firstName->getLineEdit()->text(),
-                    ui->W_lastName->getLineEdit()->text(),
-                    ui->Le_username->text(),
-                    ui->Le_password->text(),
-                    ui->W_email->getLineEdit()->text(),
+        DB->addUser(ui->W_firstName->text(),
+                    ui->W_lastName->text(),
+                    ui->W_username->text(),
+                    ui->W_password->text(),
+                    ui->W_email->text(),
                     ui->Cb_gender->currentText(),
                     ui->Cb_status->currentText(),
                     group_id,company_id);

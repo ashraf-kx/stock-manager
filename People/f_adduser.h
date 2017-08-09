@@ -4,6 +4,8 @@
 #include <QFrame>
 #include "../classes.h"
 
+#include "../Qmd/mdlineedit.h"
+
 namespace Ui {
 class F_AddUser;
 }
