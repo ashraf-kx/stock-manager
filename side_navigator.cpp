@@ -9,7 +9,7 @@ Side_navigator::Side_navigator(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    loadStyle();
+    this->setStyleSheet(Style::loadStyle("SideNavigator"));
 
     QGraphicsDropShadowEffect *sh = new QGraphicsDropShadowEffect();
     sh->setBlurRadius(8);
@@ -28,6 +28,8 @@ Side_navigator::Side_navigator(QWidget *parent) :
     createReportsItems();
 
    this->setMouseTracking(true);
+
+    // ui->toolBox->
 
     // Products
     connect(mListProducts,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
@@ -122,30 +124,23 @@ Side_navigator::~Side_navigator()
 
 void Side_navigator::ClickSound()
 {
-    QSound::play("://sounds/switchClick.wav");
+    QSound::play("://sounds/click_04.wav");
 }
 
 void Side_navigator::createProductsItems()
 {
     mListProducts  = new QPushButton(tr("List products"));
-    mListProducts->setIcon(QIcon("://icons/18x18/ic_format_list_bulleted_white_18dp.png"));
+    mListProducts->setIcon(QIcon(":/w/icons/w/ic_view_list_white_2x.png"));
 
     mAddProducts   = new QPushButton(tr("Add Products"));
-    mAddProducts->setIcon(QIcon("://icons/18x18/ic_add_box_white_18pt.png"));
+    mAddProducts->setIcon(QIcon(":/w/icons/w/ic_add_circle_outline_white_2x.png"));
 
     mImportProducts= new QPushButton(tr("Import Products"));
-
     mPrintBarcode  = new QPushButton(tr("Print Barcode/Label"));
-
     mQuantityAdjustments = new QPushButton(tr("Quantity Adjustments"));
-
     mAddAdjustments      = new QPushButton(tr("Add Adjustments"));
-
     mStockCounts         = new QPushButton(tr("Stock Counts"));
-
     mCountStock          = new QPushButton(tr("Count Stock"));
-
-
 
     ui->layoutProductsItems->addWidget(mListProducts);
     ui->layoutProductsItems->addWidget(mAddProducts);
@@ -155,7 +150,6 @@ void Side_navigator::createProductsItems()
     ui->layoutProductsItems->addWidget(mAddAdjustments);
     ui->layoutProductsItems->addWidget(mStockCounts);
     ui->layoutProductsItems->addWidget(mCountStock);
-
 }
 
 void Side_navigator::createSalesItems()
@@ -165,13 +159,9 @@ void Side_navigator::createSalesItems()
     mPOSSales    = new QPushButton(tr("POS Sales"));
 
     mAddSale    = new QPushButton(tr("Add Sales"));
-
     mAddSaleByCSV = new QPushButton(tr("Add Sales by CSV"));
-
     mDeliveries    = new QPushButton(tr("Deliveries"));
-
     mListGiftCards = new QPushButton(tr("List Gift Cards"));
-
 
     ui->layoutSalesItems->addWidget(mListSales);
     ui->layoutSalesItems->addWidget(mPOSSales);
@@ -179,7 +169,6 @@ void Side_navigator::createSalesItems()
     ui->layoutSalesItems->addWidget(mAddSaleByCSV);
     ui->layoutSalesItems->addWidget(mDeliveries);
     ui->layoutSalesItems->addWidget(mListGiftCards);
-
 }
 
 void Side_navigator::createQuotationsItems()
@@ -222,16 +211,24 @@ void Side_navigator::createTransfersItems()
 void Side_navigator::createPeopleItems()
 {
     mListUsers = new QPushButton(tr("List Users"));
+    mListUsers->setIcon(QIcon(":/w/icons/w/ic_view_list_white_2x.png"));
     mAddUser = new QPushButton(tr("Add User"));
+    mAddUser->setIcon(QIcon(":/w/icons/w/ic_person_add_white_2x.png"));
 
     mListBillers = new QPushButton(tr("List Billers"));
+    mListBillers->setIcon(QIcon(":/w/icons/w/ic_view_list_white_2x.png"));
     mAddBiller = new QPushButton(tr("Add Biller"));
+    mAddBiller->setIcon(QIcon(":/w/icons/w/ic_person_add_white_2x.png"));
 
     mListCustomers = new QPushButton(tr("List Customers"));
+    mListCustomers->setIcon(QIcon(":/w/icons/w/ic_view_list_white_2x.png"));
     mAddCustomer = new QPushButton(tr("Add Customer"));
+    mAddCustomer->setIcon(QIcon(":/w/icons/w/ic_person_add_white_2x.png"));
 
     mListSuppliers = new QPushButton(tr("List Suppliers"));
+    mListSuppliers->setIcon(QIcon(":/w/icons/w/ic_view_list_white_2x.png"));
     mAddSupplier = new QPushButton(tr("Add Supplier"));
+    mAddSupplier->setIcon(QIcon(":/w/icons/w/ic_person_add_white_2x.png"));
 
     ui->layoutPeopleItems->addWidget(mListUsers);
     ui->layoutPeopleItems->addWidget(mAddUser);
@@ -324,27 +321,11 @@ void Side_navigator::createReportsItems()
     ui->layoutReportsItems->addWidget(mSalesReport);
 }
 
-void Side_navigator::loadStyle()
-{
-    QFile MDStyle(":/styles/SideNavigator.css");
-    QString MDstyle;
-    if (MDStyle.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-        QTextStream in(&MDStyle);
-        MDstyle = in.readAll().simplified();
-        this->setStyleSheet(MDstyle);
-
-    }else {
-        qWarning("MDStyle not in readonly OR text mode");
-    }
-}
-
 void Side_navigator::mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton) {
-        //mClickedBtn = qobject_cast<QPushButton*>(sender());
-        //mClickedBtn = ui->ProductsItems->findChildren<QPushButton*>(sender());
-        qDebug()<<mClickedBtn->text()<<"\n"<<"click"; //mClickedBtn->text()<<
+    if (event->button() == Qt::LeftButton)
+    {
+        qDebug()<<"click"; //mClickedBtn->text()<<
     }
 }
 //! [ LOL ;) ]

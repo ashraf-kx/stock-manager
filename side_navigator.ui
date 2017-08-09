@@ -120,7 +120,7 @@
         </property>
         <attribute name="icon">
          <iconset resource="icons.qrc">
-          <normaloff>:/icons/48x48/ic_layers_black_24dp.png</normaloff>:/icons/48x48/ic_layers_black_24dp.png</iconset>
+          <normaloff>:/b/icons/b/ic_widgets_2x.png</normaloff>:/b/icons/b/ic_widgets_2x.png</iconset>
         </attribute>
         <attribute name="label">
          <string>Products</string>
@@ -164,6 +164,10 @@
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
+        <attribute name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/b/icons/b/ic_local_offer_2x.png</normaloff>:/b/icons/b/ic_local_offer_2x.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Sales</string>
         </attribute>
@@ -203,6 +207,10 @@
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
+        <attribute name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/b/icons/b/ic_storage_2x.png</normaloff>:/b/icons/b/ic_storage_2x.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Quotations</string>
         </attribute>
@@ -236,6 +244,10 @@
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
+        <attribute name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/b/icons/b/ic_shopping_cart_32pt_2x.png</normaloff>:/b/icons/b/ic_shopping_cart_32pt_2x.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Purchases</string>
         </attribute>
@@ -269,6 +281,10 @@
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
+        <attribute name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/b/icons/b/ic_swap_horiz_2x.png</normaloff>:/b/icons/b/ic_swap_horiz_2x.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Transfers</string>
         </attribute>
@@ -302,6 +318,10 @@
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
+        <attribute name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/b/icons/b/ic_group_32pt_2x.png</normaloff>:/b/icons/b/ic_group_32pt_2x.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>People</string>
         </attribute>
@@ -335,6 +355,10 @@
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
+        <attribute name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/b/icons/b/ic_notifications_2x.png</normaloff>:/b/icons/b/ic_notifications_2x.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Notifications</string>
         </attribute>
@@ -368,6 +392,10 @@
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
+        <attribute name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/b/icons/b/ic_settings_2x.png</normaloff>:/b/icons/b/ic_settings_2x.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Settings</string>
         </attribute>
@@ -401,6 +429,10 @@
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
+        <attribute name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/b/icons/b/ic_report_2x.png</normaloff>:/b/icons/b/ic_report_2x.png</iconset>
+        </attribute>
         <attribute name="label">
          <string>Reports</string>
         </attribute>

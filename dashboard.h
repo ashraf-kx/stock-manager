@@ -10,6 +10,7 @@
 #include "side_navigator.h"
 #include "top_navigator.h"
 #include "toast.h"
+#include "classes.h"
 
 //! [Stupidito ] 310%
 // Products
@@ -110,7 +111,6 @@ public:
     explicit Dashboard(QWidget *parent = 0);
     ~Dashboard();
 
-    QString QKStyle(int n);
 public slots:
     //! [Stupidito] 100%
     // Products

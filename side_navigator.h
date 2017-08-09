@@ -9,6 +9,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <QDebug>
 #include <QMouseEvent>
+#include "classes.h"
 
 namespace Ui {
 class Side_navigator;

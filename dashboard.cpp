@@ -9,17 +9,21 @@ Dashboard::Dashboard(QWidget *parent) :
 
     this->setWindowTitle(tr("Stock Manager V 0.0.1"));
     this->setWindowIcon(QIcon("://icons/inventory.png"));
-    this->setStyleSheet(QKStyle(1));
+    this->setStyleSheet(Style::loadStyle("MaterialDesgin"));
 
-    mTopNav     = new Top_navigator();
-    mSideNAV    = new Side_navigator();
+    QFont f = QFont();
+    f.setPointSizeF(14.0);
+    this->setFont(f);
+
+    qDebug()<<"font Size of"<<this->objectName()<<this->fontInfo().pointSizeF();
+
+    mTopNav     = new Top_navigator(this);
+    mSideNAV    = new Side_navigator(this);
 
     ui->layoutTop->addWidget(mTopNav);
     ui->layoutMain->addWidget(mSideNAV);
 
     this->showMaximized();
-
-
 
     //! [Stupidito ] 100%
     // Products
@@ -120,7 +124,7 @@ void Dashboard::setFrameListProducts()
         delete oldFrame;
     }
     // Place the new One.
-    mListProducts = new F_ListProducts();
+    mListProducts = new F_ListProducts(this);
     ui->layoutOneFrame->addWidget(mListProducts);
     mListProducts->setObjectName("ListProducts");
 }
@@ -134,7 +138,7 @@ void Dashboard::setFrameAddProducts()
         delete oldFrame;
     }
     // Place the new One.
-    mAddProducts = new F_AddProducts();
+    mAddProducts = new F_AddProducts(this);
     ui->layoutOneFrame->addWidget(mAddProducts);
     mAddProducts->setObjectName("AddProducts");
 }
@@ -148,7 +152,7 @@ void Dashboard::setFrameImportProducts()
         delete oldFrame;
     }
     // Place the new One.
-    mImportProducts = new F_ImportProducts();
+    mImportProducts = new F_ImportProducts(this);
     ui->layoutOneFrame->addWidget(mImportProducts);
     mImportProducts->setObjectName("ImportProducts");
 }
@@ -162,7 +166,7 @@ void Dashboard::setFramePrintBarcode()
         delete oldFrame;
     }
     // Place the new One.
-    mPrintBarcode = new F_PrintBarcode();
+    mPrintBarcode = new F_PrintBarcode(this);
     ui->layoutOneFrame->addWidget(mPrintBarcode);
     mPrintBarcode->setObjectName("PrintBarcode");
 }
@@ -176,7 +180,7 @@ void Dashboard::setFrameQuantityAdjustments()
         delete oldFrame;
     }
     // Place the new One.
-    mQuantityAdjustments = new F_QuantityAdjustments();
+    mQuantityAdjustments = new F_QuantityAdjustments(this);
     ui->layoutOneFrame->addWidget(mQuantityAdjustments);
     mQuantityAdjustments->setObjectName("QuantityAdjustments");
 }
@@ -190,7 +194,7 @@ void Dashboard::setFrameAddAdjustments()
         delete oldFrame;
     }
     // Place the new One.
-    mAddAdjustments = new F_AddAdjustments();
+    mAddAdjustments = new F_AddAdjustments(this);
     ui->layoutOneFrame->addWidget(mAddAdjustments);
     mAddAdjustments->setObjectName("AddAdjustments");
 }
@@ -204,7 +208,7 @@ void Dashboard::setFrameStockCounts()
         delete oldFrame;
     }
     // Place the new One.
-    mStockCounts = new F_StockCounts();
+    mStockCounts = new F_StockCounts(this);
     ui->layoutOneFrame->addWidget(mStockCounts);
     mStockCounts->setObjectName("StockCounts");
 }
@@ -218,7 +222,7 @@ void Dashboard::setFrameCountStock()
         delete oldFrame;
     }
     // Place the new One.
-    mCountStock = new F_CountStock();
+    mCountStock = new F_CountStock(this);
     ui->layoutOneFrame->addWidget(mCountStock);
     mCountStock->setObjectName("CountStock");
 }
@@ -234,7 +238,7 @@ void Dashboard::setFrameListSales()
         delete oldFrame;
     }
     // Place the new One.
-    mListSales = new F_ListSales();
+    mListSales = new F_ListSales(this);
     ui->layoutOneFrame->addWidget(mListSales);
     mListSales->setObjectName("ListSales");
 }
@@ -248,7 +252,7 @@ void Dashboard::setFramePOSSales()
         delete oldFrame;
     }
     // Place the new One.
-    mPOSSales = new F_POSSales();
+    mPOSSales = new F_POSSales(this);
     ui->layoutOneFrame->addWidget(mPOSSales);
     mPOSSales->setObjectName("POSSales");
 }
@@ -262,7 +266,7 @@ void Dashboard::setFrameAddSale()
         delete oldFrame;
     }
     // Place the new One.
-    mAddSale = new F_AddSale();
+    mAddSale = new F_AddSale(this);
     ui->layoutOneFrame->addWidget(mAddSale);
     mAddSale->setObjectName("AddSale");
 }
@@ -276,7 +280,7 @@ void Dashboard::setFrameAddSaleByCSV()
         delete oldFrame;
     }
     // Place the new One.
-    mAddSaleByCSV = new F_AddSaleByCSV();
+    mAddSaleByCSV = new F_AddSaleByCSV(this);
     ui->layoutOneFrame->addWidget(mAddSaleByCSV);
     mAddSaleByCSV->setObjectName("AddSaleByCSV");
 }
@@ -290,7 +294,7 @@ void Dashboard::setFrameDeliveries()
         delete oldFrame;
     }
     // Place the new One.
-    mDeliveries = new F_Deliveries();
+    mDeliveries = new F_Deliveries(this);
     ui->layoutOneFrame->addWidget(mDeliveries);
     mDeliveries->setObjectName("Deliveries");
 }
@@ -304,7 +308,7 @@ void Dashboard::setFrameListGiftCards()
         delete oldFrame;
     }
     // Place the new One.
-    mListGiftCards = new F_ListGiftCards();
+    mListGiftCards = new F_ListGiftCards(this);
     ui->layoutOneFrame->addWidget(mListGiftCards);
     mListGiftCards->setObjectName("ListGiftCards");
 }
@@ -320,7 +324,7 @@ void Dashboard::setFrameListQuotations()
         delete oldFrame;
     }
     // Place the new One.
-    mListQuotations = new F_ListQuotations();
+    mListQuotations = new F_ListQuotations(this);
     ui->layoutOneFrame->addWidget(mListQuotations);
     mListQuotations->setObjectName("ListQuotations");
 }
@@ -334,7 +338,7 @@ void Dashboard::setFrameAddQuotations()
         delete oldFrame;
     }
     // Place the new One.
-    mAddQuotations = new F_AddQuotations();
+    mAddQuotations = new F_AddQuotations(this);
     ui->layoutOneFrame->addWidget(mAddQuotations);
     mAddQuotations->setObjectName("AddQuotations");
 }
@@ -350,7 +354,7 @@ void Dashboard::setFrameListPurchases()
         delete oldFrame;
     }
     // Place the new One.
-    mListPurchases = new F_ListPurchases();
+    mListPurchases = new F_ListPurchases(this);
     ui->layoutOneFrame->addWidget(mListPurchases);
     mListPurchases->setObjectName("ListPurchases");
 }
@@ -364,7 +368,7 @@ void Dashboard::setFrameAddPurchase()
         delete oldFrame;
     }
     // Place the new One.
-    mAddPurchase = new F_AddPurchase();
+    mAddPurchase = new F_AddPurchase(this);
     ui->layoutOneFrame->addWidget(mAddPurchase);
     mAddPurchase->setObjectName("AddPurchase");
 }
@@ -378,7 +382,7 @@ void Dashboard::setFrameAddPurchasesByCSV()
         delete oldFrame;
     }
     // Place the new One.
-    mAddPurchasesByCSV = new F_AddPurchasesByCSV();
+    mAddPurchasesByCSV = new F_AddPurchasesByCSV(this);
     ui->layoutOneFrame->addWidget(mAddPurchasesByCSV);
     mAddPurchasesByCSV->setObjectName("AddPurchasesByCSV");
 }
@@ -392,7 +396,7 @@ void Dashboard::setFrameListExpenses()
         delete oldFrame;
     }
     // Place the new One.
-    mListExpenses = new F_ListExpenses();
+    mListExpenses = new F_ListExpenses(this);
     ui->layoutOneFrame->addWidget(mListExpenses);
     mListExpenses->setObjectName("ListExpenses");
 }
@@ -406,7 +410,7 @@ void Dashboard::setFrameAddExpense()
         delete oldFrame;
     }
     // Place the new One.
-    mAddExpense = new F_AddExpense();
+    mAddExpense = new F_AddExpense(this);
     ui->layoutOneFrame->addWidget(mAddExpense);
     mAddExpense->setObjectName("AddExpense");
 }
@@ -422,7 +426,7 @@ void Dashboard::setFrameListTransfers()
         delete oldFrame;
     }
     // Place the new One.
-    mListTransfers = new F_ListTransfers();
+    mListTransfers = new F_ListTransfers(this);
     ui->layoutOneFrame->addWidget(mListTransfers);
     mListTransfers->setObjectName("ListTransfers");
 }
@@ -436,7 +440,7 @@ void Dashboard::setFrameAddTransfer()
         delete oldFrame;
     }
     // Place the new One.
-    mAddTransfer = new F_AddTransfer();
+    mAddTransfer = new F_AddTransfer(this);
     ui->layoutOneFrame->addWidget(mAddTransfer);
     mAddTransfer->setObjectName("AddTransfer");
 }
@@ -450,7 +454,7 @@ void Dashboard::setFrameAddTransferByCSV()
         delete oldFrame;
     }
     // Place the new One.
-    mAddTransferByCSV = new F_AddTransferByCSV();
+    mAddTransferByCSV = new F_AddTransferByCSV(this);
     ui->layoutOneFrame->addWidget(mAddTransferByCSV);
     mAddTransferByCSV->setObjectName("AddTransferByCSV");
 }
@@ -466,7 +470,7 @@ void Dashboard::setFrameListUsers()
         delete oldFrame;
     }
     // Place the new One.
-    mListUsers = new F_ListUsers();
+    mListUsers = new F_ListUsers(this);
     ui->layoutOneFrame->addWidget(mListUsers);
     mListUsers->setObjectName("ListUsers");
 }
@@ -480,7 +484,7 @@ void Dashboard::setFrameAddUser()
         delete oldFrame;
     }
     // Place the new One.
-    mAddUser = new F_AddUser();
+    mAddUser = new F_AddUser(this);
     ui->layoutOneFrame->addWidget(mAddUser);
     mAddUser->setObjectName("AddUser");
 }
@@ -495,7 +499,7 @@ void Dashboard::setFrameListBillers()
         delete oldFrame;
     }
     // Place the new One.
-    mListBillers = new F_ListBillers();
+    mListBillers = new F_ListBillers(this);
     ui->layoutOneFrame->addWidget(mListBillers);
     mListBillers->setObjectName("ListBillers");
 }
@@ -509,7 +513,7 @@ void Dashboard::setFrameAddBiller()
         delete oldFrame;
     }
     // Place the new One.
-    mAddBiller = new F_AddBiller();
+    mAddBiller = new F_AddBiller(this);
     ui->layoutOneFrame->addWidget(mAddBiller);
     mAddBiller->setObjectName("AddBiller");
 }
@@ -524,7 +528,7 @@ void Dashboard::setFrameListCustomers()
         delete oldFrame;
     }
     // Place the new One.
-    mListCustomers = new F_ListCustomers();
+    mListCustomers = new F_ListCustomers(this);
     ui->layoutOneFrame->addWidget(mListCustomers);
     mListCustomers->setObjectName("ListCustomers");
 }
@@ -538,7 +542,7 @@ void Dashboard::setFrameAddCustomer()
         delete oldFrame;
     }
     // Place the new One.
-    mAddCustomer = new F_AddCustomer();
+    mAddCustomer = new F_AddCustomer(this);
     ui->layoutOneFrame->addWidget(mAddCustomer);
     mAddCustomer->setObjectName("AddCustomer");
 }
@@ -553,7 +557,7 @@ void Dashboard::setFrameListSuppliers()
         delete oldFrame;
     }
     // Place the new One.
-    mListSuppliers = new F_ListSuppliers();
+    mListSuppliers = new F_ListSuppliers(this);
     ui->layoutOneFrame->addWidget(mListSuppliers);
     mListSuppliers->setObjectName("ListSuppliers");
 }
@@ -567,7 +571,7 @@ void Dashboard::setFrameAddSupplier()
         delete oldFrame;
     }
     // Place the new One.
-    mAddSupplier = new F_AddSupplier();
+    mAddSupplier = new F_AddSupplier(this);
     ui->layoutOneFrame->addWidget(mAddSupplier);
     mAddSupplier->setObjectName("AddSupplier");
 }
@@ -585,7 +589,7 @@ void Dashboard::setFrameSystemSettings()
         delete oldFrame;
     }
     // Place the new One.
-    mSystemSettings = new F_SystemSettings();
+    mSystemSettings = new F_SystemSettings(this);
     ui->layoutOneFrame->addWidget(mSystemSettings);
     mSystemSettings->setObjectName("SystemSettings");
 }
@@ -599,7 +603,7 @@ void Dashboard::setFramePOSSettings()
         delete oldFrame;
     }
     // Place the new One.
-    mPOSSettings = new F_POSSettings();
+    mPOSSettings = new F_POSSettings(this);
     ui->layoutOneFrame->addWidget(mPOSSettings);
     mPOSSettings->setObjectName("POSSettings");
 }
@@ -613,7 +617,7 @@ void Dashboard::setFrameListPrinters()
         delete oldFrame;
     }
     // Place the new One.
-    mListPrinters = new F_ListPrinters();
+    mListPrinters = new F_ListPrinters(this);
     ui->layoutOneFrame->addWidget(mListPrinters);
     mListPrinters->setObjectName("ListPrinters");
 }
@@ -627,7 +631,7 @@ void Dashboard::setFrameAddPrinter()
         delete oldFrame;
     }
     // Place the new One.
-    mAddPrinter = new F_AddPrinter();
+    mAddPrinter = new F_AddPrinter(this);
     ui->layoutOneFrame->addWidget(mAddPrinter);
     mAddPrinter->setObjectName("AddPrinter");
 }
@@ -641,7 +645,7 @@ void Dashboard::setFrameChangeLogo()
         delete oldFrame;
     }
     // Place the new One.
-    mChangeLogo = new F_ChangeLogo();
+    mChangeLogo = new F_ChangeLogo(this);
     ui->layoutOneFrame->addWidget(mChangeLogo);
     mChangeLogo->setObjectName("ChangeLogo");
 }
@@ -655,7 +659,7 @@ void Dashboard::setFrameCurrencies()
         delete oldFrame;
     }
     // Place the new One.
-    mCurrencies = new F_Currencies();
+    mCurrencies = new F_Currencies(this);
     ui->layoutOneFrame->addWidget(mCurrencies);
     mCurrencies->setObjectName("Currencies");
 }
@@ -669,7 +673,7 @@ void Dashboard::setFrameCustomerGroups()
         delete oldFrame;
     }
     // Place the new One.
-    mCustomerGroups = new F_CustomerGroups();
+    mCustomerGroups = new F_CustomerGroups(this);
     ui->layoutOneFrame->addWidget(mCustomerGroups);
     mCustomerGroups->setObjectName("CustomerGroups");
 }
@@ -683,7 +687,7 @@ void Dashboard::setFramePriceGroups()
         delete oldFrame;
     }
     // Place the new One.
-    mPriceGroups = new F_PriceGroups();
+    mPriceGroups = new F_PriceGroups(this);
     ui->layoutOneFrame->addWidget(mPriceGroups);
     mPriceGroups->setObjectName("PriceGroups");
 }
@@ -697,7 +701,7 @@ void Dashboard::setFrameCategories()
         delete oldFrame;
     }
     // Place the new One.
-    mCategories = new F_Categories();
+    mCategories = new F_Categories(this);
     ui->layoutOneFrame->addWidget(mCategories);
     mCategories->setObjectName("Categories");
 }
@@ -711,7 +715,7 @@ void Dashboard::setFrameExpenseCategories()
         delete oldFrame;
     }
     // Place the new One.
-    mExpenseCategories = new F_ExpenseCategories();
+    mExpenseCategories = new F_ExpenseCategories(this);
     ui->layoutOneFrame->addWidget(mExpenseCategories);
     mExpenseCategories->setObjectName("ExpenseCategories");
 }
@@ -725,7 +729,7 @@ void Dashboard::setFrameUnits()
         delete oldFrame;
     }
     // Place the new One.
-    mUnits = new F_Units();
+    mUnits = new F_Units(this);
     ui->layoutOneFrame->addWidget(mUnits);
     mUnits->setObjectName("Units");
 }
@@ -739,7 +743,7 @@ void Dashboard::setFrameBrands()
         delete oldFrame;
     }
     // Place the new One.
-    mBrands = new F_Brands();
+    mBrands = new F_Brands(this);
     ui->layoutOneFrame->addWidget(mBrands);
     mBrands->setObjectName("Brands");
 }
@@ -753,7 +757,7 @@ void Dashboard::setFrameVariants()
         delete oldFrame;
     }
     // Place the new One.
-    mVariants = new F_Variants();
+    mVariants = new F_Variants(this);
     ui->layoutOneFrame->addWidget(mVariants);
     mVariants->setObjectName("Variants");
 }
@@ -767,7 +771,7 @@ void Dashboard::setFrameTaxRates()
         delete oldFrame;
     }
     // Place the new One.
-    mTaxRates = new F_TaxRates();
+    mTaxRates = new F_TaxRates(this);
     ui->layoutOneFrame->addWidget(mTaxRates);
     mTaxRates->setObjectName("TaxRates");
 }
@@ -781,7 +785,7 @@ void Dashboard::setFrameWarhouses()
         delete oldFrame;
     }
     // Place the new One.
-    mWarhouses = new F_Warhouses();
+    mWarhouses = new F_Warhouses(this);
     ui->layoutOneFrame->addWidget(mWarhouses);
     mWarhouses->setObjectName("Warhouses");
 }
@@ -795,7 +799,7 @@ void Dashboard::setFrameEmailTemplates()
         delete oldFrame;
     }
     // Place the new One.
-    mEmailTemplates = new F_EmailTemplates();
+    mEmailTemplates = new F_EmailTemplates(this);
     ui->layoutOneFrame->addWidget(mEmailTemplates);
     mEmailTemplates->setObjectName("EmailTemplates");
 }
@@ -809,7 +813,7 @@ void Dashboard::setFrameGroupPermissions()
         delete oldFrame;
     }
     // Place the new One.
-    mGroupPermissions = new F_GroupPermissions();
+    mGroupPermissions = new F_GroupPermissions(this);
     ui->layoutOneFrame->addWidget(mGroupPermissions);
     mGroupPermissions->setObjectName("GroupPermissions");
 }
@@ -823,7 +827,7 @@ void Dashboard::setFrameBackUps()
         delete oldFrame;
     }
     // Place the new One.
-    mBackUps = new F_BackUps();
+    mBackUps = new F_BackUps(this);
     ui->layoutOneFrame->addWidget(mBackUps);
     mBackUps->setObjectName("BackUps");
 }
@@ -837,7 +841,7 @@ void Dashboard::setFrameUpdates()
         delete oldFrame;
     }
     // Place the new One.
-    mUpdates = new F_Updates();
+    mUpdates = new F_Updates(this);
     ui->layoutOneFrame->addWidget(mUpdates);
     mUpdates->setObjectName("Updates");
 }
@@ -853,7 +857,7 @@ void Dashboard::setFrameOverViewChart()
         delete oldFrame;
     }
     // Place the new One.
-    mOverViewChart = new F_OverViewChart();
+    mOverViewChart = new F_OverViewChart(this);
     ui->layoutOneFrame->addWidget(mOverViewChart);
     mOverViewChart->setObjectName("OverViewChart");
 }
@@ -867,7 +871,7 @@ void Dashboard::setFrameWarehouseStockChart()
         delete oldFrame;
     }
     // Place the new One.
-    mWarehouseStockChart = new F_WarehouseStockChart();
+    mWarehouseStockChart = new F_WarehouseStockChart(this);
     ui->layoutOneFrame->addWidget(mWarehouseStockChart);
     mWarehouseStockChart->setObjectName("WarehouseStockChart");
 }
@@ -881,7 +885,7 @@ void Dashboard::setFrameBestSellers()
         delete oldFrame;
     }
     // Place the new One.
-    mBestSellers = new F_BestSellers();
+    mBestSellers = new F_BestSellers(this);
     ui->layoutOneFrame->addWidget(mBestSellers);
     mBestSellers->setObjectName("BestSellers");
 }
@@ -895,7 +899,7 @@ void Dashboard::setFrameRegisterReport()
         delete oldFrame;
     }
     // Place the new One.
-    mRegisterReport = new F_RegisterReport();
+    mRegisterReport = new F_RegisterReport(this);
     ui->layoutOneFrame->addWidget(mRegisterReport);
     mRegisterReport->setObjectName("RegisterReport");
 }
@@ -909,7 +913,7 @@ void Dashboard::setFrameProductQuantityAlerts()
         delete oldFrame;
     }
     // Place the new One.
-    mProductQuantityAlerts = new F_ProductQuantityAlerts();
+    mProductQuantityAlerts = new F_ProductQuantityAlerts(this);
     ui->layoutOneFrame->addWidget(mProductQuantityAlerts);
     mProductQuantityAlerts->setObjectName("ProductQuantityAlerts");
 }
@@ -923,7 +927,7 @@ void Dashboard::setFrameProductsReport()
         delete oldFrame;
     }
     // Place the new One.
-    mProductsReport = new F_ProductsReport();
+    mProductsReport = new F_ProductsReport(this);
     ui->layoutOneFrame->addWidget(mProductsReport);
     mProductsReport->setObjectName("ProductsReport");
 }
@@ -937,7 +941,7 @@ void Dashboard::setFrameAdjutmentsReport()
         delete oldFrame;
     }
     // Place the new One.
-    mAdjutmentsReport = new F_AdjutmentsReport();
+    mAdjutmentsReport = new F_AdjutmentsReport(this);
     ui->layoutOneFrame->addWidget(mAdjutmentsReport);
     mAdjutmentsReport->setObjectName("AdjutmentsReport");
 }
@@ -951,7 +955,7 @@ void Dashboard::setFrameCategoriesReport()
         delete oldFrame;
     }
     // Place the new One.
-    mCategoriesReport = new F_CategoriesReport();
+    mCategoriesReport = new F_CategoriesReport(this);
     ui->layoutOneFrame->addWidget(mCategoriesReport);
     mCategoriesReport->setObjectName("CategoriesReport");
 }
@@ -965,7 +969,7 @@ void Dashboard::setFrameBandsReport()
         delete oldFrame;
     }
     // Place the new One.
-    mBandsReport = new F_BandsReport();
+    mBandsReport = new F_BandsReport(this);
     ui->layoutOneFrame->addWidget(mBandsReport);
     mBandsReport->setObjectName("BandsReport");
 }
@@ -979,7 +983,7 @@ void Dashboard::setFrameDailySales()
         delete oldFrame;
     }
     // Place the new One.
-    mDailySales = new F_DailySales();
+    mDailySales = new F_DailySales(this);
     ui->layoutOneFrame->addWidget(mDailySales);
     mDailySales->setObjectName("DailySales");
 }
@@ -993,7 +997,7 @@ void Dashboard::setFrameMonthlySales()
         delete oldFrame;
     }
     // Place the new One.
-    mMonthlySales = new F_MonthlySales();
+    mMonthlySales = new F_MonthlySales(this);
     ui->layoutOneFrame->addWidget(mMonthlySales);
     mMonthlySales->setObjectName("MonthlySales");
 }
@@ -1007,7 +1011,7 @@ void Dashboard::setFrameSalesReport()
         delete oldFrame;
     }
     // Place the new One.
-    mSalesReport = new F_SalesReport();
+    mSalesReport = new F_SalesReport(this);
     ui->layoutOneFrame->addWidget(mSalesReport);
     mSalesReport->setObjectName("SalesReport");
 }
@@ -1015,37 +1019,4 @@ void Dashboard::setFrameSalesReport()
 Dashboard::~Dashboard()
 {
     delete ui;
-}
-
-//! ****************  STYLING FUNCTIONS QT ******************************************************
-QString Dashboard::QKStyle(int n)
-{
-    switch (n) {
-    case 1:
-    {
-        QFile MDStyle(":/styles/MaterialDesign.css");
-        QString MDstyle;
-        if (MDStyle.open(QIODevice::ReadOnly | QIODevice::Text))
-        {
-            QTextStream in(&MDStyle);
-            MDstyle = in.readAll().simplified();
-
-        }else {
-            qWarning("MDStyle not in readonly OR text mode");
-            return "";
-        }
-
-       return MDstyle;
-    }
-        break;
-    case 2:
-        return "0";
-        break;
-    case 3:
-        return "1";
-        break;
-    default:
-        break;
-    }
-    return "";
 }

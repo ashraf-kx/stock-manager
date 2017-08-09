@@ -12,6 +12,7 @@ TARGET = STOCK_MANAGER
 TEMPLATE = app
 
 
+
 SOURCES += main.cpp\
         dashboard.cpp \
     toast.cpp \
@@ -81,7 +82,8 @@ SOURCES += main.cpp\
     Reports/f_salesreport.cpp \
     People/f_addsupplier.cpp \
     dialog.cpp \
-    dbh.cpp
+    dbh.cpp \
+    Qmd/mdlineedit.cpp
 
 HEADERS  += dashboard.h \
     toast.h \
@@ -152,7 +154,8 @@ HEADERS  += dashboard.h \
     classes.h \
     People/f_addsupplier.h \
     dialog.h \
-    dbh.h
+    dbh.h \
+    Qmd/mdlineedit.h
 
 FORMS    += dashboard.ui \
     toast.ui \
@@ -221,7 +224,7 @@ FORMS    += dashboard.ui \
     Reports/f_monthlysales.ui \
     Reports/f_salesreport.ui \
     People/f_addsupplier.ui \
-    dialog.ui
+    dialog.ui  
 
 RESOURCES += \
     icons.qrc \
@@ -229,11 +232,13 @@ RESOURCES += \
     languages.qrc \
     sounds.qrc
 
-TRANSLATIONS = StockManager_ar.ts
+TRANSLATIONS = languages/StockManager_ar.ts \
+               languages/StockManager_fr.ts \
+               languages/StockManager_en.ts
 
 DISTFILES += \
-    StockManager_ar.ts \
-    StockManager_ar.qm \
+#    StockManager_ar.ts \
+#    StockManager_ar.qm \
     SM_Loggoer.ini
 
 

@@ -11,15 +11,15 @@ int main(int argc, char *argv[])
     Q_INIT_RESOURCE(styles);
     Q_INIT_RESOURCE(languages);
 
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
 
     QTranslator translator;
-    translator.load(":StockManager_ar");
-    a.installTranslator(&translator);
+    translator.load(":language_en");
+    app.installTranslator(&translator);
 
     Dashboard w;
 
     w.show();
 
-    return a.exec();
+    return app.exec();
 }
