@@ -38,6 +38,9 @@
 //! [ Sound Effects ]
 #include <QtMultimedia/QSound>
 
+//! [ Qmd Gui ]
+#include "Qmd/mdlineedit.h"
+
 class Tables
 {
 public:
@@ -191,6 +194,32 @@ public:
 
 private:
     QMap<QString,QString> style;
+};
+
+class Style
+{
+public:
+
+    explicit Style();
+    static QString loadStyle(const QString& file)
+    {
+        QFile MDFile(":"+file);
+        if (MDFile.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            QTextStream in(&MDFile);
+            return in.readAll().simplified();
+        }
+        return "";
+    }
+
+    static QGraphicsDropShadowEffect *shadow()
+    {
+        QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect();
+        shadow->setBlurRadius(8);
+        shadow->setOffset(2);
+        shadow->setColor(QColor(63, 63, 63, 180));
+        return shadow;
+    }
 };
 
 #endif // CLASSES_H
