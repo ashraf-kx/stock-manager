@@ -77,7 +77,6 @@ class MDLineEdit : public QWidget
 
 public:
     explicit MDLineEdit(QWidget *parent = 0);
-    MDLineEdit(const QString& labelText,const QString& placeholder,const QString& helperText);
 
     void loadStyle();
 public slots:
@@ -133,7 +132,7 @@ private:
     QPropertyAnimation *zoomInFont;
     QPropertyAnimation *zoomOutFont;
 
-    MDLabel        *mlabel;
+    MDLabel      *mlabel;
     QLineEdit    *mlineEdit;
     QGridLayout* layout;
 
@@ -144,7 +143,6 @@ private:
     QPushButton *mrightButton;
     QPushButton *mleftButton;
     QLabel      *mhelper;
-
 };
 
 #endif // MDLINEEDIT_H
