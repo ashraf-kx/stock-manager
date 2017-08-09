@@ -12,6 +12,7 @@
 #include <QStateMachine>
 #include <QState>
 #include <QSignalTransition>
+#include <QTimer>
 
 namespace Ui {
 class Toast;
