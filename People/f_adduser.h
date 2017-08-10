@@ -4,7 +4,6 @@
 #include <QFrame>
 #include "../classes.h"
 
-#include "../Qmd/mdlineedit.h"
 
 namespace Ui {
 class F_AddUser;
@@ -18,19 +17,25 @@ public:
     explicit F_AddUser(QWidget *parent = 0);
     ~F_AddUser();
 
-public slots:
-    void addUser();
     bool emailCheck(const QString & email);
     bool usernameCheck(const QString& username);
 
     bool groupCheck(const QString &group);
     bool companyCheck(const QString &company);
     bool passwordCheck(const QString& password,const QString& Confirme);
+    bool statusCheck(const QString &status);
+
+public slots:
+    void addUser();
+
     void clearInputs();
 
     bool inputsVerification();
     void initGroupCombo();
     void initCompanyCombo();
+
+    void showPassword();
+    void hidePassword();
 private:
     Ui::F_AddUser *ui;
     Toast        *mToast;
