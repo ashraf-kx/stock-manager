@@ -20,6 +20,14 @@ public:
 
     void createMapper();
     void keyPressEvent(QKeyEvent *e) override;
+
+public slots:
+    void hideAllRows();
+    void showAllRows();
+    void showPageRows();
+    void initListRowsPerPage();
+    void initListNumberPages();
+    void updateTableViewRows();
 private:
     Ui::F_ListUsers *ui;
     Toast *mToast;
@@ -28,6 +36,7 @@ private:
     DBH *DB;
 
     QSqlTableModel        *modelUser;
+    QSqlQueryModel        *queryModelUser;
     QDataWidgetMapper     *mapper;
     QSortFilterProxyModel *proxyModelUser;
 };
