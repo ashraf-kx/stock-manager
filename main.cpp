@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QTranslator translator;
-    translator.load(":language_en");
+    translator.load(":language_fr");
     app.installTranslator(&translator);
 
     Dashboard w;
@@ -23,3 +23,10 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+
+// TODO (1): Use DMLineEdit On the Total Widgets of the App [ 15/0 ].
+// TODO (2): Complete AddCustomer Filling the GUI with data ( Group Price & ...)
+// TODO (4) : SubProject>> Project [ Implement the Technique Plugins ].
+// FIXME (5) : Fix Problem summon FrameAddSupplier (inputs size & style ..).
+// NOTE (6) : Animate ToolBox (slideIn & Out)
+// TODO (X) : Recieve Code-Bar From Phone, And display it Form Add Products.
