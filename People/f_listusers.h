@@ -2,6 +2,7 @@
 #define F_LISTUSERS_H
 
 #include <QFrame>
+#include <QHash>
 #include "../classes.h"
 
 Q_DECLARE_LOGGING_CATEGORY(PLU)
@@ -28,6 +29,10 @@ public slots:
     void initListRowsPerPage();
     void initListNumberPages();
     void updateTableViewRows();
+    void selectedColumn();
+    void nextPage();
+    void previousPage();
+    void updateMessageInfo();
 private:
     Ui::F_ListUsers *ui;
     Toast *mToast;
@@ -39,6 +44,8 @@ private:
     QSqlQueryModel        *queryModelUser;
     QDataWidgetMapper     *mapper;
     QSortFilterProxyModel *proxyModelUser;
+    QHash<QString,int>    TA;
+    int idxColSelected;
 };
 
 #endif // F_LISTUSERS_H

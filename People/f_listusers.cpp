@@ -8,24 +8,32 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     QFrame(parent),
     ui(new Ui::F_ListUsers)
 {
-
     ui->setupUi(this);
+    this->setStyleSheet(Style::loadStyle("listUsers"));
+
     QGraphicsDropShadowEffect *sh = new QGraphicsDropShadowEffect();
     sh->setBlurRadius(8);
     sh->setOffset(2);
     sh->setColor(QColor(63, 63, 63, 180));
     this->setGraphicsEffect(sh);
 
-    mCfgDb = new Cfg_Db();
-    DB     = new DBH("_listUsers_");
-
-    mapper    = new QDataWidgetMapper();
-    modelUser = new QSqlTableModel(this,DB->getCnx());
-
+    mCfgDb         = new Cfg_Db();
+    DB             = new DBH("_listUsers_");
+    mapper         = new QDataWidgetMapper();
     queryModelUser = new QSqlQueryModel();
+
     queryModelUser->setQuery("SELECT `id`,`first_name`,`last_name`,`username`,`email`,`status`,"
                              "`created_on`,`group_id`,`company_id` FROM `users`",DB->getCnx());
-    qDebug()<<queryModelUser->rowCount();
+    TA.clear();
+    TA["id"]         = 0;
+    TA["first_name"] = 1;
+    TA["last_name"]  = 2;
+    TA["username"]   = 3;
+    TA["email"]      = 4;
+    TA["status"]     = 5;
+    TA["created_on"] = 6;
+    TA["group_id"]   = 7;
+    TA["company_id"] = 8;
 
     ui->tableView->setVisible(false);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -37,30 +45,26 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     proxyModelUser = new QSortFilterProxyModel(this);
     proxyModelUser->setSourceModel(queryModelUser);
 
-    proxyModelUser->setFilterRegExp(QRegExp("", Qt::CaseInsensitive,QRegExp::FixedString));
-    proxyModelUser->setFilterKeyColumn(1);
-
     ui->tableView->setModel(proxyModelUser);
 
-    // 6.7.8.10.11.12.13.15-22.24.26
     ui->tableView->setColumnHidden(0,true);
 
-//    modelUser->setHeaderData(0, Qt::Horizontal, tr("N#"));
-//    modelUser->setHeaderData(1, Qt::Horizontal, tr("First Name"));
-//    modelUser->setHeaderData(2, Qt::Horizontal, tr("Last Name"));
-//    modelUser->setHeaderData(3, Qt::Horizontal, tr("User Name"));
-//    modelUser->setHeaderData(4, Qt::Horizontal, tr("Group"));
-//    modelUser->setHeaderData(5, Qt::Horizontal, tr("Email"));
-//    modelUser->setHeaderData(6, Qt::Horizontal, tr("Company"));
-//    modelUser->setHeaderData(7, Qt::Horizontal, tr("Created on"));
-//    modelUser->setHeaderData(8, Qt::Horizontal, tr("Status"));
+    queryModelUser->setHeaderData(TA["id"], Qt::Horizontal, tr("N#"));
+    queryModelUser->setHeaderData(TA["first_name"], Qt::Horizontal, tr("First Name"));
+    queryModelUser->setHeaderData(TA["last_name"], Qt::Horizontal, tr("Last Name"));
+    queryModelUser->setHeaderData(TA["username"], Qt::Horizontal, tr("User Name"));
+    queryModelUser->setHeaderData(TA["group_id"], Qt::Horizontal, tr("Group"));
+    queryModelUser->setHeaderData(TA["email"], Qt::Horizontal, tr("Email"));
+    queryModelUser->setHeaderData(TA["company_id"], Qt::Horizontal, tr("Company"));
+    queryModelUser->setHeaderData(TA["created_on"], Qt::Horizontal, tr("Created on"));
+    queryModelUser->setHeaderData(TA["status"], Qt::Horizontal, tr("Status"));
 
     ui->tableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
     ui->tableView->horizontalHeader()->stretchLastSection();
     ui->tableView->verticalHeader()->stretchLastSection();
     ui->tableView->resizeColumnsToContents();
     ui->tableView->resizeRowsToContents();
-    //ui->tableView->horizontalHeader()->setResizeContentsPrecision(40);
+    ui->tableView->horizontalHeader()->setResizeContentsPrecision(0);
     ui->tableView->setWordWrap(true);
     ui->tableView->setVisible(true);
 
@@ -70,18 +74,74 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     initListRowsPerPage();
     ui->Cb_rows->setCurrentIndex(0);
 
-    connect(ui->tableView->selectionModel(), SIGNAL(currentRowChanged(QModelIndex,QModelIndex)),
+    // FIXME : Warning about signal sent two Parametres & Slot has only One. table View selectionModel ?
+    connect(ui->tableView->selectionModel(),
+            SIGNAL(currentRowChanged(QModelIndex,QModelIndex)),
             mapper, SLOT(setCurrentModelIndex(QModelIndex)));
+
+    connect(ui->tableView->selectionModel(),
+            SIGNAL(currentRowChanged(QModelIndex,QModelIndex)),
+            this, SLOT(selectedColumn()));
 
     connect(ui->Cb_rows,SIGNAL(currentTextChanged(QString)),this,SLOT(updateTableViewRows()));
     connect(ui->Cb_pages,SIGNAL(currentTextChanged(QString)),this,SLOT(showPageRows()));
 
+    connect(ui->W_search->getLineEdit(),SIGNAL(textChanged(QString)),
+            proxyModelUser,SLOT(setFilterRegExp(QString)));
 
-//    connect(ui->Bt_AddNew,SIGNAL(clicked(bool)),ui->F_AddNew,SLOT(show()));
-//    connect(ui->Bt_cancel,SIGNAL(clicked(bool)),ui->F_AddNew,SLOT(hide()));
+    connect(ui->Bt_previous,SIGNAL(clicked(bool)),this,SLOT(previousPage()));
+    connect(ui->Bt_next,SIGNAL(clicked(bool)),this,SLOT(nextPage()));
 
-    // connect(ui->Bt_save,SIGNAL(clicked(bool)),this,SLOT());
+}
 
+void F_ListUsers::updateMessageInfo()
+{
+    int startIdx =0;
+    int numRowsVisible =0;
+    int modelRows = queryModelUser->rowCount();
+    if(ui->Cb_pages->count()>0 && ui->Cb_rows->count()>0)
+    {
+        startIdx = (ui->Cb_pages->currentText().toInt()-1)*ui->Cb_rows->currentText().toInt();
+        numRowsVisible = ui->Cb_rows->currentText().toInt();
+
+        int endIdx = startIdx+numRowsVisible;
+        if(endIdx>modelRows) endIdx = modelRows;
+        ui->L_info->setText(tr("Showing ")+QString::number(startIdx+1)+
+                            tr(" to ")+QString::number(endIdx)+
+                            tr(" From ")+QString::number(modelRows)+
+                            tr(" Entries."));
+    }
+}
+
+void F_ListUsers::nextPage()
+{
+    int idxCurrent = ui->Cb_pages->currentIndex();
+    if(idxCurrent < ui->Cb_pages->count()-1 )
+    {
+        ui->Cb_pages->setCurrentIndex(idxCurrent+1);
+        updateMessageInfo();
+    }
+}
+
+void F_ListUsers::previousPage()
+{
+    int idxCurrent = ui->Cb_pages->currentIndex();
+    if(idxCurrent > 0 )
+    {
+        ui->Cb_pages->setCurrentIndex(idxCurrent-1);
+        updateMessageInfo();
+    }
+}
+
+void F_ListUsers::selectedColumn()
+{
+   idxColSelected = ui->tableView->currentIndex().column();
+   if(idxColSelected >= 0 )
+   {
+       proxyModelUser->setFilterRegExp(QRegExp("", Qt::CaseInsensitive));
+       proxyModelUser->setFilterKeyColumn(idxColSelected);
+       ui->W_search->setPlaceHolder(tr("Search By ")+queryModelUser->headerData(idxColSelected,Qt::Horizontal,Qt::DisplayRole).toString());
+   }
 }
 
 F_ListUsers::~F_ListUsers()
@@ -118,7 +178,6 @@ void F_ListUsers::initListRowsPerPage()
     if(maxRows >= 30 ) ui->Cb_rows->addItem("30");
     if(maxRows >= 50 ) ui->Cb_rows->addItem("50");
     if(maxRows >= 100 ) ui->Cb_rows->addItem("100");
-
 }
 
 void F_ListUsers::initListNumberPages()
@@ -130,8 +189,6 @@ void F_ListUsers::initListNumberPages()
     int NumPages  = maxRows/RowsCount;
     int restPages = maxRows%RowsCount;
 
-    qDebug()<<"Number Pages : "<< NumPages
-            <<"Rest   Pages : " << restPages;
     int save_i = 0;
     for(int i=1; i<= NumPages;i++)
     {
@@ -140,6 +197,7 @@ void F_ListUsers::initListNumberPages()
     }
 
     if(restPages > 0) ui->Cb_pages->addItem(QString::number(save_i+1));
+    updateMessageInfo();
 }
 
 void F_ListUsers::showPageRows()
@@ -159,6 +217,7 @@ void F_ListUsers::showPageRows()
         {
             ui->tableView->showRow(i);
         }
+        updateMessageInfo();
     }
 }
 
@@ -171,14 +230,28 @@ void F_ListUsers::updateTableViewRows()
 void F_ListUsers::createMapper()
 {
     mapper->setModel(proxyModelUser);
+    mapper->addMapping(ui->Sb_IDUser,TA["id"]);
 
-    mapper->addMapping(ui->Sb_IDUser,0);
-    mapper->addMapping(ui->Le_firstName,1);
-    mapper->addMapping(ui->Le_lastName,2);
-    mapper->addMapping(ui->Le_email,3);
-    mapper->addMapping(ui->Le_group,4);
-    mapper->addMapping(ui->Le_company,5);
-    mapper->addMapping(ui->Le_status,6);
+    ui->W_firstname->showLineEdit();
+    mapper->addMapping(ui->W_firstname->getLineEdit(),TA["first_name"]);
+
+    ui->W_lastname->showLineEdit();
+    mapper->addMapping(ui->W_lastname->getLineEdit(),TA["last_name"]);
+
+    ui->W_username->showLineEdit();
+    mapper->addMapping(ui->W_username->getLineEdit(),TA["username"]);
+
+    ui->W_email->showLineEdit();
+    mapper->addMapping(ui->W_email->getLineEdit(),TA["email"]);
+
+    ui->W_group->showLineEdit();
+    mapper->addMapping(ui->W_group->getLineEdit(),TA["group_id"]);
+
+    ui->W_company->showLineEdit();
+    mapper->addMapping(ui->W_company->getLineEdit(),TA["company_id"]);
+
+    ui->W_status->showLineEdit();
+    mapper->addMapping(ui->W_status->getLineEdit(),TA["status"]);
 }
 
 void F_ListUsers::keyPressEvent(QKeyEvent *e)
@@ -186,5 +259,9 @@ void F_ListUsers::keyPressEvent(QKeyEvent *e)
     if (e->key() == Qt::Key_Delete)
     {
         // deleteWarehouse();
+        // TODO : Delete user in a safe way if it's not needed,( duplicated or mis-inserting record).
+        // delicate situation CAREFULL PLEASE.
     }
 }
+
+// FIXME : problem #include "mdlineedit" located in the ui_f_listusers. because the plugin used {first guest}
