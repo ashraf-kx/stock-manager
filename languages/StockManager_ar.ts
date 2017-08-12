@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ar_EG">
+<TS version="2.1" language="ar_EG">
 <context>
     <name>Dashboard</name>
     <message>
@@ -489,7 +489,7 @@
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="32"/>
-        <location filename="../People/f_adduser.ui" line="618"/>
+        <location filename="../People/f_adduser.ui" line="724"/>
         <source>Add User</source>
         <translation type="unfinished"></translation>
     </message>
@@ -501,8 +501,8 @@
     <message>
         <location filename="../People/f_adduser.ui" line="58"/>
         <location filename="../People/f_adduser.ui" line="105"/>
-        <location filename="../People/f_adduser.ui" line="251"/>
-        <location filename="../People/f_adduser.ui" line="312"/>
+        <location filename="../People/f_adduser.ui" line="252"/>
+        <location filename="../People/f_adduser.ui" line="344"/>
         <source>Styled Input Text.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -522,164 +522,159 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="152"/>
-        <source>Gender</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../People/f_adduser.ui" line="175"/>
+        <location filename="../People/f_adduser.ui" line="171"/>
         <source>Male</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="180"/>
+        <location filename="../People/f_adduser.ui" line="176"/>
         <source>Female</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="197"/>
+        <location filename="../People/f_adduser.ui" line="216"/>
         <source>Company *</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="248"/>
+        <location filename="../People/f_adduser.ui" line="249"/>
         <source>My custom Line Edit Support MD </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="254"/>
+        <location filename="../People/f_adduser.ui" line="255"/>
         <source>Phone *</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="260"/>
+        <location filename="../People/f_adduser.ui" line="261"/>
         <source>+xxx xxx xxx xxx</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="309"/>
+        <location filename="../People/f_adduser.ui" line="341"/>
         <source>Type your current Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="315"/>
+        <location filename="../People/f_adduser.ui" line="347"/>
         <source>Email *</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="321"/>
+        <location filename="../People/f_adduser.ui" line="353"/>
         <source>name@email.com</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="350"/>
+        <location filename="../People/f_adduser.ui" line="403"/>
         <source>User Name *</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="356"/>
+        <location filename="../People/f_adduser.ui" line="409"/>
         <source>type username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="397"/>
+        <location filename="../People/f_adduser.ui" line="459"/>
         <source>Password *</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="400"/>
-        <source>At least 1 Capital, 1 Lowercase, 1 number and more \n then 8 characters long</source>
+        <location filename="../People/f_adduser.ui" line="462"/>
+        <source>At least 1 Capital, 1 Lowercase, 1 number and more then 8 characters long</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="438"/>
+        <location filename="../People/f_adduser.ui" line="512"/>
         <source>Confirm Password *</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="486"/>
+        <location filename="../People/f_adduser.ui" line="617"/>
         <source>Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="515"/>
+        <location filename="../People/f_adduser.ui" line="622"/>
         <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="520"/>
+        <location filename="../People/f_adduser.ui" line="627"/>
         <source>Pending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="525"/>
+        <location filename="../People/f_adduser.ui" line="632"/>
         <source>Banned</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="530"/>
+        <location filename="../People/f_adduser.ui" line="637"/>
         <source>Disactive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="535"/>
+        <location filename="../People/f_adduser.ui" line="642"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.ui" line="558"/>
+        <location filename="../People/f_adduser.ui" line="682"/>
         <source>Group *</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="29"/>
+        <location filename="../People/f_adduser.cpp" line="36"/>
         <source>Time elapsed : </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="42"/>
-        <location filename="../People/f_adduser.cpp" line="339"/>
+        <location filename="../People/f_adduser.cpp" line="50"/>
+        <location filename="../People/f_adduser.cpp" line="347"/>
         <source>Select Company</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="50"/>
-        <location filename="../People/f_adduser.cpp" line="331"/>
+        <location filename="../People/f_adduser.cpp" line="58"/>
+        <location filename="../People/f_adduser.cpp" line="339"/>
         <source>Select User Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="164"/>
+        <location filename="../People/f_adduser.cpp" line="172"/>
         <source>Invalide Em@il</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="171"/>
+        <location filename="../People/f_adduser.cpp" line="179"/>
         <source>email verified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="177"/>
+        <location filename="../People/f_adduser.cpp" line="185"/>
         <source>Type Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="188"/>
+        <location filename="../People/f_adduser.cpp" line="196"/>
         <source>Em@il Already Used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="233"/>
+        <location filename="../People/f_adduser.cpp" line="241"/>
         <source>respect the password norme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="240"/>
+        <location filename="../People/f_adduser.cpp" line="248"/>
         <source>Good Job</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../People/f_adduser.cpp" line="246"/>
+        <location filename="../People/f_adduser.cpp" line="254"/>
         <source>Complete typing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -743,7 +738,7 @@
         <location filename="../Settings/f_brands.ui" line="113"/>
         <location filename="../Settings/f_brands.cpp" line="31"/>
         <source>Code</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">الرمز</translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="120"/>
@@ -753,7 +748,7 @@
     <message>
         <location filename="../Settings/f_brands.ui" line="127"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حفظ</translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="130"/>
@@ -1087,7 +1082,7 @@
     <message>
         <location filename="../People/f_listbillers.ui" line="257"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حفظ</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="264"/>
@@ -1216,7 +1211,7 @@
     <message>
         <location filename="../People/f_listcustomers.ui" line="285"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حفظ</translation>
     </message>
     <message>
         <location filename="../People/f_listcustomers.ui" line="292"/>
@@ -1432,7 +1427,7 @@
     <message>
         <location filename="../People/f_listsuppliers.ui" line="257"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حفظ</translation>
     </message>
     <message>
         <location filename="../People/f_listsuppliers.ui" line="264"/>
@@ -1598,7 +1593,7 @@
     <message>
         <location filename="../People/f_listusers.ui" line="285"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حفظ</translation>
     </message>
     <message>
         <location filename="../People/f_listusers.ui" line="292"/>
@@ -2170,7 +2165,7 @@ AN	ANT	530	NT	Netherlands Antilles	Willemstad	960	300000	NA	.an	ANG	Guilder	599	
     <message>
         <location filename="../Settings/f_units.ui" line="114"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حفظ</translation>
     </message>
     <message>
         <location filename="../Settings/f_units.ui" line="117"/>
@@ -2283,7 +2278,7 @@ AN	ANT	530	NT	Netherlands Antilles	Willemstad	960	300000	NA	.an	ANG	Guilder	599	
     <message>
         <location filename="../Settings/f_warhouses.ui" line="139"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حفظ</translation>
     </message>
     <message>
         <location filename="../Settings/f_warhouses.ui" line="142"/>
@@ -2332,24 +2327,6 @@ AN	ANT	530	NT	Netherlands Antilles	Willemstad	960	300000	NA	.an	ANG	Guilder	599	
     </message>
 </context>
 <context>
-    <name>MDLineEdit</name>
-    <message>
-        <location filename="../Qmd/mdlineedit.cpp" line="11"/>
-        <source>Type Something</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Qmd/mdlineedit.cpp" line="17"/>
-        <source>First Name *</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Qmd/mdlineedit.cpp" line="49"/>
-        <source>Only Lettres, Numbers a spaces</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Side_navigator</name>
     <message>
         <location filename="../side_navigator.ui" line="26"/>
@@ -2362,62 +2339,62 @@ AN	ANT	530	NT	Netherlands Antilles	Willemstad	960	300000	NA	.an	ANG	Guilder	599	
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.ui" line="168"/>
+        <location filename="../side_navigator.ui" line="172"/>
         <source>Sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.ui" line="207"/>
+        <location filename="../side_navigator.ui" line="215"/>
         <source>Quotations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.ui" line="240"/>
+        <location filename="../side_navigator.ui" line="252"/>
         <source>Purchases</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.ui" line="273"/>
+        <location filename="../side_navigator.ui" line="289"/>
         <source>Transfers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.ui" line="306"/>
+        <location filename="../side_navigator.ui" line="326"/>
         <source>People</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.ui" line="339"/>
+        <location filename="../side_navigator.ui" line="363"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.ui" line="372"/>
+        <location filename="../side_navigator.ui" line="400"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.ui" line="405"/>
+        <location filename="../side_navigator.ui" line="437"/>
         <source>Reports</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="130"/>
+        <location filename="../side_navigator.cpp" line="132"/>
         <source>List products</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="133"/>
+        <location filename="../side_navigator.cpp" line="135"/>
         <source>Add Products</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="136"/>
+        <location filename="../side_navigator.cpp" line="138"/>
         <source>Import Products</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="138"/>
+        <location filename="../side_navigator.cpp" line="139"/>
         <source>Print Barcode/Label</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2427,292 +2404,292 @@ AN	ANT	530	NT	Netherlands Antilles	Willemstad	960	300000	NA	.an	ANG	Guilder	599	
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="142"/>
+        <location filename="../side_navigator.cpp" line="141"/>
         <source>Add Adjustments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="144"/>
+        <location filename="../side_navigator.cpp" line="142"/>
         <source>Stock Counts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="146"/>
+        <location filename="../side_navigator.cpp" line="143"/>
         <source>Count Stock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="163"/>
+        <location filename="../side_navigator.cpp" line="157"/>
         <source>List Sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="165"/>
+        <location filename="../side_navigator.cpp" line="159"/>
         <source>POS Sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="167"/>
+        <location filename="../side_navigator.cpp" line="161"/>
         <source>Add Sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="169"/>
+        <location filename="../side_navigator.cpp" line="162"/>
         <source>Add Sales by CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="171"/>
+        <location filename="../side_navigator.cpp" line="163"/>
         <source>Deliveries</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="173"/>
+        <location filename="../side_navigator.cpp" line="164"/>
         <source>List Gift Cards</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="187"/>
+        <location filename="../side_navigator.cpp" line="176"/>
         <source>List Quotations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="188"/>
+        <location filename="../side_navigator.cpp" line="177"/>
         <source>Add Quotations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="196"/>
+        <location filename="../side_navigator.cpp" line="185"/>
         <source>List Purchases</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="198"/>
+        <location filename="../side_navigator.cpp" line="187"/>
         <source>Add Purchase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="199"/>
+        <location filename="../side_navigator.cpp" line="188"/>
         <source>Add Purchases by CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="200"/>
+        <location filename="../side_navigator.cpp" line="189"/>
         <source>List Expenses</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="201"/>
+        <location filename="../side_navigator.cpp" line="190"/>
         <source>Add Expense</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="212"/>
+        <location filename="../side_navigator.cpp" line="201"/>
         <source>List Transfers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="214"/>
+        <location filename="../side_navigator.cpp" line="203"/>
         <source>Add Transfer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="215"/>
+        <location filename="../side_navigator.cpp" line="204"/>
         <source>Add Transfer by CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="224"/>
+        <location filename="../side_navigator.cpp" line="213"/>
         <source>List Users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="225"/>
+        <location filename="../side_navigator.cpp" line="215"/>
         <source>Add User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="227"/>
+        <location filename="../side_navigator.cpp" line="218"/>
         <source>List Billers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="228"/>
+        <location filename="../side_navigator.cpp" line="220"/>
         <source>Add Biller</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="230"/>
+        <location filename="../side_navigator.cpp" line="223"/>
         <source>List Customers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="231"/>
+        <location filename="../side_navigator.cpp" line="225"/>
         <source>Add Customer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="233"/>
+        <location filename="../side_navigator.cpp" line="228"/>
         <source>List Suppliers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="234"/>
+        <location filename="../side_navigator.cpp" line="230"/>
         <source>Add Supplier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="256"/>
+        <location filename="../side_navigator.cpp" line="253"/>
         <source>System Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="257"/>
+        <location filename="../side_navigator.cpp" line="254"/>
         <source>POS Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="258"/>
+        <location filename="../side_navigator.cpp" line="255"/>
         <source>List Printers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="260"/>
+        <location filename="../side_navigator.cpp" line="257"/>
         <source>Add Printer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="261"/>
+        <location filename="../side_navigator.cpp" line="258"/>
         <source>Change Logo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="262"/>
+        <location filename="../side_navigator.cpp" line="259"/>
         <source>Currencies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="263"/>
+        <location filename="../side_navigator.cpp" line="260"/>
         <source>Customer Groups</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="264"/>
+        <location filename="../side_navigator.cpp" line="261"/>
         <source>Price Groups</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="265"/>
+        <location filename="../side_navigator.cpp" line="262"/>
         <source>Categories</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="266"/>
+        <location filename="../side_navigator.cpp" line="263"/>
         <source>Expense Categories</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="267"/>
+        <location filename="../side_navigator.cpp" line="264"/>
         <source>Units</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="268"/>
+        <location filename="../side_navigator.cpp" line="265"/>
         <source>Brands</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="269"/>
+        <location filename="../side_navigator.cpp" line="266"/>
         <source>Variants</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="270"/>
+        <location filename="../side_navigator.cpp" line="267"/>
         <source>Tax Rates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="271"/>
+        <location filename="../side_navigator.cpp" line="268"/>
         <source>Warhouses</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="272"/>
+        <location filename="../side_navigator.cpp" line="269"/>
         <source>Email Templates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="273"/>
+        <location filename="../side_navigator.cpp" line="270"/>
         <source>Group Permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="274"/>
+        <location filename="../side_navigator.cpp" line="271"/>
         <source>BackUps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="275"/>
+        <location filename="../side_navigator.cpp" line="272"/>
         <source>Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="300"/>
+        <location filename="../side_navigator.cpp" line="297"/>
         <source>Overview Chart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="301"/>
+        <location filename="../side_navigator.cpp" line="298"/>
         <source>Warehouse Stock Chart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="302"/>
+        <location filename="../side_navigator.cpp" line="299"/>
         <source>Best Sellers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="303"/>
+        <location filename="../side_navigator.cpp" line="300"/>
         <source>Register Report</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="304"/>
+        <location filename="../side_navigator.cpp" line="301"/>
         <source>Product Quantity Alerts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="305"/>
+        <location filename="../side_navigator.cpp" line="302"/>
         <source>Products Report</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="306"/>
+        <location filename="../side_navigator.cpp" line="303"/>
         <source>Adjutments Report</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="307"/>
+        <location filename="../side_navigator.cpp" line="304"/>
         <source>Categories Report</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="308"/>
+        <location filename="../side_navigator.cpp" line="305"/>
         <source>Bands Report</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="309"/>
+        <location filename="../side_navigator.cpp" line="306"/>
         <source>Daily Sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="310"/>
+        <location filename="../side_navigator.cpp" line="307"/>
         <source>Monthly Sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../side_navigator.cpp" line="311"/>
+        <location filename="../side_navigator.cpp" line="308"/>
         <source>Sales Report</source>
         <translation type="unfinished"></translation>
     </message>
