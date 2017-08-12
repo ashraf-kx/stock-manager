@@ -3,20 +3,20 @@
 MDLineEdit::MDLineEdit(QWidget *parent) : QWidget(parent)
 {
     this->setObjectName("MDLineEdit");
-    // this->loadStyle();
 
     // init
+    qreal mFontSize = 14;//fontInfo().pixelSize();
+    qDebug()<<mFontSize<<" size MDLineEdit";
     mlineEdit = new QLineEdit(this);
     mlineEdit->setObjectName(QStringLiteral("mlineEdit"));
-    mlineEdit->setMinimumWidth(260);
+    // mlineEdit->setMinimumWidth(260);
     mlineEdit->setVisible(false);
-
 
     mlabel = new MDLabel(this);
     mlabel->setObjectName(QStringLiteral("mlabel"));
-    mlabel->setMinimumWidth(260);
-    mlabel->setScaledContents(true);
-    mlabel->setWordWrap(true);
+    // mlabel->setMinimumWidth(260);
+    mlabel->setScaledContents(false);
+    mlabel->setWordWrap(false);
     mlabel->setCursor(QCursor(Qt::IBeamCursor));
     mlabel->setVisible(true);
 
@@ -33,7 +33,9 @@ MDLineEdit::MDLineEdit(QWidget *parent) : QWidget(parent)
     layout->addItem(verticalSpacerUp,0,1,1,1);
 
     layout->addWidget(dynamic_cast<QLabel*>(mlabel),1,1,1,1);
+    QLabel *lb = new QLabel(" ");
     layout->addWidget(mlineEdit,2,1,1,1);
+    layout->addWidget(lb,1,2,1,1);
 
     mline = new QFrame(this);
     mline->setObjectName(QStringLiteral("mline"));
@@ -70,15 +72,15 @@ MDLineEdit::MDLineEdit(QWidget *parent) : QWidget(parent)
     zoomOutFont = new QPropertyAnimation(dynamic_cast<QLabel*>(mlabel), "fontPointSize");
 
     zoomOutFont->setDuration(200);
-    zoomOutFont->setStartValue(16);
-    zoomOutFont->setEndValue(12);
+    zoomOutFont->setStartValue(mFontSize);
+    zoomOutFont->setEndValue(mFontSize-3);
     zoomOutFont->setEasingCurve(QEasingCurve::InSine);
 
     zoomInFont = new QPropertyAnimation(dynamic_cast<QLabel*>(mlabel), "fontPointSize");
 
     zoomInFont->setDuration(200);
-    zoomInFont->setStartValue(12);
-    zoomInFont->setEndValue(16);
+    zoomInFont->setStartValue(mFontSize-3);
+    zoomInFont->setEndValue(mFontSize);
     zoomInFont->setEasingCurve(QEasingCurve::OutSine);
 
     connect(mlabel,SIGNAL(clicked()),this,SLOT(floating()));
@@ -91,20 +93,21 @@ MDLineEdit::MDLineEdit(QWidget *parent) : QWidget(parent)
     layout->addWidget(mlabel,2,1); // Resting.
     layout->addWidget(mlineEdit,1,1); // resting.
 
-    this->mlabel->setFontPointSize(16);
-    mlineEdit->setFont(QFont("",16));
+    this->mlabel->setFontPointSize(mFontSize);
+    mlineEdit->setFont(QFont("",mFontSize));
 }
 
 void MDLineEdit::floating()
 {
     if(mlineEdit->text().isEmpty() )
     {
-        layout->addWidget(mlabel,1,1,1,1); // floating.
-        layout->addWidget(mlineEdit,2,1,1,1); // floating.
+
         zoomOutFont->start();
 
         mlineEdit->setFocus();
         mlineEdit->setCursorPosition(0);
+        layout->addWidget(mlabel,1,1,1,1); // floating.
+        layout->addWidget(mlineEdit,2,1,1,1); // floating.
         mlineEdit->setVisible(true);
 
         activeStyle();
@@ -113,7 +116,7 @@ void MDLineEdit::floating()
 
 void MDLineEdit::resting()
 {
-    if(mlineEdit->text().isEmpty())
+    if(mlineEdit->text().isEmpty() )
     {
         layout->addWidget(mlabel,2,1); // replace.
         layout->addWidget(mlineEdit,1,1);
@@ -131,8 +134,8 @@ void MDLineEdit::resting()
 
 void MDLineEdit::activeStyle()
 {
-    mlabel->setStyleSheet("color:#0091ea;");
-    mline->setStyleSheet("border:2px solid #0091ea;");
+    mlabel->setStyleSheet("color:#0091EA;");
+    mline->setStyleSheet("border:2px solid #0091EA;");
 }
 
 void MDLineEdit::inactiveStyle()
@@ -143,12 +146,13 @@ void MDLineEdit::inactiveStyle()
 
 void MDLineEdit::parseError(const QString& msg)
 {
-    mhelper->setText(msg);
+    if(!msg.isEmpty())
+        mhelper->setText(msg);
+
     mhelper->setStyleSheet("padding-top: 8 dp;"
-                              "color: #ff1744;"
-                              "font-size: 11pt ;");
-    mlabel->setStyleSheet("color  : #ff1744;");
-    mline->setStyleSheet("border:2px solid #FF1744;");
+                           "color: #FF1744;");  // "font-size: 11pt ;"
+    mlabel->setStyleSheet( "color: #FF1744;");
+    mline->setStyleSheet(  "border:2px solid #FF1744;");
 }
 
 void MDLineEdit::setDisabled(bool state)
@@ -299,39 +303,11 @@ MDLabel *MDLineEdit::getLabel()
     return mlabel;
 }
 
-void MDLineEdit::loadStyle()
+void MDLineEdit::showLineEdit()
 {
-
-//    this->setStyleSheet("#MDLineEdit {"
-//                "background-color: rgb(255, 255, 255);}"
-//                "#mhelper"
-//                "{"
-//                "padding-top: 8 dp;"
-//                "color: #c7c7c7;"
-//               // "font: 13;"
-//                "}"
-
-//                "#mleftButton"
-//                "{"
-//                "padding-right:16 dp;"
-//                "}"
-
-//                "#mlineEdit"
-//                "{"
-//                "border:none;"
-//              //  "font: 18 ;"
-//                "padding-bottom: 8 dp;"
-//                "}"
-
-//                "#mline"
-//                "{"
-//                "border:2px solid #c7c7c7;"
-//                "padding:0 0 0 0;"
-//                "}"
-//                "#mlabel{ "
-//                        //"font: 18 ;"
-//                        "padding-top: 16 dp;"
-//                        "padding-bottom: 8 dp;"
-//                        "color:#c7c7c7;"
-//                        "}");
+    layout->addWidget(mlabel,1,1,1,1); // floating.
+    layout->addWidget(mlineEdit,2,1,1,1); // floating.
+    mlineEdit->setVisible(true);
 }
+
+// TODO (3): Use Validation With MDLineEdit.

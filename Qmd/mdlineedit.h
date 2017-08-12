@@ -22,6 +22,11 @@
 #include <QSignalTransition>
 #include <QTimer>
 
+QT_BEGIN_NAMESPACE
+class MDLabel;
+class MDLineEdit;
+QT_END_NAMESPACE
+
 class MDLabel: public QLabel
 {
     Q_OBJECT
@@ -78,7 +83,7 @@ class MDLineEdit : public QWidget
 public:
     explicit MDLineEdit(QWidget *parent = 0);
 
-    void loadStyle();
+
 public slots:
     void resting();
     void activeStyle();
@@ -87,6 +92,7 @@ public slots:
 
     void parseError(const QString &msg);
     void setDisabled(bool state);
+    void showLineEdit();
 
     // Qt-Property Sheet
     QString text() const;
