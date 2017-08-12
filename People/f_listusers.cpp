@@ -146,7 +146,9 @@ void F_ListUsers::selectedColumn()
 
 F_ListUsers::~F_ListUsers()
 {
-    DB->mRemoveDatabase("_listUsers_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_listUsers_");
+    #endif
     delete ui;
 }
 

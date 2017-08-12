@@ -39,34 +39,7 @@
 #include <QtMultimedia/QSound>
 
 //! [ Qmd Gui ]
-#include "Qmd/mdlineedit.h"
-
-class Tables
-{
-public:
-    Tables();
-};
-
-class Unit
-{
-private:
-    int ID;
-    QString sizeName;
-    QString measurement;
-public:
-    explicit Unit(){ ID=-1; sizeName.clear(); measurement.clear(); }
-    ~Unit();
-
-
-    void setID(int ID){ this->ID = ID; }
-    void setSizeName(const QString& sizeName){ this->sizeName = sizeName; }
-    void setMeasurement(const QString& measurement){ this->measurement = measurement; }
-
-    int getID(){ return this->ID; }
-    QString getSizeName(){ return this->sizeName; }
-    QString getMeasurement(){return this->measurement;}
-
-};
+#include <Qmd/mdlineedit.h>
 
 class Cfg_Db {
 
@@ -75,7 +48,7 @@ public:
         driverName = "QMYSQL";
         hostname   = "localhost";
         username   = "root";
-        password   = "";
+        password   = "root";
         schemaName = "sma_db";
         port       = 3306;
     }

@@ -2,6 +2,7 @@
 #define DIALOG_H
 
 #include <QtWidgets/QDialog>
+#include <QGridLayout>
 // QAnimate Framework
 #include <QPropertyAnimation>
 #include <QSequentialAnimationGroup>
@@ -32,5 +33,8 @@ private:
     QPropertyAnimation *animSlideOut;
     QPropertyAnimation *animSlideIn;
 };
+
+
+
 
 #endif // DIALOG_H

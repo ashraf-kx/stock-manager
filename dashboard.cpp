@@ -15,7 +15,7 @@ Dashboard::Dashboard(QWidget *parent) :
     f.setPointSizeF(14.0);
     this->setFont(f);
 
-    qDebug()<<"font Size of"<<this->objectName()<<this->fontInfo().pointSizeF();
+    // qDebug()<<"font Size of"<<this->objectName()<<this->fontInfo().pointSizeF();
 
     mTopNav     = new Top_navigator(this);
     mSideNAV    = new Side_navigator(this);

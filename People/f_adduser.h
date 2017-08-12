@@ -38,9 +38,9 @@ public slots:
     void hidePassword();
 private:
     Ui::F_AddUser *ui;
-    Toast        *mToast;
-    Cfg_Db       *mCfgDb;
-    DBH          *DB;
+    Toast         *mToast;
+    Cfg_Db        *mCfgDb;
+    DBH           *DB;
 
     QStringList listCompanies;
     QStringList listGroups;

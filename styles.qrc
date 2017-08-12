@@ -1,5 +1,5 @@
 <RCC>
-    <qresource lang="FR, EN" prefix="/">
+    <qresource prefix="/" lang="FR, EN">
         <file alias="MaterialDesgin">styles/MaterialDesign.css</file>
         <file alias="SideNavigator">styles/SideNavigator.css</file>
         <file alias="TopPanel">styles/TopPanel.css</file>
@@ -10,8 +10,9 @@
         <file alias="addUser">styles/addUser.css</file>
         <file alias="settings">styles/Settings.css</file>
         <file alias="toast">styles/Toast.css</file>
+        <file alias="listUsers">styles/listUsers.css</file>
     </qresource>
-    <qresource lang="AR" prefix="/">
+    <qresource prefix="/" lang="AR">
         <file alias="addBiller">styles/RTL_addBiller.css</file>
         <file alias="addCustomer">styles/RTL_addCustomer.css</file>
         <file alias="addProduct">styles/RTL_addProducts.css</file>
@@ -19,5 +20,6 @@
         <file alias="addUser">styles/RTL_addUser.css</file>
         <file alias="settings">styles/RTL_Settings.css</file>
         <file alias="SideNavigator">styles/RTL_SideNavigator.css</file>
+        <file alias="listUsers">styles/RTL_listUsers.css</file>
     </qresource>
 </RCC>

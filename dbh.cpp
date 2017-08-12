@@ -9,7 +9,7 @@ DBH::DBH()
     QSqlDatabase::database().setHostName("127.0.0.1");
     QSqlDatabase::database().setPort(3306);
     QSqlDatabase::database().setUserName("root");
-    QSqlDatabase::database().setPassword("");
+    QSqlDatabase::database().setPassword("root");
     QSqlDatabase::database().open();
 
     query = new QSqlQuery(QSqlDatabase::database());
@@ -23,7 +23,7 @@ DBH::DBH(const QString &name)
     QSqlDatabase::database(name).setHostName("127.0.0.1");
     QSqlDatabase::database(name).setPort(3306);
     QSqlDatabase::database(name).setUserName("root");
-    QSqlDatabase::database(name).setPassword("");
+    QSqlDatabase::database(name).setPassword("root");
     QSqlDatabase::database(name).open();
 
     query = new QSqlQuery(QSqlDatabase::database(name));

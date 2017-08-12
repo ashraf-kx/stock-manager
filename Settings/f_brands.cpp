@@ -67,7 +67,9 @@ F_Brands::F_Brands(QWidget *parent) :
 
 F_Brands::~F_Brands()
 {
-    DB->mRemoveDatabase("_brands_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_brands_");
+    #endif
     delete ui;
 }
 

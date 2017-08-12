@@ -67,7 +67,9 @@ F_Warhouses::F_Warhouses(QWidget *parent) :
 
 F_Warhouses::~F_Warhouses()
 {
-    DB->mRemoveDatabase("_warehouses_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_warehouses_");
+    #endif
     delete ui;
 }
 

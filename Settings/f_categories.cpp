@@ -116,7 +116,9 @@ F_Categories::F_Categories(QWidget *parent) :
 
 F_Categories::~F_Categories()
 {
-    DB->mRemoveDatabase("_categories_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_categories_");
+    #endif
     delete ui;
 }
 

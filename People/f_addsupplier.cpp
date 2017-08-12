@@ -45,7 +45,9 @@ F_AddSupplier::F_AddSupplier(QWidget *parent) :
 
 F_AddSupplier::~F_AddSupplier()
 {
-    DB->mRemoveDatabase("_addSupplier_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_addSupplier_");
+    #endif
     delete ui;
 }
 
@@ -58,20 +60,20 @@ bool F_AddSupplier::inputsVerification()
         int pos=0;
         QString tmp_str = ui->Le_email->text();
         switch (v->validate(tmp_str,pos)) {
-        case v->Invalid:
+        case QValidator::Invalid:
             qCDebug(LC_XD)<<__FILE__<<"Error email";
             mToast = new Toast(this);
             mToast->show(tr("Invalide Em@il"),s["error_alert"]);
             ui->Le_email->setStyleSheet(s["error"]);
             check = false;
             break;
-        case v->Acceptable:
+        case QValidator::Acceptable:
             qCDebug(LC_XD)<<__FILE__<<"valide email <ok>";
             mToast = new Toast(this);
             mToast->show(tr("email verified"),s["accepted_alert"]);
             ui->Le_email->setStyleSheet(s["accepted"]);
             break;
-        case v->Intermediate:
+        case QValidator::Intermediate:
             qCDebug(LC_XD)<<__FILE__<<"email not finished yet";
             mToast = new Toast(this);
             mToast->show(tr("Type Email"),s["info_alert"]);
@@ -127,12 +129,12 @@ void F_AddSupplier::addSupplier()
         bool accept = true;
         if(supplier_id > -1)
         {
-            Dialog *D = new Dialog(this);
-            D->setMessage(tr("This supplier exist Already, are you sure you want to Add it ?"),"question");
-            if(D->exec() == 1)
-                accept =true;
-            else
-                accept =false;
+//            Dialog *D = new Dialog(this);
+//            D->setMessage(tr("This supplier exist Already, are you sure you want to Add it ?"),"question");
+//            if(D->exec() == 1)
+//                accept =true;
+//            else
+//                accept =false;
         }
 
         if(accept)

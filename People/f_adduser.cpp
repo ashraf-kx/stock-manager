@@ -25,13 +25,15 @@ F_AddUser::F_AddUser(QWidget *parent) :
     initCompanyCombo();
     initGroupCombo();
 
-    ui->Cb_company->setGraphicsEffect(Style::shadow());
+    /*ui->Cb_company->setGraphicsEffect(Style::shadow());
     ui->Cb_gender->setGraphicsEffect(Style::shadow());
     ui->Cb_group->setGraphicsEffect(Style::shadow());
-    ui->Cb_status->setGraphicsEffect(Style::shadow());
+    ui->Cb_status->setGraphicsEffect(Style::shadow());*/
+    //ui->Bt_addUser->setGraphicsEffect(Style::shadow());
 
     ui->W_password->getLineEdit()->setEchoMode(QLineEdit::Password);
     ui->W_confirmePass->getLineEdit()->setEchoMode(QLineEdit::Password);
+    ui->Bt_addUser->raise();
 
     connect(ui->W_password->getRightBtn(),SIGNAL(pressed()),this,SLOT(showPassword()));
     connect(ui->W_password->getRightBtn(),SIGNAL(released()),this,SLOT(hidePassword()));
@@ -40,12 +42,15 @@ F_AddUser::F_AddUser(QWidget *parent) :
     connect(ui->Bt_addUser,SIGNAL(clicked(bool)),this,SLOT(addUser()));
 
     this->setStatusTip(tr("Time elapsed : ")+QString::number(t.elapsed())+" ms.");
+
     // this->setGraphicsEffect(Style::shadow());
 }
 
 F_AddUser::~F_AddUser()
 {
-    DB->mRemoveDatabase("_addUser_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_addUser_");
+    #endif
     delete ui;
 }
 
@@ -202,15 +207,15 @@ bool F_AddUser::inputsVerification()
             int pos=0;
             QString tmp_str = ui->W_email->text();
             switch (v->validate(tmp_str,pos)) {
-            case v->Invalid:
+            case QValidator::Invalid:
                 ui->W_email->getHelper()->setVisible(true);
                 ui->W_email->parseError("Error E-mail");
                 check = false;
                 break;
-            case v->Acceptable:
+            case QValidator::Acceptable:
                 ui->W_email->getHelper()->setVisible(false);
                 break;
-            case v->Intermediate:
+            case QValidator::Intermediate:
                 ui->W_email->getHelper()->setVisible(true);
                 ui->W_email->parseError("Error E-mail");
                 check = false;
@@ -237,17 +242,17 @@ bool F_AddUser::inputsVerification()
         int pos=0;
         QString tmp_str = ui->W_username->text();
         switch (v->validate(tmp_str,pos)) {
-        case v->Invalid:
+        case QValidator::Invalid:
             qDebug()<<"Error username";
             ui->W_username->getHelper()->setVisible(true);
             ui->W_username->parseError("Only Letters, numbers and (_, -)");
             check = false;
             break;
-        case v->Acceptable:
+        case QValidator::Acceptable:
             qDebug()<<"valide username";
             ui->W_username->getHelper()->setVisible(false);
             break;
-        case v->Intermediate:
+        case QValidator::Intermediate:
             ui->W_username->getHelper()->setVisible(true);
             ui->W_username->parseError("Only Letters, numbers and (_, -)");
             check = false;
@@ -267,16 +272,16 @@ bool F_AddUser::inputsVerification()
         int pos=0;
         QString tmp_str = ui->W_password->text();
         switch (v->validate(tmp_str,pos)) {
-        case v->Invalid:
+        case QValidator::Invalid:
             ui->W_password->getHelper()->setVisible(true);
             ui->W_password->parseError("");
             check = false;
             break;
-        case v->Acceptable:
+        case QValidator::Acceptable:
             ui->W_password->getHelper()->setVisible(false);
             check = true;
             break;
-        case v->Intermediate:
+        case QValidator::Intermediate:
             ui->W_password->getHelper()->setVisible(true);
             ui->W_password->parseError("");
             check = false;

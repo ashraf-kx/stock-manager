@@ -13,21 +13,21 @@ Top_navigator::Top_navigator(QWidget *parent) :
     sh->setColor(QColor(63, 63, 63, 180));
     this->setGraphicsEffect(sh);
 
-    QTimer *timer = new QTimer(this);
-    timer->setInterval(3000);
-    timer->start();
+//    QTimer *timer = new QTimer(this);
+//    timer->setInterval(3000);
+//    timer->start();
 
-    connect(timer,SIGNAL(timeout()),this,SLOT(updateInfo()));
-    connect(timer,SIGNAL(timeout()),timer,SLOT(start()));
+//    connect(timer,SIGNAL(timeout()),this,SLOT(updateInfo()));
+//    connect(timer,SIGNAL(timeout()),timer,SLOT(start()));
 }
 
 void Top_navigator::updateInfo()
 {
-    QString txt="";
-    foreach (QString name, QSqlDatabase::connectionNames()) {
-        txt += "["+name+"], ";
-    }
-    ui->label->setText(txt);
+//    QString txt="";
+//    foreach (QString name, QSqlDatabase::connectionNames()) {
+//        txt += "["+name+"], ";
+//    }
+//    ui->label->setText(txt);
 
 }
 

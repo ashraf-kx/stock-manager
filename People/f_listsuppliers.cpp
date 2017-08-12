@@ -47,26 +47,6 @@ F_ListSuppliers::F_ListSuppliers(QWidget *parent) :
 
     ui->tableView->setModel(proxyModelSupplier);
 
-    // 6.7.8.10.11.12.13.15-22.24.26
-//    ui->tableView->setColumnHidden(0,true);
-//    ui->tableView->setColumnHidden(4,true);
-//    ui->tableView->setColumnHidden(6,true);
-//    ui->tableView->setColumnHidden(7,true);
-//    ui->tableView->setColumnHidden(8,true);
-//    ui->tableView->setColumnHidden(10,true);
-//    ui->tableView->setColumnHidden(11,true);
-//    ui->tableView->setColumnHidden(12,true);
-//    ui->tableView->setColumnHidden(13,true);
-//    ui->tableView->setColumnHidden(15,true);
-//    ui->tableView->setColumnHidden(16,true);
-//    ui->tableView->setColumnHidden(17,true);
-//    ui->tableView->setColumnHidden(18,true);
-//    ui->tableView->setColumnHidden(19,true);
-//    ui->tableView->setColumnHidden(20,true);
-//    ui->tableView->setColumnHidden(21,true);
-//    ui->tableView->setColumnHidden(22,true);
-//    ui->tableView->setColumnHidden(24,true);
-//    ui->tableView->setColumnHidden(26,true);
 
     ui->tableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
     ui->tableView->horizontalHeader()->stretchLastSection();
@@ -92,7 +72,9 @@ F_ListSuppliers::F_ListSuppliers(QWidget *parent) :
 
 F_ListSuppliers::~F_ListSuppliers()
 {
-    DB->mRemoveDatabase("_listsuppliers_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_listsuppliers_");
+    #endif
     delete ui;
 }
 

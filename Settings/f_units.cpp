@@ -1,6 +1,6 @@
 #include "f_units.h"
 #include "ui_f_units.h"
-
+#include "../mdialog.h"
 F_Units::F_Units(QWidget *parent) :
     QFrame(parent),
     ui(new Ui::F_Units)
@@ -111,7 +111,13 @@ void F_Units::createMapper()
 void F_Units::keyPressEvent(QKeyEvent *e)
 {
     if (e->key() == Qt::Key_Delete) {
-        deleteUnit();
+        MDialog *mDialog = new MDialog();
+        mDialog->setMessage("Do You Really Want To Delete This Unit ?");
+        if(mDialog->exec() == 1 )
+            deleteUnit();
+        mDialog->close();
+        mDialog->deleteLater();
+//        this->showMaximized();
     }
 }
 
@@ -130,6 +136,8 @@ void F_Units::keyPressEvent(QKeyEvent *e)
 
 F_Units::~F_Units()
 {
-    DB->mRemoveDatabase("_units_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_units_");
+    #endif
     delete ui;
 }

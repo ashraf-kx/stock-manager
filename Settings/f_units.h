@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include "../classes.h"
+#include "dialog.h"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ public slots:
     void deleteUnit();
 private:
     Ui::F_Units *ui;
-    Toast *mToast;
+    Toast  *mToast;
 
     Cfg_Db *mCfgDb;
     DBH *DB;

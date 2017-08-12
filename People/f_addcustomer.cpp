@@ -33,7 +33,9 @@ F_AddCustomer::F_AddCustomer(QWidget *parent) :
 
 F_AddCustomer::~F_AddCustomer()
 {
-    DB->mRemoveDatabase("_addcustomer_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_addcustomer_");
+    #endif
     delete ui;
 }
 

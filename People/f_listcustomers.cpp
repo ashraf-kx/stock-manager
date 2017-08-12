@@ -91,7 +91,9 @@ F_ListCustomers::F_ListCustomers(QWidget *parent) :
 
 F_ListCustomers::~F_ListCustomers()
 {
-    DB->mRemoveDatabase("_listCustomers_");
+    #ifdef _WIN32
+        DB->mRemoveDatabase("_listCustomers_");
+    #endif
     delete ui;
 }
 
