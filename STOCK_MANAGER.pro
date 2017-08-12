@@ -6,6 +6,8 @@
 
 QT       += core gui sql multimedia
 
+CONFIG   += c++11
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = STOCK_MANAGER
@@ -83,7 +85,8 @@ SOURCES += main.cpp\
     People/f_addsupplier.cpp \
     dialog.cpp \
     dbh.cpp \
-    Qmd/mdlineedit.cpp
+    Qmd/mdlineedit.cpp \
+    mdialog.cpp
 
 HEADERS  += dashboard.h \
     toast.h \
@@ -155,7 +158,8 @@ HEADERS  += dashboard.h \
     People/f_addsupplier.h \
     dialog.h \
     dbh.h \
-    Qmd/mdlineedit.h
+    Qmd/mdlineedit.h \
+    mdialog.h
 
 FORMS    += dashboard.ui \
     toast.ui \
@@ -224,7 +228,9 @@ FORMS    += dashboard.ui \
     Reports/f_monthlysales.ui \
     Reports/f_salesreport.ui \
     People/f_addsupplier.ui \
-    dialog.ui  
+    dialog.ui \
+    mdialog.ui
+
 
 RESOURCES += \
     icons.qrc \
