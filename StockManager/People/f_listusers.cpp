@@ -19,11 +19,13 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
 
     mCfgDb         = new Cfg_Db();
     DB             = new DBH("_listUsers_");
+
     mapper         = new QDataWidgetMapper();
     queryModelUser = new QSqlQueryModel();
 
     queryModelUser->setQuery("SELECT `id`,`first_name`,`last_name`,`username`,`email`,`status`,"
                              "`created_on`,`group_id`,`company_id` FROM `users`",DB->getCnx());
+
     TA.clear();
     TA["id"]         = 0;
     TA["first_name"] = 1;
@@ -35,7 +37,6 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     TA["group_id"]   = 7;
     TA["company_id"] = 8;
 
-    ui->tableView->setVisible(false);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
@@ -147,7 +148,7 @@ void F_ListUsers::selectedColumn()
 F_ListUsers::~F_ListUsers()
 {
     #ifdef _WIN32
-        DB->mRemoveDatabase("_listUsers_");
+       // DB->mRemoveDatabase("_listUsers_");
     #endif
     delete ui;
 }

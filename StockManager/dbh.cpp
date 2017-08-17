@@ -26,6 +26,8 @@ DBH::DBH(const QString &name)
     QSqlDatabase::database(name).setPassword("root");
     QSqlDatabase::database(name).open();
 
+    qDebug()<<"connections Names : "<<QSqlDatabase::database(name).connectionNames();
+
     query = new QSqlQuery(QSqlDatabase::database(name));
 }
 

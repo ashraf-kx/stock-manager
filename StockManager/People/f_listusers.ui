@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>817</width>
-    <height>357</height>
+    <height>589</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -105,7 +105,7 @@
       </widget>
      </item>
      <item>
-      <widget class="MDLineEdit" name="W_search">
+      <widget class="MDLineEdit" name="W_search" native="true">
        <property name="minimumSize">
         <size>
          <width>200</width>
@@ -118,13 +118,13 @@
          <height>70</height>
         </size>
        </property>
-       <property name="labelText">
+       <property name="labelText" stdset="0">
         <string>Search</string>
        </property>
-       <property name="helperText">
+       <property name="helperText" stdset="0">
         <string/>
        </property>
-       <property name="placeHolder">
+       <property name="placeHolder" stdset="0">
         <string/>
        </property>
        <property name="helperVisible" stdset="0">
@@ -170,14 +170,14 @@
          <number>6</number>
         </property>
         <item>
-         <widget class="MDLineEdit" name="W_firstname">
-          <property name="labelText">
+         <widget class="MDLineEdit" name="W_firstname" native="true">
+          <property name="labelText" stdset="0">
            <string>First Name</string>
           </property>
-          <property name="helperText">
+          <property name="helperText" stdset="0">
            <string/>
           </property>
-          <property name="placeHolder">
+          <property name="placeHolder" stdset="0">
            <string/>
           </property>
           <property name="helperVisible" stdset="0">
@@ -192,14 +192,14 @@
          </widget>
         </item>
         <item>
-         <widget class="MDLineEdit" name="W_lastname">
-          <property name="labelText">
+         <widget class="MDLineEdit" name="W_lastname" native="true">
+          <property name="labelText" stdset="0">
            <string>Last Name</string>
           </property>
-          <property name="helperText">
+          <property name="helperText" stdset="0">
            <string/>
           </property>
-          <property name="placeHolder">
+          <property name="placeHolder" stdset="0">
            <string/>
           </property>
           <property name="helperVisible" stdset="0">
@@ -214,14 +214,14 @@
          </widget>
         </item>
         <item>
-         <widget class="MDLineEdit" name="W_username">
-          <property name="labelText">
+         <widget class="MDLineEdit" name="W_username" native="true">
+          <property name="labelText" stdset="0">
            <string>User Name</string>
           </property>
-          <property name="helperText">
+          <property name="helperText" stdset="0">
            <string/>
           </property>
-          <property name="placeHolder">
+          <property name="placeHolder" stdset="0">
            <string/>
           </property>
           <property name="helperVisible" stdset="0">
@@ -236,14 +236,14 @@
          </widget>
         </item>
         <item>
-         <widget class="MDLineEdit" name="W_email">
-          <property name="labelText">
+         <widget class="MDLineEdit" name="W_email" native="true">
+          <property name="labelText" stdset="0">
            <string>Email</string>
           </property>
-          <property name="helperText">
+          <property name="helperText" stdset="0">
            <string/>
           </property>
-          <property name="placeHolder">
+          <property name="placeHolder" stdset="0">
            <string/>
           </property>
           <property name="helperVisible" stdset="0">
@@ -258,14 +258,14 @@
          </widget>
         </item>
         <item>
-         <widget class="MDLineEdit" name="W_company">
-          <property name="labelText">
+         <widget class="MDLineEdit" name="W_company" native="true">
+          <property name="labelText" stdset="0">
            <string>Company</string>
           </property>
-          <property name="helperText">
+          <property name="helperText" stdset="0">
            <string/>
           </property>
-          <property name="placeHolder">
+          <property name="placeHolder" stdset="0">
            <string/>
           </property>
           <property name="helperVisible" stdset="0">
@@ -280,14 +280,14 @@
          </widget>
         </item>
         <item>
-         <widget class="MDLineEdit" name="W_awardsPoint">
-          <property name="labelText">
+         <widget class="MDLineEdit" name="W_awardsPoint" native="true">
+          <property name="labelText" stdset="0">
            <string>Awards Pionts</string>
           </property>
-          <property name="helperText">
+          <property name="helperText" stdset="0">
            <string/>
           </property>
-          <property name="placeHolder">
+          <property name="placeHolder" stdset="0">
            <string/>
           </property>
           <property name="helperVisible" stdset="0">
@@ -302,8 +302,8 @@
          </widget>
         </item>
         <item>
-         <widget class="MDLineEdit" name="W_group">
-          <property name="labelText">
+         <widget class="MDLineEdit" name="W_group" native="true">
+          <property name="labelText" stdset="0">
            <string>Group Users</string>
           </property>
           <property name="helperVisible" stdset="0">
@@ -318,14 +318,14 @@
          </widget>
         </item>
         <item>
-         <widget class="MDLineEdit" name="W_status">
-          <property name="labelText">
+         <widget class="MDLineEdit" name="W_status" native="true">
+          <property name="labelText" stdset="0">
            <string>Status</string>
           </property>
-          <property name="helperText">
+          <property name="helperText" stdset="0">
            <string/>
           </property>
-          <property name="placeHolder">
+          <property name="placeHolder" stdset="0">
            <string/>
           </property>
           <property name="helperVisible" stdset="0">
@@ -364,6 +364,12 @@
    </item>
    <item>
     <widget class="QTableView" name="tableView">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>400</height>
+      </size>
+     </property>
      <property name="verticalScrollBarPolicy">
       <enum>Qt::ScrollBarAsNeeded</enum>
      </property>
@@ -407,19 +413,6 @@
       <bool>false</bool>
      </attribute>
     </widget>
-   </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
    </item>
    <item>
     <layout class="QHBoxLayout" name="layoutFooter">

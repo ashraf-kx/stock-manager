@@ -39,7 +39,7 @@
 #include <QtMultimedia/QSound>
 
 //! [ Qmd Gui ]
-#include <Qmd/mdlineedit.h>
+#include <mdlineedit.h>
 
 class Cfg_Db {
 
