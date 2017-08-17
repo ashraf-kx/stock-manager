@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>F_AddUser</class>
+ <widget class="QFrame" name="F_AddUser">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>958</width>
+    <height>707</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::NoFrame</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Plain</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QLabel" name="L_header">
+     <property name="text">
+      <string>Add User</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="layoutLeftSide">
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QComboBox" name="Cb_company">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>16</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="frame">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Company *</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="MDLineEdit" name="W_firstName">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>type First Name here</string>
+         </property>
+         <property name="whatsThis">
+          <string>Styled Input Text.</string>
+         </property>
+         <property name="labelText">
+          <string>First Name *</string>
+         </property>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MDLineEdit" name="W_lastName">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>type Last Name here</string>
+         </property>
+         <property name="whatsThis">
+          <string>Styled Input Text.</string>
+         </property>
+         <property name="labelText">
+          <string>Last Name *</string>
+         </property>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QComboBox" name="Cb_gender">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>16</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::NoInsert</enum>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>24</width>
+           <height>24</height>
+          </size>
+         </property>
+         <property name="frame">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Male</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Female</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="MDLineEdit" name="W_phone">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>My custom Line Edit Support MD </string>
+         </property>
+         <property name="whatsThis">
+          <string>Styled Input Text.</string>
+         </property>
+         <property name="labelText">
+          <string>Phone *</string>
+         </property>
+         <property name="helperText">
+          <string/>
+         </property>
+         <property name="placeHolder">
+          <string>+xxx xxx xxx xxx</string>
+         </property>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="LIconPixmap" stdset="0">
+          <pixmap resource="../icons.qrc">:/b/icons/b/ic_phone_2x.png</pixmap>
+         </property>
+         <property name="LIconSize" stdset="0">
+          <size>
+           <width>30</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="layoutMid">
+       <item>
+        <spacer name="verticalSpacer_9">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="MDLineEdit" name="W_email">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>Type your current Email</string>
+         </property>
+         <property name="whatsThis">
+          <string>Styled Input Text.</string>
+         </property>
+         <property name="labelText">
+          <string>Email *</string>
+         </property>
+         <property name="helperText">
+          <string/>
+         </property>
+         <property name="placeHolder">
+          <string>name@email.com</string>
+         </property>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="LIconPixmap" stdset="0">
+          <pixmap resource="../icons.qrc">:/b/icons/b/ic_mail_2x.png</pixmap>
+         </property>
+         <property name="LIconSize" stdset="0">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MDLineEdit" name="W_username">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="labelText">
+          <string>User Name *</string>
+         </property>
+         <property name="helperText">
+          <string/>
+         </property>
+         <property name="placeHolder">
+          <string>type username</string>
+         </property>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="LIconPixmap" stdset="0">
+          <pixmap resource="../icons.qrc">:/b/icons/b/ic_account_circle_2x.png</pixmap>
+         </property>
+         <property name="LIconSize" stdset="0">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MDLineEdit" name="W_password">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="labelText">
+          <string>Password *</string>
+         </property>
+         <property name="helperText">
+          <string>At least 1 Capital, 1 Lowercase, 1 number and more then 8 characters long</string>
+         </property>
+         <property name="helperVisible" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="LIconPixmap" stdset="0">
+          <pixmap resource="../icons.qrc">:/b/icons/b/ic_vpn_key_2x.png</pixmap>
+         </property>
+         <property name="RIconPixmap" stdset="0">
+          <pixmap resource="../icons.qrc">:/b/icons/b/ic_remove_red_eye_2x.png</pixmap>
+         </property>
+         <property name="LIconSize" stdset="0">
+          <size>
+           <width>30</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MDLineEdit" name="W_confirmePass">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="labelText">
+          <string>Confirm Password *</string>
+         </property>
+         <property name="helperText">
+          <string/>
+         </property>
+         <property name="placeHolder">
+          <string/>
+         </property>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="LIconPixmap" stdset="0">
+          <pixmap resource="../icons.qrc">:/b/icons/b/ic_done_all_2x.png</pixmap>
+         </property>
+         <property name="LIconSize" stdset="0">
+          <size>
+           <width>30</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_10">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="layoutRightSide">
+       <item>
+        <spacer name="verticalSpacer_12">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QComboBox" name="Cb_status">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>350</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>16</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="frame">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Status</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Active</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Pending</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Banned</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Disactive</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_13">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QComboBox" name="Cb_group">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>16</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="frame">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Group *</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Bt_addUser">
+         <property name="text">
+          <string>Add User</string>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>935</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MDLineEdit</class>
+   <extends>QWidget</extends>
+   <header>mdlineedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
