@@ -2012,4 +2012,7 @@
         <file>icons/b/ic_zoom_out_2x.png</file>
         <file>icons/b/ic_zoom_out_map_2x.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>icons/inventory.png</file>
+    </qresource>
 </RCC>
