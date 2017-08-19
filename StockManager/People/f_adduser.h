@@ -25,6 +25,7 @@ public:
     bool passwordCheck(const QString& password,const QString& Confirme);
     bool statusCheck(const QString &status);
 
+    void initTabOrder();
 public slots:
     void addUser();
 

@@ -26,11 +26,11 @@ F_AddUser::F_AddUser(QWidget *parent) :
     initCompanyCombo();
     initGroupCombo();
 
-    /*ui->Cb_company->setGraphicsEffect(Style::shadow());
-    ui->Cb_gender->setGraphicsEffect(Style::shadow());
-    ui->Cb_group->setGraphicsEffect(Style::shadow());
-    ui->Cb_status->setGraphicsEffect(Style::shadow());*/
-    //
+//    ui->Cb_company->setGraphicsEffect(Style::shadowbutton());
+//    ui->Cb_gender->setGraphicsEffect(Style::shadow());
+//    ui->Cb_group->setGraphicsEffect(Style::shadow());
+//    ui->Cb_status->setGraphicsEffect(Style::shadow());
+
 
     ui->W_password->getLineEdit()->setEchoMode(QLineEdit::Password);
     ui->W_confirmePass->getLineEdit()->setEchoMode(QLineEdit::Password);
@@ -44,6 +44,8 @@ F_AddUser::F_AddUser(QWidget *parent) :
     //########## Connectors Signal ~> slots #############
     connect(ui->Bt_addUser,SIGNAL(clicked(bool)),this,SLOT(addUser()));
 
+    initTabOrder();
+
     this->setStatusTip(tr("Time elapsed : ")+QString::number(t.elapsed())+" ms.");    
 }
 
@@ -53,6 +55,14 @@ F_AddUser::~F_AddUser()
         DB->mRemoveDatabase("_addUser_");
     #endif
     delete ui;
+}
+
+void F_AddUser::initTabOrder()
+{
+    this->setTabOrder(ui->Cb_company,ui->W_firstName);
+    this->setTabOrder(ui->W_firstName,ui->W_lastName);
+    this->setTabOrder(ui->W_lastName,ui->Cb_gender);
+    this->setTabOrder(ui->Cb_gender,ui->W_phone);
 }
 
 void F_AddUser::showPassword()

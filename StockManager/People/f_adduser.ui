@@ -13,18 +13,6 @@
     <height>707</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Frame</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
-  <property name="frameShape">
-   <enum>QFrame::NoFrame</enum>
-  </property>
-  <property name="frameShadow">
-   <enum>QFrame::Plain</enum>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QLabel" name="L_header">
@@ -90,9 +78,12 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>type First Name here</string>
@@ -112,6 +103,12 @@
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
          </property>
+         <property name="LBtnSize">
+          <size>
+           <width>100</width>
+           <height>30</height>
+          </size>
+         </property>
         </widget>
        </item>
        <item>
@@ -124,9 +121,12 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>type Last Name here</string>
@@ -218,9 +218,12 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>My custom Line Edit Support MD </string>
@@ -310,9 +313,12 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Type your current Email</string>
@@ -359,9 +365,12 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="labelText">
           <string>User Name *</string>
@@ -402,9 +411,12 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="labelText">
           <string>Password *</string>
@@ -442,9 +454,12 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="labelText">
           <string>Confirm Password *</string>
@@ -667,8 +682,11 @@
          <property name="text">
           <string>Add User</string>
          </property>
+         <property name="default">
+          <bool>true</bool>
+         </property>
          <property name="flat">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -694,10 +712,24 @@
  <customwidgets>
   <customwidget>
    <class>MDLineEdit</class>
-   <extends>QWidget</extends>
+   <extends></extends>
    <header>mdlineedit.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>Cb_company</tabstop>
+  <tabstop>W_firstName</tabstop>
+  <tabstop>W_lastName</tabstop>
+  <tabstop>Cb_gender</tabstop>
+  <tabstop>W_phone</tabstop>
+  <tabstop>W_email</tabstop>
+  <tabstop>W_username</tabstop>
+  <tabstop>W_password</tabstop>
+  <tabstop>W_confirmePass</tabstop>
+  <tabstop>Cb_status</tabstop>
+  <tabstop>Cb_group</tabstop>
+  <tabstop>Bt_addUser</tabstop>
+ </tabstops>
  <resources>
   <include location="../icons.qrc"/>
  </resources>
