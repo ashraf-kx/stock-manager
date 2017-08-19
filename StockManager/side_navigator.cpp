@@ -8,8 +8,10 @@ Side_navigator::Side_navigator(QWidget *parent) :
     ui(new Ui::Side_navigator)
 {
     ui->setupUi(this);
+    isToolBoxVisible = true;
 
     this->setStyleSheet(Style::loadStyle("SideNavigator"));
+
 
     QGraphicsDropShadowEffect *sh = new QGraphicsDropShadowEffect();
     sh->setBlurRadius(8);
@@ -27,9 +29,7 @@ Side_navigator::Side_navigator(QWidget *parent) :
     createSettingsItems();
     createReportsItems();
 
-   this->setMouseTracking(true);
-
-    // ui->toolBox->
+    this->setMouseTracking(true);
 
     // Products
     connect(mListProducts,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
@@ -115,11 +115,50 @@ Side_navigator::Side_navigator(QWidget *parent) :
     connect(mMonthlySales,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
     connect(mSalesReport,SIGNAL(clicked(bool)),this,SLOT(ClickSound()));
 
+    currentSize = this->size();
 }
 
 Side_navigator::~Side_navigator()
 {
     delete ui;
+}
+
+void Side_navigator::visibility()
+{
+    if(isToolBoxVisible)
+        isToolBoxVisible = false;
+    else
+        isToolBoxVisible = true;
+
+    if(isToolBoxVisible)
+        slideIn();
+    else
+        slideOut();
+}
+
+//! [ Animation Come In Come out ]
+void Side_navigator::slideIn() // <+++++++>
+{
+    this->show();
+    animateSize = new QPropertyAnimation(this, "size");
+    animateSize->setDuration(200);
+    animateSize->setStartValue(QSize(0,currentSize.height()));
+    animateSize->setEndValue(currentSize);
+    animateSize->setEasingCurve(QEasingCurve::OutSine);
+    animateSize->start();
+    //QTimer::singleShot(200, this, SLOT(show()));
+}
+
+void Side_navigator::slideOut() // ---->++<-----
+{
+    currentSize = this->size();
+    animateSize = new QPropertyAnimation(this, "size");
+    animateSize->setDuration(200);
+    animateSize->setStartValue(currentSize);
+    animateSize->setEndValue(QSize(0,currentSize.height()));
+    animateSize->setEasingCurve(QEasingCurve::InSine);
+    animateSize->start();
+    QTimer::singleShot(200, this, SLOT(hide()));
 }
 
 void Side_navigator::ClickSound()
@@ -321,13 +360,6 @@ void Side_navigator::createReportsItems()
     ui->layoutReportsItems->addWidget(mSalesReport);
 }
 
-void Side_navigator::mousePressEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton)
-    {
-        qDebug()<<"click"; //mClickedBtn->text()<<
-    }
-}
 //! [ LOL ;) ]
 // Products
 QPushButton* Side_navigator::getBtnListProducts()

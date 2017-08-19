@@ -11,6 +11,16 @@
 #include <QMouseEvent>
 #include "classes.h"
 
+// QAnimate Framework
+#include <QPropertyAnimation>
+#include <QSequentialAnimationGroup>
+#include <QParallelAnimationGroup>
+#include <QStateMachine>
+#include <QState>
+#include <QSignalTransition>
+#include <QTimer>
+
+
 namespace Ui {
 class Side_navigator;
 }
@@ -34,10 +44,8 @@ public:
     void createSettingsItems();
     void createReportsItems();
 
-
     void loadStyle();
 
-    void mousePressEvent(QMouseEvent *event) override;
 private:
     Ui::Side_navigator *ui;
 
@@ -211,8 +219,16 @@ public:
     QPushButton* getBtnMonthlySales();
     QPushButton* getBtnSalesReport();
 
+    void slideIn();
+    void slideOut();
 public slots:
     void ClickSound();
+    void visibility();
+
+private:
+    QPropertyAnimation *animateSize;
+    QSize currentSize;
+    bool isToolBoxVisible;
 };
 
 #endif // SIDE_NAVIGATOR_H
