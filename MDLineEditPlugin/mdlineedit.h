@@ -67,6 +67,7 @@ class MDLineEdit : public QWidget
     Q_OBJECT
     Q_PROPERTY(QString text READ text WRITE setText)
     Q_PROPERTY(QString labelText READ labelText WRITE setLabelText)
+    Q_PROPERTY(int fontSize READ fontSize WRITE setFontSize)
     Q_PROPERTY(QString helperText READ helperText WRITE setHelperText)
     Q_PROPERTY(QString placeHolder READ placeHolder WRITE setPlaceHolder)
 
@@ -74,15 +75,18 @@ class MDLineEdit : public QWidget
     Q_PROPERTY(bool leftIconVisible READ leftIconIsVisible WRITE setLeftIconVisibile)
     Q_PROPERTY(bool rightIconVisible READ rightIconIsVisible WRITE setRightIconVisibile)
 
+    Q_PROPERTY(QSize LBtnSize READ LBtnSize WRITE setLBtnSize)
     Q_PROPERTY(QPixmap LIconPixmap READ leftIconPixmap WRITE setLeftIconPixmap)
-    Q_PROPERTY(QPixmap RIconPixmap READ rightIconPixmap WRITE setRightIconPixmap)
-
     Q_PROPERTY(QSize LIconSize READ leftIconSize WRITE setLeftIconSize)
+
+    Q_PROPERTY(QSize RBtnSize READ RBtnSize WRITE setRBtnSize)
+    Q_PROPERTY(QPixmap RIconPixmap READ rightIconPixmap WRITE setRightIconPixmap)
     Q_PROPERTY(QSize RIconSize READ rightIconSize WRITE setRightIconSize)
 
 public:
     explicit MDLineEdit(QWidget *parent = 0);
-
+    void focusInEvent(QFocusEvent *event) override;
+    void focusOutEvent(QFocusEvent *event) override;
 
 public slots:
     void resting();
@@ -100,6 +104,9 @@ public slots:
 
     QString labelText() const;
     void setLabelText(const QString& text);
+
+    int  fontSize();
+    void setFontSize(int fontSize);
 
     QString helperText() const;
     void setHelperText(const QString& text);
@@ -128,6 +135,12 @@ public slots:
     QSize rightIconSize() const;
     void setRightIconSize(const QSize& size);
 
+    QSize LBtnSize() const;
+    void setLBtnSize(const QSize& size);
+
+    QSize RBtnSize();
+    void setRBtnSize(const QSize& size);
+
     QPushButton *getLeftBtn();
     QPushButton *getRightBtn();
     QLabel      *getHelper();
@@ -149,6 +162,8 @@ private:
     QPushButton *mrightButton;
     QPushButton *mleftButton;
     QLabel      *mhelper;
+
+    qreal mFontSize;
 };
 
 #endif // MDLINEEDIT_H
