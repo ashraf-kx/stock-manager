@@ -1,8 +1,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    StockManager \
-    MDLineEditPlugin
-
+    MDLineEditPlugin \
+    StockManager
 
 CONFIG += ordered
