@@ -97,13 +97,14 @@
 #include "Reports/f_monthlysales.h"
 #include "Reports/f_salesreport.h"
 
+#include "ui_dashboard.h"
 using namespace std;
 
 namespace Ui {
 class Dashboard;
 }
 
-class Dashboard : public QMainWindow
+class Dashboard : public QMainWindow, private Ui::Dashboard
 {
     Q_OBJECT
 
@@ -197,12 +198,8 @@ public slots:
         void setFrameMonthlySales();
         void setFrameSalesReport();
 private:
-    Ui::Dashboard *ui;
-
     Side_navigator *mSideNAV;
     Top_navigator  *mTopNav;
-
-
 
     //! [Stupidito] 300%
 
