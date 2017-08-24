@@ -2,7 +2,7 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     MDLineEditPlugin \
-    StockManager
+    StockManager \
     camera
 
 CONFIG += ordered
