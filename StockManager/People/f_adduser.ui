@@ -82,6 +82,15 @@
            <height>524287</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <kerning>true</kerning>
+          </font>
+         </property>
          <property name="focusPolicy">
           <enum>Qt::TabFocus</enum>
          </property>
@@ -93,6 +102,9 @@
          </property>
          <property name="labelText">
           <string>First Name *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
@@ -125,6 +137,11 @@
            <height>524287</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
          <property name="focusPolicy">
           <enum>Qt::TabFocus</enum>
          </property>
@@ -136,6 +153,9 @@
          </property>
          <property name="labelText">
           <string>Last Name *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
@@ -222,6 +242,11 @@
            <height>524287</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
          <property name="focusPolicy">
           <enum>Qt::TabFocus</enum>
          </property>
@@ -233,6 +258,9 @@
          </property>
          <property name="labelText">
           <string>Phone *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string/>
@@ -317,6 +345,11 @@
            <height>524287</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
          <property name="focusPolicy">
           <enum>Qt::TabFocus</enum>
          </property>
@@ -328,6 +361,9 @@
          </property>
          <property name="labelText">
           <string>Email *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string/>
@@ -369,11 +405,19 @@
            <height>524287</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
          <property name="focusPolicy">
           <enum>Qt::TabFocus</enum>
          </property>
          <property name="labelText">
           <string>User Name *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string/>
@@ -415,11 +459,19 @@
            <height>524287</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
          <property name="focusPolicy">
           <enum>Qt::TabFocus</enum>
          </property>
          <property name="labelText">
           <string>Password *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string>At least 1 Capital, 1 Lowercase, 1 number and more then 8 characters long</string>
@@ -433,14 +485,14 @@
          <property name="LIconPixmap" stdset="0">
           <pixmap resource="../icons.qrc">:/b/icons/b/ic_vpn_key_2x.png</pixmap>
          </property>
-         <property name="RIconPixmap" stdset="0">
-          <pixmap resource="../icons.qrc">:/b/icons/b/ic_remove_red_eye_2x.png</pixmap>
-         </property>
          <property name="LIconSize" stdset="0">
           <size>
            <width>30</width>
            <height>24</height>
           </size>
+         </property>
+         <property name="RIconPixmap" stdset="0">
+          <pixmap resource="../icons.qrc">:/b/icons/b/ic_remove_red_eye_2x.png</pixmap>
          </property>
         </widget>
        </item>
@@ -458,11 +510,19 @@
            <height>524287</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
          <property name="focusPolicy">
           <enum>Qt::TabFocus</enum>
          </property>
          <property name="labelText">
           <string>Confirm Password *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string/>
@@ -712,7 +772,7 @@
  <customwidgets>
   <customwidget>
    <class>MDLineEdit</class>
-   <extends></extends>
+   <extends>QWidget</extends>
    <header>mdlineedit.h</header>
   </customwidget>
  </customwidgets>

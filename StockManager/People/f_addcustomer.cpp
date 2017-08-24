@@ -1,16 +1,16 @@
 #include "f_addcustomer.h"
-#include "ui_f_addcustomer.h"
 
 Q_LOGGING_CATEGORY(LC_XDCus,"people.addcustomer")
 
 F_AddCustomer::F_AddCustomer(QWidget *parent) :
-    QFrame(parent),
-    ui(new Ui::F_AddCustomer)
+    QFrame(parent)
 {
-    qCDebug(LC_XDCus)<<__FILE__;
-    ui->setupUi(this);
     QTime t;
     t.start();
+    qCDebug(LC_XDCus)<<__FILE__;
+    setupUi(this);
+    this->setStyleSheet(Style::loadStyle("addCustomer"));
+
     //########### Connect To Database ###################
     mCfgDb = new Cfg_Db();
     DB = new DBH("_addcustomer_");
@@ -21,11 +21,11 @@ F_AddCustomer::F_AddCustomer(QWidget *parent) :
     updateCityStateCompleters();
 
     //########## Connectors Signal ~> slots #############
-    connect(ui->Bt_addCustomer,SIGNAL(clicked(bool)),this,SLOT(addCustomer()));
+    connect(Bt_addCustomer,SIGNAL(clicked(bool)),this,SLOT(addCustomer()));
 
-    connect(ui->Cb_country,SIGNAL(currentIndexChanged(int)),
+    connect(Cb_country,SIGNAL(currentIndexChanged(int)),
             this,SLOT(updateCityStateCompleters()));
-    connect(ui->Cb_country,SIGNAL(currentIndexChanged(int)),
+    connect(Cb_country,SIGNAL(currentIndexChanged(int)),
             this,SLOT(updatePostalCodeLEdit()));
 
     this->setStatusTip(tr("Time elapsed : ")+QString::number(t.elapsed())+" ms.");
@@ -36,7 +36,7 @@ F_AddCustomer::~F_AddCustomer()
     #ifdef _WIN32
         DB->mRemoveDatabase("_addcustomer_");
     #endif
-    delete ui;
+    //delete ui;
 }
 
 bool F_AddCustomer::checkEmail(const QString &email)
@@ -53,17 +53,17 @@ bool F_AddCustomer::checkEmail(const QString &email)
 void F_AddCustomer::initCompanyCombo()
 {
     listCompanies = DB->getAllCompanies();
-    ui->Cb_company->clear();
-    ui->Cb_company->addItem(tr("Select Company"));
-    ui->Cb_company->addItems(listCompanies);
+    Cb_company->clear();
+    Cb_company->addItem(tr("Select Company"));
+    Cb_company->addItems(listCompanies);
 }
 
 void F_AddCustomer::initCountryCombo()
 {
     listCountries = DB->getAllCountries();
-    ui->Cb_company->clear();
-    ui->Cb_company->addItem(tr("Select Country"));
-    ui->Cb_country->addItems(listCountries);
+    Cb_company->clear();
+    Cb_company->addItem(tr("Select Country"));
+    Cb_country->addItems(listCountries);
 }
 
 void F_AddCustomer::initCustomerGroupCombo()
@@ -78,22 +78,22 @@ void F_AddCustomer::initPriceGroupCombo()
 
 void F_AddCustomer::updateCityStateCompleters()
 {
-    listCities = DB->getAllCities(DB->getCountryID(ui->Cb_country->currentText()));
-    listStates = DB->getAllStates(DB->getCountryID(ui->Cb_country->currentText()));
+    listCities = DB->getAllCities(DB->getCountryID(Cb_country->currentText()));
+    listStates = DB->getAllStates(DB->getCountryID(Cb_country->currentText()));
 
     C_states = new QCompleter(listStates);
     C_states->setCaseSensitivity(Qt::CaseInsensitive);
-    ui->Le_state->setCompleter(C_states);
+    W_state->getLineEdit()->setCompleter(C_states);
 
     C_cities = new QCompleter(listCities);
     C_cities->setCaseSensitivity(Qt::CaseInsensitive);
-    ui->Le_city->setCompleter(C_cities);
+    W_city->getLineEdit()->setCompleter(C_cities);
 }
 
 void F_AddCustomer::updatePostalCodeLEdit()
 {
     // Do not Call a Transaction inside another.
-    int country_id = DB->getCountryID(ui->Cb_country->currentText());
+    int country_id = DB->getCountryID(Cb_country->currentText());
     int code_id    = DB->getPostalCodeID(country_id);
 
     if(code_id > -1)
@@ -102,16 +102,16 @@ void F_AddCustomer::updatePostalCodeLEdit()
 
         if( !(data["regex"]).isEmpty() && !(data["format"]).isEmpty() )
         {
-            ui->Le_postalCode->setPlaceholderText(data["format"]);
-            ui->Le_postalCode->setMaxLength(data["format"].length());
+            W_postalcode->getLineEdit()->setPlaceholderText(data["format"]);
+            W_postalcode->getLineEdit()->setMaxLength(data["format"].length());
         }
 
     }else
     {
         postalCodeReg.clear();
         postalCodeFormat.clear();
-        ui->Le_postalCode->setPlaceholderText("");
-        ui->Le_postalCode->setMaxLength(45);
+        W_postalcode->getLineEdit()->setPlaceholderText("");
+        W_postalcode->getLineEdit()->setMaxLength(45);
     }
 }
 
@@ -122,8 +122,9 @@ void F_AddCustomer::clearInputs()
         Le->setStyleSheet(s["black"]);
         Le->clear();
     }
-    ui->Cb_company->setCurrentIndex(0);
-    ui->Cb_customerGroup->setCurrentIndex(0);
+
+    Cb_company->setCurrentIndex(0);
+    Cb_customerGroup->setCurrentIndex(0);
 }
 
 bool F_AddCustomer::inputsVerification()

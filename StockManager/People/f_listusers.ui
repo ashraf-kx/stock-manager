@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>837</width>
-    <height>589</height>
+    <width>894</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,13 +20,6 @@
    <enum>QFrame::Raised</enum>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="L_header">
-     <property name="text">
-      <string>Add User</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0" colspan="2">
     <layout class="QHBoxLayout" name="layoutHeader">
      <item>
@@ -168,10 +161,19 @@
         <bool>false</bool>
        </property>
        <property name="leftIconVisible" stdset="0">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="rightIconVisible" stdset="0">
         <bool>false</bool>
+       </property>
+       <property name="LIconPixmap" stdset="0">
+        <pixmap resource="../icons.qrc">:/b/icons/b/ic_chrome_reader_mode_2x.png</pixmap>
+       </property>
+       <property name="LIconSize" stdset="0">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
        </property>
        <property name="RIconPixmap" stdset="0">
         <pixmap resource="../icons.qrc">:/b/icons/b/ic_search_72pt_2x.png</pixmap>
@@ -192,6 +194,13 @@
       </spacer>
      </item>
     </layout>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="L_header">
+     <property name="text">
+      <string>Add User</string>
+     </property>
+    </widget>
    </item>
    <item row="2" column="0">
     <widget class="QTableView" name="tableView">
@@ -262,6 +271,9 @@
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
@@ -288,6 +300,19 @@
           <string>&gt;</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </item>
@@ -318,13 +343,13 @@
        <number>8</number>
       </property>
       <property name="topMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="rightMargin">
        <number>8</number>
       </property>
       <property name="bottomMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <item row="0" column="0">
        <widget class="MDLineEdit" name="W_firstname">
@@ -334,11 +359,16 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="labelText">
          <string>First Name</string>
         </property>
         <property name="fontSize">
-         <number>14</number>
+         <number>12</number>
         </property>
         <property name="helperText">
          <string/>
@@ -357,8 +387,8 @@
         </property>
         <property name="LBtnSize">
          <size>
-          <width>32</width>
-          <height>23</height>
+          <width>100</width>
+          <height>30</height>
          </size>
         </property>
        </widget>
@@ -371,11 +401,16 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="labelText">
          <string>Company</string>
         </property>
         <property name="fontSize">
-         <number>14</number>
+         <number>12</number>
         </property>
         <property name="helperText">
          <string/>
@@ -402,11 +437,16 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="labelText">
          <string>Last Name</string>
         </property>
         <property name="fontSize">
-         <number>14</number>
+         <number>12</number>
         </property>
         <property name="helperText">
          <string/>
@@ -433,11 +473,16 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="labelText">
          <string>Group Users</string>
         </property>
         <property name="fontSize">
-         <number>14</number>
+         <number>12</number>
         </property>
         <property name="helperVisible" stdset="0">
          <bool>false</bool>
@@ -458,11 +503,16 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="labelText">
          <string>User Name</string>
         </property>
         <property name="fontSize">
-         <number>14</number>
+         <number>12</number>
         </property>
         <property name="helperText">
          <string/>
@@ -489,11 +539,16 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="labelText">
          <string>Status</string>
         </property>
         <property name="fontSize">
-         <number>14</number>
+         <number>12</number>
         </property>
         <property name="helperText">
          <string/>
@@ -520,11 +575,16 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="labelText">
          <string>Email</string>
         </property>
         <property name="fontSize">
-         <number>14</number>
+         <number>12</number>
         </property>
         <property name="helperText">
          <string/>
@@ -551,11 +611,16 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="labelText">
          <string>Awards Pionts</string>
         </property>
         <property name="fontSize">
-         <number>14</number>
+         <number>12</number>
         </property>
         <property name="helperText">
          <string/>
@@ -589,6 +654,9 @@
       </item>
       <item row="9" column="0" colspan="2">
        <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="bottomMargin">
+         <number>8</number>
+        </property>
         <item>
          <spacer name="horizontalSpacer_3">
           <property name="orientation">
@@ -617,19 +685,6 @@
          </widget>
         </item>
        </layout>
-      </item>
-      <item row="10" column="0" colspan="2">
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
       </item>
      </layout>
     </widget>

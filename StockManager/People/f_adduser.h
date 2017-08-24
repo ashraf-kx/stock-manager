@@ -2,6 +2,7 @@
 #define F_ADDUSER_H
 
 #include <QFrame>
+#include "ui_f_adduser.h"
 #include "../classes.h"
 
 
@@ -9,7 +10,7 @@ namespace Ui {
 class F_AddUser;
 }
 
-class F_AddUser : public QFrame
+class F_AddUser : public QFrame, private Ui::F_AddUser
 {
     Q_OBJECT
 
@@ -38,7 +39,6 @@ public slots:
     void showPassword();
     void hidePassword();
 private:
-    Ui::F_AddUser *ui;
     Toast         *mToast;
     Cfg_Db        *mCfgDb;
     DBH           *DB;

@@ -154,36 +154,36 @@ QComboBox QAbstractItemView:pressed, QComboBox QAbstractItemView:Hover{
 }
 
 /************  MDLineEdit Style *******************/
-QFrame#frame > #MDLineEdit
+#MDLineEdit
 {
     background-color: #FFFFFF;
-    font-size:13px;
+/*    font-size:13px;*/
 }
 
-QFrame#frame >  #mhelper
+#mhelper
 {
     padding-top: 8 dp;
     color: #c7c7c7;
-    font-size: 10px;
+/*    font-size: 10px;*/
 }
 
-QFrame#frame > #mleftButton
+#mleftButton
 {
     padding-right:16 dp;
 }
 
-QFrame#frame > #mlineEdit
+#mlineEdit
 {
     border:none;
     padding-bottom: 8 dp;
 }
 
-QFrame#frame #mline
+#mline
 {
     border:2px solid #C7C7C7;
 }
 
-QFrame#frame > #mlabel
+#mlabel
 {
     padding-top: 16 dp;
     padding-bottom: 8 dp;

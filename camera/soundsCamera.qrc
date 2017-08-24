@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="BEEP">Sounds/beepBarCode.wav</file>
+    </qresource>
+</RCC>

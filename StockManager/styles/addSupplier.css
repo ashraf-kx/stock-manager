@@ -1,43 +1,94 @@
-
-/*
-QWidget
+QFrame
 {
+    background-color:White;
+}
+QFrame>QComboBox
+{
+    border: none;
 
+    padding-top:    8px;
+    padding-bottom: 8px;
+    padding-left:  24px;
+    padding-right:  0px;
+
+    border-bottom :  2px solid #c7c7c7;
+    font-size     :  15px;
+
+    height        :  32px;
 }
 
-QLineEdit
+QFrame>QComboBox:hover
 {
-    color: rgb(68, 68, 68);
-    background-color: #FFF;
-    border: 1px solid #2196F3;
-    border-right:0px solid #FFFFFF;
-    vertical-align: middle;
+    border-bottom: 2px solid #0091EA;
 }
 
-QLineEdit:hover
+QFrame>QComboBox:editable
 {
-   color: #000000;
-   border-top:1px solid #FFFFFF;
-   border-left:1px solid #FFFFFF;
-   border-right:1px solid #FFFFFF;
-   border-bottom:2px solid #2196F3;
-   border-right:0px solid #FFFFFF;
+    background: white;
 }
 
-QLabel
+QFrame>QComboBox:!editable, QFrame>QComboBox::drop-down:editable
 {
-    background-color: rgb(255, 255, 255);
-    color:gray;
-    font: 75 italic 11pt "Arial";
+    background-color: White;
+    color           : Gray;
 }
 
-QLabel:hover
-{
-    background-color: rgb(245, 245, 245);
-    color:black;
-    font: 75 italic 12pt "Arial";
-}*/
+/* QFrame>QComboBox gets the "on" state when the popup is open */
+QFrame>QComboBox:!editable:on,
+QFrame>QComboBox::drop-down:editable:on {
+    background-color: White;
+}
 
+QFrame>QComboBox:on
+{ /* shift the text when the popup opens */
+    color:#212121;
+}
+
+QFrame>QComboBox::drop-down
+{
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+
+    padding-top :12px;
+/*    padding-right:6px;*/
+
+    width: 24px;
+    height:24px;
+
+    border:none;
+}
+
+QFrame>QComboBox::down-arrow
+{
+    image: url(:/b/icons/b/ic_keyboard_arrow_down_2x.png);
+    min-width : 24px;
+    min-height: 24px;
+    max-width : 36px;
+    max-height: 36px;
+}
+
+QFrame>QComboBox::down-arrow:on
+{ /* shift the arrow when popup is open */
+    border:none;
+}
+
+/*************** QAbstractItemView **********/
+
+QComboBox QAbstractItemView {
+     border: none;
+     height: 32px;
+     padding-bottom: 8px;
+     padding-top: 8px;
+     selection-background-color:  #C7C7C7;
+     /*color: Black;*/
+}
+
+QComboBox QAbstractItemView:pressed, QComboBox QAbstractItemView:Hover{
+     border: none;
+     selection-background-color: #C7C7C7;
+     /*color:Black;*/
+}
+/************ QPushButton Style ********************/
 QPushButton
 {
         width: 64 dp;
@@ -45,7 +96,7 @@ QPushButton
         height: 36 dp;
         padding-left: 16 dp;
         padding-right: 16 dp;
-        border-radius: 2 dp;
+        border-radius: 2px;
         font-size: 14px;
 
         background-color: #FFFFFF;
@@ -66,4 +117,40 @@ QPushButton:pressed
 QPushButton:disabled
 {
         background-color: #bdbdbd;
+}
+/************  MDLineEdit Style *******************/
+#MDLineEdit
+{
+    background-color: #FFFFFF;
+/*   font-size:15px;*/
+}
+
+#mhelper
+{
+    padding-top: 8 dp;
+    color: #c7c7c7;
+/*    font-size: 10px;*/
+}
+
+#mleftButton
+{
+    padding-right:16 dp;
+}
+
+#mlineEdit
+{
+    border:none;
+    padding-bottom: 8 dp;
+}
+
+#mline
+{
+    border:2px solid #C7C7C7;
+}
+
+#mlabel
+{
+    padding-top: 16 dp;
+    padding-bottom: 8 dp;
+    color:#c7c7c7;
 }

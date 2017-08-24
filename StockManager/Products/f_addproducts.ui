@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>791</width>
-    <height>545</height>
+    <width>712</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -89,32 +89,18 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="L_ProductName">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
+      <widget class="MDLineEdit" name="Le_productName">
+       <property name="labelText">
         <string>Product Name *</string>
        </property>
-       <property name="scaledContents">
-        <bool>true</bool>
+       <property name="helperVisible" stdset="0">
+        <bool>false</bool>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="Le_ProductName">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
+       <property name="leftIconVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="rightIconVisible" stdset="0">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -152,8 +138,20 @@
        </item>
        <item>
         <widget class="QLabel" name="label_10">
-         <property name="text">
-          <string>TextLabel</string>
+         <property name="maximumSize">
+          <size>
+           <width>35</width>
+           <height>24</height>
+          </size>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../icons.qrc">:/b/icons/b/ic_graphic_eq_2x.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -400,19 +398,6 @@
    <item>
     <layout class="QVBoxLayout" name="layoutRightSide">
      <item>
-      <widget class="QCheckBox" name="Ckb_IsVariant">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>this product has multiple variants e.g: multiple Sizes and/or Colors.</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="verticalSpacer">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -565,6 +550,19 @@
           </property>
          </spacer>
         </item>
+        <item>
+         <widget class="QCheckBox" name="Ckb_IsVariant">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>this product has multiple variants e.g: multiple Sizes and/or Colors.</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </item>
@@ -572,6 +570,15 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>MDLineEdit</class>
+   <extends>QWidget</extends>
+   <header>mdlineedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

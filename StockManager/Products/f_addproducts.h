@@ -4,6 +4,7 @@
 #include <QFrame>
 #include "../classes.h"
 #include <QSpinBox>
+#include <camera.h>
 
 Q_DECLARE_LOGGING_CATEGORY(LC_ADDpro)
 namespace Ui {
@@ -39,6 +40,8 @@ private:
 
     Cfg_Db *mCfgDb;
     DBH *DB;
+
+    Camera *mCamera;
 
 };
 
