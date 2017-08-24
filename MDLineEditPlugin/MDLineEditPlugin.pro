@@ -1,7 +1,13 @@
 #! [0]
-QT          += widgets uiplugin
+QT       += widgets uiplugin
 #! [0]
 CONFIG   += c++11
+
+CONFIG(debug, debug|release) {
+    DESTDIR = debug
+} else {
+    DESTDIR = designer
+}
 
 QTDIR_build {
 # This is only for the Qt build. Do not use externally. We mean it.

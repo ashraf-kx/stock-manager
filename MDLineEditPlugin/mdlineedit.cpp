@@ -5,19 +5,18 @@ MDLineEdit::MDLineEdit(QWidget *parent) : QWidget(parent)
     this->setObjectName("MDLineEdit");
 
     // init
-    qreal mFontSize = 14;//fontInfo().pixelSize();
-    qDebug()<<mFontSize<<" size MDLineEdit";
+    mFontSize = 14;                 //fontInfo().pixelSize();
     mlineEdit = new QLineEdit(this);
     mlineEdit->setObjectName(QStringLiteral("mlineEdit"));
-    // mlineEdit->setMinimumWidth(260);
     mlineEdit->setVisible(false);
 
     mlabel = new MDLabel(this);
     mlabel->setObjectName(QStringLiteral("mlabel"));
-    // mlabel->setMinimumWidth(260);
+    mlabel->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Preferred);
     mlabel->setScaledContents(false);
     mlabel->setWordWrap(false);
     mlabel->setCursor(QCursor(Qt::IBeamCursor));
+    mlabel->setFocusPolicy(Qt::TabFocus);
     mlabel->setVisible(true);
 
     layout = new QGridLayout(this);
@@ -62,6 +61,8 @@ MDLineEdit::MDLineEdit(QWidget *parent) : QWidget(parent)
     mrightButton->setObjectName(QStringLiteral("mrightButton"));
     mrightButton->setCursor(QCursor(Qt::PointingHandCursor));
     mrightButton->setFocusPolicy(Qt::NoFocus);
+    mrightButton->setMaximumSize(24,24);
+    mrightButton->setSizePolicy(QSizePolicy::MinimumExpanding,QSizePolicy::MinimumExpanding);
     mrightButton->setFlat(true);
 
     layout->addWidget(mrightButton, 2, 2,1,1);
@@ -85,32 +86,60 @@ MDLineEdit::MDLineEdit(QWidget *parent) : QWidget(parent)
 
     connect(mlabel,SIGNAL(clicked()),this,SLOT(floating()));
     connect(mlineEdit,SIGNAL(editingFinished()),this,SLOT(resting()));
-
     connect(mleftButton,SIGNAL(clicked(bool)),this,SLOT(parseError()));
-
     connect(mlineEdit,SIGNAL(cursorPositionChanged(int,int)),this,SLOT(activeStyle()));
 
-    layout->addWidget(mlabel,2,1); // Resting.
-    layout->addWidget(mlineEdit,1,1); // resting.
+//    layout->addWidget(mlabel,2,1); // Resting.
+//    layout->addWidget(mlineEdit,1,1); // resting.
 
-    this->mlabel->setFontPointSize(mFontSize);
-    mlineEdit->setFont(QFont("",mFontSize));
+    isRBVisible = mrightButton->isVisible();
+    mlineEdit->hide();
+    if(isRBVisible) mrightButton->hide();
+    layout->addWidget(mlabel,1,1,2,2); // Resting.
+
+
+ //   layout->addWidget(mlineEdit,2,1); // resting.
+    //this->setFocusProxy(mlineEdit);
+}
+
+void MDLineEdit::focusInEvent(QFocusEvent *event)
+{
+//    qDebug()<<"Tab Tab"<<event->type();
+//    if(event->gotFocus())  // return Type() == FocusIn ?
+//    {
+//        this->setStyleSheet("Border:1px solid red;");
+//        floating();
+//    }
+}
+
+void MDLineEdit::focusOutEvent(QFocusEvent *event)
+{
+//    qDebug()<<"Tab Tab"<<event->type();
+//    if(event->lostFocus())  // return Type() == FocusOut ?
+//    {
+//        this->setStyleSheet("Border:1px solid Blue;");
+//        resting();
+//    }
 }
 
 void MDLineEdit::floating()
 {
     if(mlineEdit->text().isEmpty() )
     {
-
         zoomOutFont->start();
 
         mlineEdit->setFocus();
         mlineEdit->setCursorPosition(0);
-        layout->addWidget(mlabel,1,1,1,1); // floating.
-        layout->addWidget(mlineEdit,2,1,1,1); // floating.
+//        layout->addWidget(mlabel,1,1,1,1); // floating.
+//        layout->addWidget(mlineEdit,2,1,1,1); // floating.
+        layout->addWidget(mlabel,1,1,1,1); // floating
         mlineEdit->setVisible(true);
+        if(isRBVisible) mrightButton->show();
 
         activeStyle();
+    }else
+    {
+      resting();
     }
 }
 
@@ -118,10 +147,12 @@ void MDLineEdit::resting()
 {
     if(mlineEdit->text().isEmpty() )
     {
-        layout->addWidget(mlabel,2,1); // replace.
-        layout->addWidget(mlineEdit,1,1);
+//        layout->addWidget(mlabel,2,1); // resting.
+//        layout->addWidget(mlineEdit,1,1);
 
         mlineEdit->setVisible(false);
+        if(isRBVisible) mrightButton->hide();
+        layout->addWidget(mlabel,1,1,2,2); // resting.
         inactiveStyle();
 
         zoomInFont->start();
@@ -187,6 +218,18 @@ void MDLineEdit::setLabelText(const QString &text)
     mlabel->setText(text);
 }
 
+int MDLineEdit::fontSize()
+{
+    return mFontSize;
+}
+
+void MDLineEdit::setFontSize(int fontSize)
+{
+    mFontSize = fontSize;
+    mlabel->setFontPointSize(mFontSize);
+    mlineEdit->setFont(QFont("",mFontSize));
+}
+
 QString MDLineEdit::helperText() const
 {
     return mhelper->text();
@@ -239,7 +282,6 @@ void MDLineEdit::setRightIconVisibile(bool visible)
 
 QPixmap MDLineEdit::leftIconPixmap()
 {
-
     return mleftButton->icon().pixmap(mleftButton->iconSize());
 }
 
@@ -278,6 +320,26 @@ void MDLineEdit::setRightIconSize(const QSize &size)
     mrightButton->setIconSize(size);
 }
 
+QSize MDLineEdit::LBtnSize() const
+{
+    return mleftButton->size();
+}
+
+void MDLineEdit::setLBtnSize(const QSize &size)
+{
+    mleftButton->setBaseSize(size);
+}
+
+QSize MDLineEdit::RBtnSize()
+{
+    return mrightButton->size();
+}
+
+void MDLineEdit::setRBtnSize(const QSize &size)
+{
+    mrightButton->setBaseSize(size);
+}
+
 QPushButton *MDLineEdit::getLeftBtn()
 {
     return mleftButton;
@@ -305,9 +367,9 @@ MDLabel *MDLineEdit::getLabel()
 
 void MDLineEdit::showLineEdit()
 {
-    layout->addWidget(mlabel,1,1,1,1); // floating.
-    layout->addWidget(mlineEdit,2,1,1,1); // floating.
+    layout->addWidget(mlabel,1,1,1,1);     // floating.
+    layout->addWidget(mlineEdit,2,1,1,1);  // floating.
     mlineEdit->setVisible(true);
 }
 
-// TODO (3): Use Validation With MDLineEdit.
+// TODO : setTabOreder in Designer and programmatlley No way To focus hiden Item "mlineedit", even when the

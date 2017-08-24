@@ -131,35 +131,35 @@ bool MDLineEditPlugin::isContainer() const
 QString MDLineEditPlugin::domXml() const
 {
     return "<ui language=\"c++\">\n"
-           " <widget class=\"MDLineEdit\" name=\"MDLineEdit\">\n"
-////! [11]
-//           "  <property name=\"geometry\">\n"
-//           "   <rect>\n"
-//           "    <x>0</x>\n"
-//           "    <y>0</y>\n"
-//           "    <width>200</width>\n"
-//           "    <height>90</height>\n"
-//           "   </rect>\n"
-//           "  </property>\n"
-////! [11]
-//           "  <property name=\"toolTip\" >\n"
-//           "   <string>My custom Line Edit Support MD </string>\n"
-//           "  </property>\n"
+               " <widget class=\"MDLineEdit\" name=\"MDLineEdit\">\n"
+    ////! [11]
+    //           "  <property name=\"geometry\">\n"
+    //           "   <rect>\n"
+    //           "    <x>0</x>\n"
+    //           "    <y>0</y>\n"
+    //           "    <width>200</width>\n"
+    //           "    <height>90</height>\n"
+    //           "   </rect>\n"
+    //           "  </property>\n"
+    ////! [11]
+    //           "  <property name=\"toolTip\" >\n"
+    //           "   <string>My custom Line Edit Support MD </string>\n"
+    //           "  </property>\n"
 
-//           "  <property name=\"whatsThis\" >\n"
-//           "   <string>Styled Input Text.</string>\n"
-//           "  </property>\n"
+    //           "  <property name=\"whatsThis\" >\n"
+    //           "   <string>Styled Input Text.</string>\n"
+    //           "  </property>\n"
 
-//           "  <property name=\"xxxxxx\" >\n"
-//           "   <string>xxxxxx</string>\n"
-//           "  </property>\n"
+    //           "  <property name=\"xxxxxx\" >\n"
+    //           "   <string>xxxxxx</string>\n"
+    //           "  </property>\n"
 
-//           "<property name=\"labelText\" >\n"
-//            "<string> Label Text ..</string>\n"
-//           "</property>\n"
+    //           "<property name=\"labelText\" >\n"
+    //            "<string> Label Text ..</string>\n"
+    //           "</property>\n"
 
-          " </widget>\n"
-           "</ui>\n";
+              " </widget>\n"
+               "</ui>\n";
 }
 //! [10]
 
