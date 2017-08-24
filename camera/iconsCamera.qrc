@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/ic_done_2x.png</file>
+        <file>icons/ic_pause_white_2x.png</file>
+        <file>icons/ic_replay_white_2x.png</file>
+        <file>icons/ic_settings_2x.png</file>
+        <file>icons/ic_replay_2x.png</file>
+    </qresource>
+</RCC>
