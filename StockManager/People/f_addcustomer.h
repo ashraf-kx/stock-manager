@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include "../classes.h"
+#include "ui_f_addcustomer.h"
 
 Q_DECLARE_LOGGING_CATEGORY(LC_XDCus)
 
@@ -10,7 +11,7 @@ namespace Ui {
 class F_AddCustomer;
 }
 
-class F_AddCustomer : public QFrame
+class F_AddCustomer : public QFrame, private Ui::F_AddCustomer
 {
     Q_OBJECT
 
@@ -51,8 +52,8 @@ public slots:
     void updateAllComboLists();
     void initCustomerGroupCombo();
     void initPriceGroupCombo();
+
 private:
-    Ui::F_AddCustomer *ui;
     Toast *mToast;
 
     Cfg_Db *mCfgDb;

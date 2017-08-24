@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>746</width>
-    <height>460</height>
+    <width>802</width>
+    <height>554</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,156 +70,118 @@
          <property name="font">
           <font>
            <family>Calibri</family>
-           <pointsize>12</pointsize>
+           <pointsize>13</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
           </font>
          </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="L_name">
+        <widget class="MDLineEdit" name="W_name">
          <property name="font">
           <font>
-           <family>Calibri</family>
            <pointsize>12</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
-         <property name="text">
+         <property name="labelText">
           <string>Name *</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Le_name">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
+         <property name="fontSize">
+          <number>15</number>
          </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
          </property>
-         <property name="maxLength">
-          <number>50</number>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="L_vtaNumber">
+        <widget class="MDLineEdit" name="W_vtaNumber">
          <property name="font">
           <font>
-           <family>Calibri</family>
            <pointsize>12</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
-         <property name="text">
+         <property name="labelText">
           <string>VTA Number</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Le_vtaNumber">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
+         <property name="fontSize">
+          <number>15</number>
          </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="L_email">
+        <widget class="MDLineEdit" name="W_email">
          <property name="font">
           <font>
-           <family>Calibri</family>
            <pointsize>12</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
-         <property name="text">
-          <string>Email Address</string>
+         <property name="labelText">
+          <string>Email Address *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
+         </property>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="Le_email">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
+        <widget class="MDLineEdit" name="W_phone">
          <property name="font">
           <font>
-           <family>Calibri</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="maxLength">
-          <number>255</number>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="L_phone">
-         <property name="font">
-          <font>
-           <family>Calibri</family>
            <pointsize>12</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
-         <property name="text">
+         <property name="labelText">
           <string>Phone *</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Le_phone">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
+         <property name="fontSize">
+          <number>15</number>
          </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
          </property>
-         <property name="maxLength">
-          <number>20</number>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -299,11 +261,14 @@
          <property name="font">
           <font>
            <family>Calibri</family>
-           <pointsize>12</pointsize>
+           <pointsize>13</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="editable">
           <bool>true</bool>
@@ -323,153 +288,98 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="L_city">
+        <widget class="MDLineEdit" name="W_city">
          <property name="font">
           <font>
-           <family>Calibri</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
           </font>
          </property>
-         <property name="text">
+         <property name="labelText">
           <string>City *</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Le_city">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
+         <property name="fontSize">
+          <number>15</number>
          </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
          </property>
-         <property name="maxLength">
-          <number>100</number>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
-         <property name="echoMode">
-          <enum>QLineEdit::Normal</enum>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="L_state">
+        <widget class="MDLineEdit" name="W_state">
          <property name="font">
           <font>
-           <family>Calibri</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
           </font>
          </property>
-         <property name="text">
+         <property name="labelText">
           <string>State</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Le_state">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
+         <property name="fontSize">
+          <number>15</number>
          </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
          </property>
-         <property name="maxLength">
-          <number>100</number>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
-         <property name="echoMode">
-          <enum>QLineEdit::Normal</enum>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="L_address">
+        <widget class="MDLineEdit" name="W_address">
          <property name="font">
           <font>
-           <family>Calibri</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
           </font>
          </property>
-         <property name="text">
+         <property name="labelText">
           <string>Address *</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Le_address">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
+         <property name="fontSize">
+          <number>15</number>
          </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
          </property>
-         <property name="maxLength">
-          <number>50</number>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="L_postalCode">
+        <widget class="MDLineEdit" name="W_postalcode">
          <property name="font">
           <font>
-           <family>Calibri</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
           </font>
          </property>
-         <property name="text">
+         <property name="labelText">
           <string>Postal Code</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Le_postalCode">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
+         <property name="fontSize">
+          <number>15</number>
          </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
+         <property name="helperVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="leftIconVisible" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rightIconVisible" stdset="0">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -499,6 +409,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MDLineEdit</class>
+   <extends>QWidget</extends>
+   <header>mdlineedit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

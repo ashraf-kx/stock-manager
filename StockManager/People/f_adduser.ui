@@ -13,18 +13,6 @@
     <height>707</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Frame</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
-  <property name="frameShape">
-   <enum>QFrame::NoFrame</enum>
-  </property>
-  <property name="frameShadow">
-   <enum>QFrame::Plain</enum>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QLabel" name="L_header">
@@ -90,9 +78,21 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>type First Name here</string>
@@ -103,6 +103,9 @@
          <property name="labelText">
           <string>First Name *</string>
          </property>
+         <property name="fontSize">
+          <number>15</number>
+         </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
          </property>
@@ -111,6 +114,12 @@
          </property>
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
+         </property>
+         <property name="LBtnSize">
+          <size>
+           <width>100</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -124,9 +133,17 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>type Last Name here</string>
@@ -136,6 +153,9 @@
          </property>
          <property name="labelText">
           <string>Last Name *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
@@ -218,9 +238,17 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>My custom Line Edit Support MD </string>
@@ -230,6 +258,9 @@
          </property>
          <property name="labelText">
           <string>Phone *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string/>
@@ -310,9 +341,17 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Type your current Email</string>
@@ -322,6 +361,9 @@
          </property>
          <property name="labelText">
           <string>Email *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string/>
@@ -359,12 +401,23 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="labelText">
           <string>User Name *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string/>
@@ -402,12 +455,23 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="labelText">
           <string>Password *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string>At least 1 Capital, 1 Lowercase, 1 number and more then 8 characters long</string>
@@ -421,14 +485,14 @@
          <property name="LIconPixmap" stdset="0">
           <pixmap resource="../icons.qrc">:/b/icons/b/ic_vpn_key_2x.png</pixmap>
          </property>
-         <property name="RIconPixmap" stdset="0">
-          <pixmap resource="../icons.qrc">:/b/icons/b/ic_remove_red_eye_2x.png</pixmap>
-         </property>
          <property name="LIconSize" stdset="0">
           <size>
            <width>30</width>
            <height>24</height>
           </size>
+         </property>
+         <property name="RIconPixmap" stdset="0">
+          <pixmap resource="../icons.qrc">:/b/icons/b/ic_remove_red_eye_2x.png</pixmap>
          </property>
         </widget>
        </item>
@@ -442,12 +506,23 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
-           <height>90</height>
+           <width>524287</width>
+           <height>524287</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="labelText">
           <string>Confirm Password *</string>
+         </property>
+         <property name="fontSize">
+          <number>15</number>
          </property>
          <property name="helperText">
           <string/>
@@ -667,8 +742,11 @@
          <property name="text">
           <string>Add User</string>
          </property>
+         <property name="default">
+          <bool>true</bool>
+         </property>
          <property name="flat">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -698,6 +776,20 @@
    <header>mdlineedit.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>Cb_company</tabstop>
+  <tabstop>W_firstName</tabstop>
+  <tabstop>W_lastName</tabstop>
+  <tabstop>Cb_gender</tabstop>
+  <tabstop>W_phone</tabstop>
+  <tabstop>W_email</tabstop>
+  <tabstop>W_username</tabstop>
+  <tabstop>W_password</tabstop>
+  <tabstop>W_confirmePass</tabstop>
+  <tabstop>Cb_status</tabstop>
+  <tabstop>Cb_group</tabstop>
+  <tabstop>Bt_addUser</tabstop>
+ </tabstops>
  <resources>
   <include location="../icons.qrc"/>
  </resources>

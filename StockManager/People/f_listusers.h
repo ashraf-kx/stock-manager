@@ -33,6 +33,11 @@ public slots:
     void nextPage();
     void previousPage();
     void updateMessageInfo();
+    void showFrameUpdate();
+
+    void visibility();
+    void slideIn();
+    void slideOut();
 private:
     Ui::F_ListUsers *ui;
     Toast *mToast;
@@ -46,6 +51,11 @@ private:
     QSortFilterProxyModel *proxyModelUser;
     QHash<QString,int>    TA;
     int idxColSelected;
+
+    QPropertyAnimation *animateSize;
+    QSize currentSize;
+    bool isFrameUpdate;
+
 };
 
 #endif // F_LISTUSERS_H

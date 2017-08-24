@@ -11,11 +11,14 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     ui->setupUi(this);
     this->setStyleSheet(Style::loadStyle("listUsers"));
 
-    QGraphicsDropShadowEffect *sh = new QGraphicsDropShadowEffect();
-    sh->setBlurRadius(8);
-    sh->setOffset(2);
-    sh->setColor(QColor(63, 63, 63, 180));
-    this->setGraphicsEffect(sh);
+
+    ui->Sb_IDUser->setVisible(false);
+
+//    QGraphicsDropShadowEffect *sh = new QGraphicsDropShadowEffect();
+//    sh->setBlurRadius(8);
+//    sh->setOffset(2);
+//    sh->setColor(QColor(63, 63, 63, 180));
+//    this->setGraphicsEffect(sh);
 
     mCfgDb         = new Cfg_Db();
     DB             = new DBH("_listUsers_");
@@ -75,6 +78,15 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     initListRowsPerPage();
     ui->Cb_rows->setCurrentIndex(0);
 
+    ui->Bt_editRow->setGraphicsEffect(Style::shadowbutton());
+
+//    ui->bt_cancel->setGraphicsEffect(Style::shadowbutton());
+//    ui->Bt_save->setGraphicsEffect(Style::shadowbutton());
+
+    ui->Bt_previous->setGraphicsEffect(Style::shadowbutton());
+    ui->Bt_next->setGraphicsEffect(Style::shadowbutton());
+
+    ui->frame->setGraphicsEffect(Style::shadow());
     // FIXME : Warning about signal sent two Parametres & Slot has only One. table View selectionModel ?
     connect(ui->tableView->selectionModel(),
             SIGNAL(currentRowChanged(QModelIndex,QModelIndex)),
@@ -93,6 +105,17 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     connect(ui->Bt_previous,SIGNAL(clicked(bool)),this,SLOT(previousPage()));
     connect(ui->Bt_next,SIGNAL(clicked(bool)),this,SLOT(nextPage()));
 
+    connect(ui->Bt_editRow,SIGNAL(clicked(bool)),this,SLOT(visibility()));
+
+    currentSize = QSize(300,500);
+    isFrameUpdate = false;
+    ui->frame->setVisible(false);
+
+}
+
+void F_ListUsers::showFrameUpdate()
+{
+    ui->frame->setVisible(!ui->frame->isVisible());
 }
 
 void F_ListUsers::updateMessageInfo()
@@ -266,5 +289,44 @@ void F_ListUsers::keyPressEvent(QKeyEvent *e)
         // delicate situation CAREFULL PLEASE.
     }
 }
+
+void F_ListUsers::visibility()
+{
+    if(isFrameUpdate)
+        isFrameUpdate = false;
+    else
+        isFrameUpdate = true;
+
+    if(isFrameUpdate)
+        slideIn();
+    else
+        slideOut();
+}
+
+//! [ Animation Come In Come out ]
+void F_ListUsers::slideIn() // <+++++++>
+{
+    ui->frame->show();
+    animateSize = new QPropertyAnimation(ui->frame, "size");
+    animateSize->setDuration(200);
+    animateSize->setStartValue(QSize(currentSize.width(),0));
+    animateSize->setEndValue(currentSize);
+    animateSize->setEasingCurve(QEasingCurve::Linear);
+    animateSize->start();
+}
+
+void F_ListUsers::slideOut() // ---->++<-----
+{
+    currentSize = ui->frame->size();
+    qDebug()<<currentSize;
+    animateSize = new QPropertyAnimation(ui->frame, "size");
+    animateSize->setDuration(200);               // <==  xMs = yMs = 200
+    animateSize->setStartValue(currentSize);
+    animateSize->setEndValue(QSize(currentSize.width(),0));
+    animateSize->setEasingCurve(QEasingCurve::Linear);
+    animateSize->start();
+    QTimer::singleShot(200, ui->frame, SLOT(hide())); // <== yMs
+}
+
 
 // FIXME : problem #include "mdlineedit" located in the ui_f_listusers. because the plugin used {first guest}

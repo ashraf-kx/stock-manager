@@ -10,6 +10,7 @@ F_AddProducts::F_AddProducts(QWidget *parent) :
     ui(new Ui::F_AddProducts)
 {
     ui->setupUi(this);
+    this->setStyleSheet(Style::loadStyle("addProduct"));
 
     qCDebug(LC_ADDpro)<<"Add product fram isWindows ? "<<this->isWindow();
     qCDebug(LC_ADDpro)<<"Get Modilarity : "<<this->windowModality();
@@ -34,6 +35,12 @@ F_AddProducts::F_AddProducts(QWidget *parent) :
 
     connect(ui->Cb_Category,SIGNAL(currentTextChanged(QString)),this,SLOT(updateSubCategoryCombo()));
     connect(ui->Bt_AddSupplier,SIGNAL(clicked(bool)),this,SLOT(createSupplierWidgetHundler()));
+
+    mCamera = new Camera(this);
+    mCamera->show();
+
+    ui->layoutRightSide->addWidget(mCamera);
+    connect(mCamera,SIGNAL(codeAvailable(QString)),ui->Le_ProductCode,SLOT(setText(QString)));
 }
 
 F_AddProducts::~F_AddProducts()

@@ -2,6 +2,7 @@
 #define F_ADDUSER_H
 
 #include <QFrame>
+#include "ui_f_adduser.h"
 #include "../classes.h"
 
 
@@ -9,7 +10,7 @@ namespace Ui {
 class F_AddUser;
 }
 
-class F_AddUser : public QFrame
+class F_AddUser : public QFrame, private Ui::F_AddUser
 {
     Q_OBJECT
 
@@ -25,6 +26,7 @@ public:
     bool passwordCheck(const QString& password,const QString& Confirme);
     bool statusCheck(const QString &status);
 
+    void initTabOrder();
 public slots:
     void addUser();
 
@@ -37,7 +39,6 @@ public slots:
     void showPassword();
     void hidePassword();
 private:
-    Ui::F_AddUser *ui;
     Toast         *mToast;
     Cfg_Db        *mCfgDb;
     DBH           *DB;
