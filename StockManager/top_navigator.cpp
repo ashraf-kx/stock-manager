@@ -19,6 +19,26 @@ Top_navigator::Top_navigator(QWidget *parent) :
 
 //    connect(timer,SIGNAL(timeout()),this,SLOT(updateInfo()));
 //    connect(timer,SIGNAL(timeout()),timer,SLOT(start()));
+    isToolBoxVisible = true;
+    connect(ui->Bt_toolbox,SIGNAL(clicked(bool)),this,SLOT(changeIcon()));
+}
+
+QPushButton *Top_navigator::getBtToolBox()
+{
+    return ui->Bt_toolbox;
+}
+
+void Top_navigator::changeIcon()
+{
+    if(isToolBoxVisible)
+        isToolBoxVisible = false;
+    else
+        isToolBoxVisible = true;
+
+    if(isToolBoxVisible)
+        ui->Bt_toolbox->setIcon(QIcon(":/b/icons/b/ic_arrow_back_2x.png"));
+    else
+        ui->Bt_toolbox->setIcon(QIcon(":/b/icons/b/ic_list_2x.png"));
 }
 
 void Top_navigator::updateInfo()

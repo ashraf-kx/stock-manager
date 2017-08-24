@@ -91,7 +91,6 @@ QComboBox QAbstractItemView:pressed, QComboBox QAbstractItemView:Hover{
 /************ QPushButton Style ********************/
 QPushButton
 {
-        elevation: 2px;
         width: 64 dp;
         min-width: 64 dp;
         height: 36 dp;

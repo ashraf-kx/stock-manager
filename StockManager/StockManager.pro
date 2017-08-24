@@ -24,6 +24,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+include(../MDLineEditPlugin/mdlineedit.pri)
+include(../camera/camera.pri)
+
 SOURCES += main.cpp\
         dashboard.cpp \
     toast.cpp \
@@ -254,7 +257,7 @@ DISTFILES += \
 #    StockManager_ar.qm \
     SM_Loggoer.ini
 
-include(../MDLineEditPlugin/mdlineedit.pri)
+
 
 ##### Using MySql Connector C++  #####################
 #win32:CONFIG(release, debug|release): LIBS += -L'D:/MySql ConnectorC++/lib/opt/' -lmysqlcppconn

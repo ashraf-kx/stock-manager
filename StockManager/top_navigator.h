@@ -17,10 +17,13 @@ public:
     explicit Top_navigator(QWidget *parent = 0);
     ~Top_navigator();
 
+    QPushButton *getBtToolBox();
 public slots:
     void updateInfo();
+    void changeIcon();
 private:
     Ui::Top_navigator *ui;
+    bool isToolBoxVisible;
 };
 
 #endif // TOP_NAVIGATOR_H

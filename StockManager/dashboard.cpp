@@ -1,11 +1,9 @@
 #include "dashboard.h"
-#include "ui_dashboard.h"
 
 Dashboard::Dashboard(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::Dashboard)
+    QMainWindow(parent)
 {
-    ui->setupUi(this);
+    setupUi(this);
 
     this->setWindowTitle(tr("Stock Manager V 0.0.1"));
     this->setWindowIcon(QIcon("://icons/inventory.png"));
@@ -15,15 +13,16 @@ Dashboard::Dashboard(QWidget *parent) :
     f.setPointSizeF(14.0);
     this->setFont(f);
 
-    // qDebug()<<"font Size of"<<this->objectName()<<this->fontInfo().pointSizeF();
-
     mTopNav     = new Top_navigator(this);
     mSideNAV    = new Side_navigator(this);
 
-    ui->layoutTop->addWidget(mTopNav);
-    ui->layoutMain->addWidget(mSideNAV);
+    gridLayout->addWidget(mTopNav,0,0,1,2);
+    gridLayout->addWidget(mSideNAV,1,0,1,1);
 
     this->showMaximized();
+
+    connect(mTopNav->getBtToolBox(),SIGNAL(clicked(bool)),
+            mSideNAV,SLOT(visibility()));
 
     //! [Stupidito ] 100%
     // Products
@@ -118,112 +117,88 @@ Dashboard::Dashboard(QWidget *parent) :
 void Dashboard::setFrameListProducts()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListProducts = new F_ListProducts(this);
-    ui->layoutOneFrame->addWidget(mListProducts);
+    gridLayout->addWidget(mListProducts,1,1,1,1);
     mListProducts->setObjectName("ListProducts");
 }
 
 void Dashboard::setFrameAddProducts()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddProducts = new F_AddProducts(this);
-    ui->layoutOneFrame->addWidget(mAddProducts);
+    gridLayout->addWidget(mAddProducts,1,1,1,1);
     mAddProducts->setObjectName("AddProducts");
 }
 
 void Dashboard::setFrameImportProducts()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mImportProducts = new F_ImportProducts(this);
-    ui->layoutOneFrame->addWidget(mImportProducts);
+    gridLayout->addWidget(mImportProducts,1,1,1,1);
     mImportProducts->setObjectName("ImportProducts");
 }
 
 void Dashboard::setFramePrintBarcode()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mPrintBarcode = new F_PrintBarcode(this);
-    ui->layoutOneFrame->addWidget(mPrintBarcode);
+    gridLayout->addWidget(mPrintBarcode,1,1,1,1);
     mPrintBarcode->setObjectName("PrintBarcode");
 }
 
 void Dashboard::setFrameQuantityAdjustments()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mQuantityAdjustments = new F_QuantityAdjustments(this);
-    ui->layoutOneFrame->addWidget(mQuantityAdjustments);
+    gridLayout->addWidget(mQuantityAdjustments,1,1,1,1);
     mQuantityAdjustments->setObjectName("QuantityAdjustments");
 }
 
 void Dashboard::setFrameAddAdjustments()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddAdjustments = new F_AddAdjustments(this);
-    ui->layoutOneFrame->addWidget(mAddAdjustments);
+    gridLayout->addWidget(mAddAdjustments,1,1,1,1);
     mAddAdjustments->setObjectName("AddAdjustments");
 }
 
 void Dashboard::setFrameStockCounts()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mStockCounts = new F_StockCounts(this);
-    ui->layoutOneFrame->addWidget(mStockCounts);
+    gridLayout->addWidget(mStockCounts,1,1,1,1);
     mStockCounts->setObjectName("StockCounts");
 }
 
 void Dashboard::setFrameCountStock()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mCountStock = new F_CountStock(this);
-    ui->layoutOneFrame->addWidget(mCountStock);
+    gridLayout->addWidget(mCountStock,1,1,1,1);
     mCountStock->setObjectName("CountStock");
 }
 
@@ -232,84 +207,66 @@ void Dashboard::setFrameCountStock()
 void Dashboard::setFrameListSales()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListSales = new F_ListSales(this);
-    ui->layoutOneFrame->addWidget(mListSales);
+    gridLayout->addWidget(mListSales,1,1,1,1);
     mListSales->setObjectName("ListSales");
 }
 
 void Dashboard::setFramePOSSales()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mPOSSales = new F_POSSales(this);
-    ui->layoutOneFrame->addWidget(mPOSSales);
+    gridLayout->addWidget(mPOSSales,1,1,1,1);
     mPOSSales->setObjectName("POSSales");
 }
 
 void Dashboard::setFrameAddSale()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddSale = new F_AddSale(this);
-    ui->layoutOneFrame->addWidget(mAddSale);
+    gridLayout->addWidget(mAddSale,1,1,1,1);
     mAddSale->setObjectName("AddSale");
 }
 
 void Dashboard::setFrameAddSaleByCSV()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddSaleByCSV = new F_AddSaleByCSV(this);
-    ui->layoutOneFrame->addWidget(mAddSaleByCSV);
+    gridLayout->addWidget(mAddSaleByCSV,1,1,1,1);
     mAddSaleByCSV->setObjectName("AddSaleByCSV");
 }
 
 void Dashboard::setFrameDeliveries()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mDeliveries = new F_Deliveries(this);
-    ui->layoutOneFrame->addWidget(mDeliveries);
+    gridLayout->addWidget(mDeliveries,1,1,1,1);
     mDeliveries->setObjectName("Deliveries");
 }
 
 void Dashboard::setFrameListGiftCards()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListGiftCards = new F_ListGiftCards(this);
-    ui->layoutOneFrame->addWidget(mListGiftCards);
+    gridLayout->addWidget(mListGiftCards,1,1,1,1);
     mListGiftCards->setObjectName("ListGiftCards");
 }
 
@@ -318,28 +275,22 @@ void Dashboard::setFrameListGiftCards()
 void Dashboard::setFrameListQuotations()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListQuotations = new F_ListQuotations(this);
-    ui->layoutOneFrame->addWidget(mListQuotations);
+    gridLayout->addWidget(mListQuotations,1,1,1,1);
     mListQuotations->setObjectName("ListQuotations");
 }
 
 void Dashboard::setFrameAddQuotations()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddQuotations = new F_AddQuotations(this);
-    ui->layoutOneFrame->addWidget(mAddQuotations);
+    gridLayout->addWidget(mAddQuotations,1,1,1,1);
     mAddQuotations->setObjectName("AddQuotations");
 }
 
@@ -348,70 +299,55 @@ void Dashboard::setFrameAddQuotations()
 void Dashboard::setFrameListPurchases()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListPurchases = new F_ListPurchases(this);
-    ui->layoutOneFrame->addWidget(mListPurchases);
+    gridLayout->addWidget(mListPurchases,1,1,1,1);
     mListPurchases->setObjectName("ListPurchases");
 }
 
 void Dashboard::setFrameAddPurchase()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddPurchase = new F_AddPurchase(this);
-    ui->layoutOneFrame->addWidget(mAddPurchase);
+    gridLayout->addWidget(mAddPurchase,1,1,1,1);
     mAddPurchase->setObjectName("AddPurchase");
 }
 
 void Dashboard::setFrameAddPurchasesByCSV()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddPurchasesByCSV = new F_AddPurchasesByCSV(this);
-    ui->layoutOneFrame->addWidget(mAddPurchasesByCSV);
+    gridLayout->addWidget(mAddPurchasesByCSV,1,1,1,1);
     mAddPurchasesByCSV->setObjectName("AddPurchasesByCSV");
 }
 
 void Dashboard::setFrameListExpenses()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListExpenses = new F_ListExpenses(this);
-    ui->layoutOneFrame->addWidget(mListExpenses);
+    gridLayout->addWidget(mListExpenses,1,1,1,1);
     mListExpenses->setObjectName("ListExpenses");
 }
 
 void Dashboard::setFrameAddExpense()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddExpense = new F_AddExpense(this);
-    ui->layoutOneFrame->addWidget(mAddExpense);
+    gridLayout->addWidget(mAddExpense,1,1,1,1);
     mAddExpense->setObjectName("AddExpense");
 }
 
@@ -420,42 +356,33 @@ void Dashboard::setFrameAddExpense()
 void Dashboard::setFrameListTransfers()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListTransfers = new F_ListTransfers(this);
-    ui->layoutOneFrame->addWidget(mListTransfers);
+    gridLayout->addWidget(mListTransfers,1,1,1,1);
     mListTransfers->setObjectName("ListTransfers");
 }
 
 void Dashboard::setFrameAddTransfer()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddTransfer = new F_AddTransfer(this);
-    ui->layoutOneFrame->addWidget(mAddTransfer);
+    gridLayout->addWidget(mAddTransfer,1,1,1,1);
     mAddTransfer->setObjectName("AddTransfer");
 }
 
 void Dashboard::setFrameAddTransferByCSV()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddTransferByCSV = new F_AddTransferByCSV(this);
-    ui->layoutOneFrame->addWidget(mAddTransferByCSV);
+    gridLayout->addWidget(mAddTransferByCSV,1,1,1,1);
     mAddTransferByCSV->setObjectName("AddTransferByCSV");
 }
 
@@ -464,28 +391,22 @@ void Dashboard::setFrameAddTransferByCSV()
 void Dashboard::setFrameListUsers()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListUsers = new F_ListUsers(this);
-    ui->layoutOneFrame->addWidget(mListUsers);
+    gridLayout->addWidget(mListUsers,1,1,1,1);
     mListUsers->setObjectName("ListUsers");
 }
 
 void Dashboard::setFrameAddUser()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddUser = new F_AddUser(this);
-    ui->layoutOneFrame->addWidget(mAddUser);
+    gridLayout->addWidget(mAddUser,1,1,1,1);
     mAddUser->setObjectName("AddUser");
 }
 
@@ -493,28 +414,22 @@ void Dashboard::setFrameAddUser()
 void Dashboard::setFrameListBillers()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListBillers = new F_ListBillers(this);
-    ui->layoutOneFrame->addWidget(mListBillers);
+    gridLayout->addWidget(mListBillers,1,1,1,1);
     mListBillers->setObjectName("ListBillers");
 }
 
 void Dashboard::setFrameAddBiller()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddBiller = new F_AddBiller(this);
-    ui->layoutOneFrame->addWidget(mAddBiller);
+    gridLayout->addWidget(mAddBiller,1,1,1,1);
     mAddBiller->setObjectName("AddBiller");
 }
 
@@ -522,28 +437,22 @@ void Dashboard::setFrameAddBiller()
 void Dashboard::setFrameListCustomers()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListCustomers = new F_ListCustomers(this);
-    ui->layoutOneFrame->addWidget(mListCustomers);
+    gridLayout->addWidget(mListCustomers,1,1,1,1);
     mListCustomers->setObjectName("ListCustomers");
 }
 
 void Dashboard::setFrameAddCustomer()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddCustomer = new F_AddCustomer(this);
-    ui->layoutOneFrame->addWidget(mAddCustomer);
+    gridLayout->addWidget(mAddCustomer,1,1,1,1);
     mAddCustomer->setObjectName("AddCustomer");
 }
 
@@ -551,28 +460,22 @@ void Dashboard::setFrameAddCustomer()
 void Dashboard::setFrameListSuppliers()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListSuppliers = new F_ListSuppliers(this);
-    ui->layoutOneFrame->addWidget(mListSuppliers);
+    gridLayout->addWidget(mListSuppliers,1,1,1,1);
     mListSuppliers->setObjectName("ListSuppliers");
 }
 
 void Dashboard::setFrameAddSupplier()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddSupplier = new F_AddSupplier(this);
-    ui->layoutOneFrame->addWidget(mAddSupplier);
+    gridLayout->addWidget(mAddSupplier,1,1,1,1);
     mAddSupplier->setObjectName("AddSupplier");
 }
 
@@ -583,266 +486,209 @@ void Dashboard::setFrameAddSupplier()
 void Dashboard::setFrameSystemSettings()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mSystemSettings = new F_SystemSettings(this);
-    ui->layoutOneFrame->addWidget(mSystemSettings);
+    gridLayout->addWidget(mSystemSettings,1,1,1,1);
     mSystemSettings->setObjectName("SystemSettings");
 }
 
 void Dashboard::setFramePOSSettings()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mPOSSettings = new F_POSSettings(this);
-    ui->layoutOneFrame->addWidget(mPOSSettings);
+    gridLayout->addWidget(mPOSSettings,1,1,1,1);
     mPOSSettings->setObjectName("POSSettings");
 }
 
 void Dashboard::setFrameListPrinters()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mListPrinters = new F_ListPrinters(this);
-    ui->layoutOneFrame->addWidget(mListPrinters);
+    gridLayout->addWidget(mListPrinters,1,1,1,1);
     mListPrinters->setObjectName("ListPrinters");
 }
 
 void Dashboard::setFrameAddPrinter()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAddPrinter = new F_AddPrinter(this);
-    ui->layoutOneFrame->addWidget(mAddPrinter);
+    gridLayout->addWidget(mAddPrinter,1,1,1,1);
     mAddPrinter->setObjectName("AddPrinter");
 }
 
 void Dashboard::setFrameChangeLogo()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mChangeLogo = new F_ChangeLogo(this);
-    ui->layoutOneFrame->addWidget(mChangeLogo);
+    gridLayout->addWidget(mChangeLogo,1,1,1,1);
     mChangeLogo->setObjectName("ChangeLogo");
 }
 
 void Dashboard::setFrameCurrencies()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mCurrencies = new F_Currencies(this);
-    ui->layoutOneFrame->addWidget(mCurrencies);
+    gridLayout->addWidget(mCurrencies,1,1,1,1);
     mCurrencies->setObjectName("Currencies");
 }
 
 void Dashboard::setFrameCustomerGroups()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mCustomerGroups = new F_CustomerGroups(this);
-    ui->layoutOneFrame->addWidget(mCustomerGroups);
+    gridLayout->addWidget(mCustomerGroups,1,1,1,1);
     mCustomerGroups->setObjectName("CustomerGroups");
 }
 
 void Dashboard::setFramePriceGroups()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mPriceGroups = new F_PriceGroups(this);
-    ui->layoutOneFrame->addWidget(mPriceGroups);
+    gridLayout->addWidget(mPriceGroups,1,1,1,1);
     mPriceGroups->setObjectName("PriceGroups");
 }
 
 void Dashboard::setFrameCategories()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mCategories = new F_Categories(this);
-    ui->layoutOneFrame->addWidget(mCategories);
+    gridLayout->addWidget(mCategories,1,1,1,1);
     mCategories->setObjectName("Categories");
 }
 
 void Dashboard::setFrameExpenseCategories()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mExpenseCategories = new F_ExpenseCategories(this);
-    ui->layoutOneFrame->addWidget(mExpenseCategories);
+    gridLayout->addWidget(mExpenseCategories,1,1,1,1);
     mExpenseCategories->setObjectName("ExpenseCategories");
 }
 
 void Dashboard::setFrameUnits()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mUnits = new F_Units(this);
-    ui->layoutOneFrame->addWidget(mUnits);
+    gridLayout->addWidget(mUnits,1,1,1,1);
     mUnits->setObjectName("Units");
 }
 
 void Dashboard::setFrameBrands()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mBrands = new F_Brands(this);
-    ui->layoutOneFrame->addWidget(mBrands);
+    gridLayout->addWidget(mBrands,1,1,1,1);
     mBrands->setObjectName("Brands");
 }
 
 void Dashboard::setFrameVariants()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mVariants = new F_Variants(this);
-    ui->layoutOneFrame->addWidget(mVariants);
+    gridLayout->addWidget(mVariants,1,1,1,1);
     mVariants->setObjectName("Variants");
 }
 
 void Dashboard::setFrameTaxRates()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mTaxRates = new F_TaxRates(this);
-    ui->layoutOneFrame->addWidget(mTaxRates);
+    gridLayout->addWidget(mTaxRates,1,1,1,1);
     mTaxRates->setObjectName("TaxRates");
 }
 
 void Dashboard::setFrameWarhouses()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mWarhouses = new F_Warhouses(this);
-    ui->layoutOneFrame->addWidget(mWarhouses);
+    gridLayout->addWidget(mWarhouses,1,1,1,1);
     mWarhouses->setObjectName("Warhouses");
 }
 
 void Dashboard::setFrameEmailTemplates()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mEmailTemplates = new F_EmailTemplates(this);
-    ui->layoutOneFrame->addWidget(mEmailTemplates);
+    gridLayout->addWidget(mEmailTemplates,1,1,1,1);
     mEmailTemplates->setObjectName("EmailTemplates");
 }
 
 void Dashboard::setFrameGroupPermissions()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mGroupPermissions = new F_GroupPermissions(this);
-    ui->layoutOneFrame->addWidget(mGroupPermissions);
+    gridLayout->addWidget(mGroupPermissions,1,1,1,1);
     mGroupPermissions->setObjectName("GroupPermissions");
 }
 
 void Dashboard::setFrameBackUps()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mBackUps = new F_BackUps(this);
-    ui->layoutOneFrame->addWidget(mBackUps);
+    gridLayout->addWidget(mBackUps,1,1,1,1);
     mBackUps->setObjectName("BackUps");
 }
 
 void Dashboard::setFrameUpdates()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mUpdates = new F_Updates(this);
-    ui->layoutOneFrame->addWidget(mUpdates);
+    gridLayout->addWidget(mUpdates,1,1,1,1);
     mUpdates->setObjectName("Updates");
 }
 
@@ -851,172 +697,136 @@ void Dashboard::setFrameUpdates()
 void Dashboard::setFrameOverViewChart()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mOverViewChart = new F_OverViewChart(this);
-    ui->layoutOneFrame->addWidget(mOverViewChart);
+    gridLayout->addWidget(mOverViewChart,1,1,1,1);
     mOverViewChart->setObjectName("OverViewChart");
 }
 
 void Dashboard::setFrameWarehouseStockChart()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mWarehouseStockChart = new F_WarehouseStockChart(this);
-    ui->layoutOneFrame->addWidget(mWarehouseStockChart);
+    gridLayout->addWidget(mWarehouseStockChart,1,1,1,1);
     mWarehouseStockChart->setObjectName("WarehouseStockChart");
 }
 
 void Dashboard::setFrameBestSellers()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mBestSellers = new F_BestSellers(this);
-    ui->layoutOneFrame->addWidget(mBestSellers);
+    gridLayout->addWidget(mBestSellers,1,1,1,1);
     mBestSellers->setObjectName("BestSellers");
 }
 
 void Dashboard::setFrameRegisterReport()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mRegisterReport = new F_RegisterReport(this);
-    ui->layoutOneFrame->addWidget(mRegisterReport);
+    gridLayout->addWidget(mRegisterReport,1,1,1,1);
     mRegisterReport->setObjectName("RegisterReport");
 }
 
 void Dashboard::setFrameProductQuantityAlerts()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mProductQuantityAlerts = new F_ProductQuantityAlerts(this);
-    ui->layoutOneFrame->addWidget(mProductQuantityAlerts);
+    gridLayout->addWidget(mProductQuantityAlerts,1,1,1,1);
     mProductQuantityAlerts->setObjectName("ProductQuantityAlerts");
 }
 
 void Dashboard::setFrameProductsReport()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mProductsReport = new F_ProductsReport(this);
-    ui->layoutOneFrame->addWidget(mProductsReport);
+    gridLayout->addWidget(mProductsReport,1,1,1,1);
     mProductsReport->setObjectName("ProductsReport");
 }
 
 void Dashboard::setFrameAdjutmentsReport()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mAdjutmentsReport = new F_AdjutmentsReport(this);
-    ui->layoutOneFrame->addWidget(mAdjutmentsReport);
+    gridLayout->addWidget(mAdjutmentsReport,1,1,1,1);
     mAdjutmentsReport->setObjectName("AdjutmentsReport");
 }
 
 void Dashboard::setFrameCategoriesReport()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mCategoriesReport = new F_CategoriesReport(this);
-    ui->layoutOneFrame->addWidget(mCategoriesReport);
+    gridLayout->addWidget(mCategoriesReport,1,1,1,1);
     mCategoriesReport->setObjectName("CategoriesReport");
 }
 
 void Dashboard::setFrameBandsReport()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mBandsReport = new F_BandsReport(this);
-    ui->layoutOneFrame->addWidget(mBandsReport);
+    gridLayout->addWidget(mBandsReport,1,1,1,1);
     mBandsReport->setObjectName("BandsReport");
 }
 
 void Dashboard::setFrameDailySales()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mDailySales = new F_DailySales(this);
-    ui->layoutOneFrame->addWidget(mDailySales);
+    gridLayout->addWidget(mDailySales,1,1,1,1);
     mDailySales->setObjectName("DailySales");
 }
 
 void Dashboard::setFrameMonthlySales()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mMonthlySales = new F_MonthlySales(this);
-    ui->layoutOneFrame->addWidget(mMonthlySales);
+    gridLayout->addWidget(mMonthlySales,1,1,1,1);
     mMonthlySales->setObjectName("MonthlySales");
 }
 
 void Dashboard::setFrameSalesReport()
 {
     // Clear Old Frame
-    foreach(QFrame *oldFrame,ui->mainFrame->findChildren<QFrame*>(QRegularExpression(""),Qt::FindDirectChildrenOnly))
-    {
-        qDebug()<<"Deleted : "<<oldFrame->objectName()<<"\n";
-        delete oldFrame;
-    }
+    if(gridLayout->itemAtPosition(1,1) != NULL)
+        delete gridLayout->itemAtPosition(1,1)->widget();
     // Place the new One.
     mSalesReport = new F_SalesReport(this);
-    ui->layoutOneFrame->addWidget(mSalesReport);
+    gridLayout->addWidget(mSalesReport,1,1,1,1);
     mSalesReport->setObjectName("SalesReport");
 }
 
 Dashboard::~Dashboard()
 {
-    delete ui;
+    //delete ui;
 }

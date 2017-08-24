@@ -185,11 +185,20 @@ public:
         return "";
     }
 
+    static QGraphicsDropShadowEffect *shadowbutton()
+    {
+        QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect();
+        shadow->setBlurRadius(8);
+        shadow->setOffset(1);
+        shadow->setColor(QColor(63, 63, 63, 180));
+        return shadow;
+    }
+
     static QGraphicsDropShadowEffect *shadow()
     {
         QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect();
         shadow->setBlurRadius(8);
-        shadow->setOffset(2);
+        shadow->setOffset(3);
         shadow->setColor(QColor(63, 63, 63, 180));
         return shadow;
     }
