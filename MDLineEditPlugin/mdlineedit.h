@@ -164,6 +164,7 @@ private:
     QLabel      *mhelper;
 
     qreal mFontSize;
+    bool isRBVisible;
 };
 
 #endif // MDLINEEDIT_H

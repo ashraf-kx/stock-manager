@@ -5,7 +5,7 @@ MDLineEdit::MDLineEdit(QWidget *parent) : QWidget(parent)
     this->setObjectName("MDLineEdit");
 
     // init
-    mFontSize = 14;//fontInfo().pixelSize();
+    mFontSize = 14;                 //fontInfo().pixelSize();
     mlineEdit = new QLineEdit(this);
     mlineEdit->setObjectName(QStringLiteral("mlineEdit"));
     mlineEdit->setVisible(false);
@@ -89,9 +89,16 @@ MDLineEdit::MDLineEdit(QWidget *parent) : QWidget(parent)
     connect(mleftButton,SIGNAL(clicked(bool)),this,SLOT(parseError()));
     connect(mlineEdit,SIGNAL(cursorPositionChanged(int,int)),this,SLOT(activeStyle()));
 
-    layout->addWidget(mlabel,2,1); // Resting.
-    layout->addWidget(mlineEdit,1,1); // resting.
+//    layout->addWidget(mlabel,2,1); // Resting.
+//    layout->addWidget(mlineEdit,1,1); // resting.
 
+    isRBVisible = mrightButton->isVisible();
+    mlineEdit->hide();
+    if(isRBVisible) mrightButton->hide();
+    layout->addWidget(mlabel,1,1,2,2); // Resting.
+
+
+ //   layout->addWidget(mlineEdit,2,1); // resting.
     //this->setFocusProxy(mlineEdit);
 }
 
@@ -123,9 +130,11 @@ void MDLineEdit::floating()
 
         mlineEdit->setFocus();
         mlineEdit->setCursorPosition(0);
-        layout->addWidget(mlabel,1,1,1,1); // floating.
-        layout->addWidget(mlineEdit,2,1,1,1); // floating.
+//        layout->addWidget(mlabel,1,1,1,1); // floating.
+//        layout->addWidget(mlineEdit,2,1,1,1); // floating.
+        layout->addWidget(mlabel,1,1,1,1); // floating
         mlineEdit->setVisible(true);
+        if(isRBVisible) mrightButton->show();
 
         activeStyle();
     }else
@@ -138,10 +147,12 @@ void MDLineEdit::resting()
 {
     if(mlineEdit->text().isEmpty() )
     {
-        layout->addWidget(mlabel,2,1); // replace.
-        layout->addWidget(mlineEdit,1,1);
+//        layout->addWidget(mlabel,2,1); // resting.
+//        layout->addWidget(mlineEdit,1,1);
 
         mlineEdit->setVisible(false);
+        if(isRBVisible) mrightButton->hide();
+        layout->addWidget(mlabel,1,1,2,2); // resting.
         inactiveStyle();
 
         zoomInFont->start();
