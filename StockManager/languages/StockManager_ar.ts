@@ -6,7 +6,7 @@
     <message>
         <location filename="../dashboard.ui" line="14"/>
         <source>Dashboard</source>
-        <translation type="unfinished"></translation>
+        <translation>لوحة القيادة</translation>
     </message>
     <message>
         <location filename="../dashboard.cpp" line="10"/>
@@ -19,32 +19,32 @@
     <message>
         <location filename="../dialog.ui" line="17"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../dialog.ui" line="119"/>
         <source>هل تريد حفظ المعلومات ؟</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../dialog.ui" line="184"/>
         <source>لا</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../dialog.ui" line="187"/>
         <source>Esc</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../dialog.ui" line="225"/>
         <source>نعم</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../dialog.ui" line="228"/>
         <source>Return</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -68,95 +68,95 @@
     <message>
         <location filename="../People/f_addcustomer.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="34"/>
         <location filename="../People/f_addcustomer.ui" line="640"/>
         <source>Add Customer</source>
-        <translation type="unfinished"></translation>
+        <translation>اضافة زبون</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="69"/>
         <source>Customer Group *</source>
-        <translation type="unfinished"></translation>
+        <translation>مجموعة الزبائن *</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="108"/>
         <source>Company *</source>
-        <translation type="unfinished"></translation>
+        <translation>الشركة</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="160"/>
         <source>Name *</source>
-        <translation type="unfinished"></translation>
+        <translation>الإسم *</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="197"/>
         <source>VTA Number</source>
-        <translation type="unfinished"></translation>
+        <translation>VTA رقم</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="231"/>
         <source>Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>البريد الإلكتروني</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="268"/>
         <source>Phone *</source>
-        <translation type="unfinished"></translation>
+        <translation>الهاتف *</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="355"/>
         <source>Price Group *</source>
-        <translation type="unfinished"></translation>
+        <translation>مجموعة التسعيرات *</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="394"/>
         <source>Country</source>
-        <translation type="unfinished"></translation>
+        <translation>الدولة</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="443"/>
         <source>City *</source>
-        <translation type="unfinished"></translation>
+        <translation>المدينة *</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="483"/>
         <source>State</source>
-        <translation type="unfinished"></translation>
+        <translation>الولاية</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="523"/>
         <source>Address *</source>
-        <translation type="unfinished"></translation>
+        <translation>العنوان *</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="560"/>
         <source>Postal Code</source>
-        <translation type="unfinished"></translation>
+        <translation>الرمز البريدي</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.ui" line="607"/>
         <source>Remarque /Hint /Notfication</source>
-        <translation type="unfinished"></translation>
+        <translation>ملاحظات / تلميحات/ تنبيهات</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.cpp" line="31"/>
         <source>Time elapsed : </source>
-        <translation type="unfinished"></translation>
+        <translation>الوقت المستغرق : </translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.cpp" line="55"/>
         <location filename="../People/f_addcustomer.cpp" line="136"/>
         <location filename="../People/f_addcustomer.cpp" line="144"/>
         <source>Select Company</source>
-        <translation type="unfinished"></translation>
+        <translation>إختر شركة</translation>
     </message>
     <message>
         <location filename="../People/f_addcustomer.cpp" line="63"/>
         <source>Select Country</source>
-        <translation type="unfinished"></translation>
+        <translation>إختر الدولة</translation>
     </message>
 </context>
 <context>
@@ -164,7 +164,7 @@
     <message>
         <location filename="../Purchases/f_addexpense.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -172,7 +172,7 @@
     <message>
         <location filename="../Settings/f_addprinter.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -180,123 +180,123 @@
     <message>
         <location filename="../Products/f_addproducts.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="42"/>
         <source>Product Type *</source>
-        <translation type="unfinished"></translation>
+        <translation>نوع المنتوج</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="76"/>
         <source>Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>قياسي</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="81"/>
         <source>Speciale</source>
-        <translation type="unfinished"></translation>
+        <translation>مميز</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="86"/>
         <source>Cummon</source>
-        <translation type="unfinished"></translation>
+        <translation>شائع</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="102"/>
         <source>Product Name *</source>
-        <translation type="unfinished"></translation>
+        <translation>إسم المنتوج *</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="132"/>
         <source>Product Code *</source>
-        <translation type="unfinished"></translation>
+        <translation>رمز المنتوج</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="156"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="165"/>
         <source>You can scan your barcode and select the
  correct symbology below</source>
-        <translation type="unfinished"></translation>
+        <translation>بإمكانك فحص الباركود و من ثم اختر الترميز المناسب اسفله</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="184"/>
         <source>Barcode Symbology *</source>
-        <translation type="unfinished"></translation>
+        <translation>ترميز الكودبر</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="229"/>
         <source>Brand</source>
-        <translation type="unfinished"></translation>
+        <translation>العلامة التجارية</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="274"/>
         <source>Category *</source>
-        <translation type="unfinished"></translation>
+        <translation>فئة *</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="319"/>
         <source>Sub Category</source>
-        <translation type="unfinished"></translation>
+        <translation>الفئة الفرعية</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="364"/>
         <source>Product Unit *</source>
-        <translation type="unfinished"></translation>
+        <translation>وحدة المنتوج *</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="411"/>
         <source>this product has multiple variants e.g: multiple Sizes and/or Colors.</source>
-        <translation type="unfinished"></translation>
+        <translation>هذا المنتوج لديه العديد من المتغيرات. مثلا: اللون/ الحجم.</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="437"/>
         <source>Warehouses</source>
-        <translation type="unfinished"></translation>
+        <translation>المخازن</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="458"/>
         <source>Select Supplier</source>
-        <translation type="unfinished"></translation>
+        <translation>إختيار المزود</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="474"/>
         <source>Supplier</source>
-        <translation type="unfinished"></translation>
+        <translation>المزود</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="484"/>
         <source>+</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="525"/>
         <source>Supplier Part Number</source>
-        <translation type="unfinished"></translation>
+        <translation>رقم المزود</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.ui" line="549"/>
         <source>Supplier Price</source>
-        <translation type="unfinished"></translation>
+        <translation>سعر المزود</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.cpp" line="104"/>
         <source>Quantity</source>
-        <translation type="unfinished"></translation>
+        <translation>الكمية</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.cpp" line="115"/>
         <source>Racks</source>
-        <translation type="unfinished"></translation>
+        <translation>الرفوف</translation>
     </message>
     <message>
         <location filename="../Products/f_addproducts.cpp" line="151"/>
         <source>cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>إلغاء</translation>
     </message>
 </context>
 <context>
@@ -304,7 +304,7 @@
     <message>
         <location filename="../Purchases/f_addpurchase.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -312,7 +312,7 @@
     <message>
         <location filename="../Purchases/f_addpurchasesbycsv.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -320,7 +320,7 @@
     <message>
         <location filename="../Quotations/f_addquotations.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -328,7 +328,7 @@
     <message>
         <location filename="../Sales/f_addsale.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../Sales/f_addsalebycsv.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -344,124 +344,124 @@
     <message>
         <location filename="../People/f_addsupplier.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="26"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="58"/>
         <source>Company *</source>
-        <translation type="unfinished"></translation>
+        <translation>الشركة *</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="92"/>
         <source>Name *</source>
-        <translation type="unfinished"></translation>
+        <translation>الإسم *</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="129"/>
         <source>VTA Number</source>
-        <translation type="unfinished"></translation>
+        <translation>VTA رقم</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="163"/>
         <source>Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>البريد الإلكتروني</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="200"/>
         <source>Phone *</source>
-        <translation type="unfinished"></translation>
+        <translation>الهاتف *</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="287"/>
         <source>Country</source>
-        <translation type="unfinished"></translation>
+        <translation>الدولة</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="336"/>
         <source>City *</source>
-        <translation type="unfinished"></translation>
+        <translation>المدينة *</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="376"/>
         <source>State</source>
-        <translation type="unfinished"></translation>
+        <translation>الولاية</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="416"/>
         <source>Address *</source>
-        <translation type="unfinished"></translation>
+        <translation>العنوان *</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="453"/>
         <source>Postal Code</source>
-        <translation type="unfinished"></translation>
+        <translation>الرمز البريدي</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.ui" line="492"/>
         <source>Add Supplier</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة مزود</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="43"/>
         <source>Time elapsed : </source>
-        <translation type="unfinished"></translation>
+        <translation>الوقت المستغرق : </translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="64"/>
         <source>Invalide Em@il</source>
-        <translation type="unfinished"></translation>
+        <translation>البريد الإلكتروني خاطئ</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="71"/>
         <source>email verified</source>
-        <translation type="unfinished"></translation>
+        <translation>تم التحقق من البريد الإلكتروني</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="77"/>
         <source>Type Email</source>
-        <translation type="unfinished"></translation>
+        <translation>أدخل البريد الإلكتروني</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="89"/>
         <source>Em@il Already Used.</source>
-        <translation type="unfinished"></translation>
+        <translation>البريد الإلكتروني مستعمل مسبقا.</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="99"/>
         <source>Assign this new Supplier to a Company.</source>
-        <translation type="unfinished"></translation>
+        <translation>تعيين المزود الجديد الى شركة.</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="107"/>
         <source>Select Country.</source>
-        <translation type="unfinished"></translation>
+        <translation>إختر شركة.</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="131"/>
         <source>This supplier exist Already, are you sure you want to Add it ?</source>
-        <translation type="unfinished"></translation>
+        <translation>هذا المزود موجود مسبقا،هل أنت متأكد تريد إضافته ؟</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="170"/>
         <source>Supplier Inserted seccussfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>تم إضافة المزود بنجاح.</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="192"/>
         <location filename="../People/f_addsupplier.cpp" line="253"/>
         <source>Select Company</source>
-        <translation type="unfinished"></translation>
+        <translation>إختر شركة</translation>
     </message>
     <message>
         <location filename="../People/f_addsupplier.cpp" line="200"/>
         <location filename="../People/f_addsupplier.cpp" line="261"/>
         <source>Select Country</source>
-        <translation type="unfinished"></translation>
+        <translation>إختر الدولة</translation>
     </message>
 </context>
 <context>
@@ -469,7 +469,7 @@
     <message>
         <location filename="../Transfers/f_addtransfer.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -477,7 +477,7 @@
     <message>
         <location filename="../Transfers/f_addtransferbycsv.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -485,18 +485,18 @@
     <message>
         <location filename="../People/f_adduser.ui" line="17"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="32"/>
         <location filename="../People/f_adduser.ui" line="724"/>
         <source>Add User</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة مستخدم</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="55"/>
         <source>type First Name here</source>
-        <translation type="unfinished"></translation>
+        <translation>أدخل الاسم هنا</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="58"/>
@@ -504,179 +504,179 @@
         <location filename="../People/f_adduser.ui" line="252"/>
         <location filename="../People/f_adduser.ui" line="344"/>
         <source>Styled Input Text.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="61"/>
         <source>First Name *</source>
-        <translation type="unfinished"></translation>
+        <translation>الإسم *</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="102"/>
         <source>type Last Name here</source>
-        <translation type="unfinished"></translation>
+        <translation>أدخل اللقب هنا</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="108"/>
         <source>Last Name *</source>
-        <translation type="unfinished"></translation>
+        <translation>اللقب *</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="171"/>
         <source>Male</source>
-        <translation type="unfinished"></translation>
+        <translation>ذكر</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="176"/>
         <source>Female</source>
-        <translation type="unfinished"></translation>
+        <translation>أنثى</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="216"/>
         <source>Company *</source>
-        <translation type="unfinished"></translation>
+        <translation>الشركة *</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="249"/>
         <source>My custom Line Edit Support MD </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="255"/>
         <source>Phone *</source>
-        <translation type="unfinished"></translation>
+        <translation>الهاتف *</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="261"/>
         <source>+xxx xxx xxx xxx</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="341"/>
         <source>Type your current Email</source>
-        <translation type="unfinished"></translation>
+        <translation>أدخل البريد الإلكتروني الحالي</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="347"/>
         <source>Email *</source>
-        <translation type="unfinished"></translation>
+        <translation>البريد الإلكتروني *</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="353"/>
         <source>name@email.com</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="403"/>
         <source>User Name *</source>
-        <translation type="unfinished"></translation>
+        <translation>إسم المستخدم *</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="409"/>
         <source>type username</source>
-        <translation type="unfinished"></translation>
+        <translation>أدخل إسم المستخدم</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="459"/>
         <source>Password *</source>
-        <translation type="unfinished"></translation>
+        <translation>كلمة السر *</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="462"/>
         <source>At least 1 Capital, 1 Lowercase, 1 number and more then 8 characters long</source>
-        <translation type="unfinished"></translation>
+        <translation>على الاقل حرف واحد كبير، حرف واحد صغير، رقم و يجب ان تتعدى ثمانية رموز</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="512"/>
         <source>Confirm Password *</source>
-        <translation type="unfinished"></translation>
+        <translation>تأكيد كلمة السر *</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="617"/>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation>الحالة</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="622"/>
         <source>Active</source>
-        <translation type="unfinished"></translation>
+        <translation>ناشط</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="627"/>
         <source>Pending</source>
-        <translation type="unfinished"></translation>
+        <translation>قيد التشغيل</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="632"/>
         <source>Banned</source>
-        <translation type="unfinished"></translation>
+        <translation>محظور</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="637"/>
         <source>Disactive</source>
-        <translation type="unfinished"></translation>
+        <translation>غير ناشط</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="642"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>حذف</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.ui" line="682"/>
         <source>Group *</source>
-        <translation type="unfinished"></translation>
+        <translation>المجموعة *</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="36"/>
         <source>Time elapsed : </source>
-        <translation type="unfinished"></translation>
+        <translation>الوقت المستغرق : </translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="50"/>
         <location filename="../People/f_adduser.cpp" line="347"/>
         <source>Select Company</source>
-        <translation type="unfinished"></translation>
+        <translation>إختر الشركة</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="58"/>
         <location filename="../People/f_adduser.cpp" line="339"/>
         <source>Select User Group</source>
-        <translation type="unfinished"></translation>
+        <translation>إختر فئة المستخدم</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="172"/>
         <source>Invalide Em@il</source>
-        <translation type="unfinished"></translation>
+        <translation>البريد الإلكتروني خاطئ</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="179"/>
         <source>email verified</source>
-        <translation type="unfinished"></translation>
+        <translation>تم التحقق من البريد الإلكتروني</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="185"/>
         <source>Type Email</source>
-        <translation type="unfinished"></translation>
+        <translation>أدخل البريد الإلكتروني</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="196"/>
         <source>Em@il Already Used.</source>
-        <translation type="unfinished"></translation>
+        <translation>بريد إلكتروني مستعمل من قبل.</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="241"/>
         <source>respect the password norme</source>
-        <translation type="unfinished"></translation>
+        <translation>إحترم قواعد كلمة السر</translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="248"/>
         <source>Good Job</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_adduser.cpp" line="254"/>
         <source>Complete typing</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -684,7 +684,7 @@
     <message>
         <location filename="../Reports/f_adjutmentsreport.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -692,7 +692,7 @@
     <message>
         <location filename="../Settings/f_backups.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     <message>
         <location filename="../Reports/f_bandsreport.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -708,7 +708,7 @@
     <message>
         <location filename="../Reports/f_bestsellers.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -716,74 +716,74 @@
     <message>
         <location filename="../Settings/f_brands.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="26"/>
         <source>Brands</source>
-        <translation type="unfinished"></translation>
+        <translation>العلامات التجارية</translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="35"/>
         <source>New Brand +</source>
-        <translation type="unfinished"></translation>
+        <translation>علامة تجارية جديدة</translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="103"/>
         <location filename="../Settings/f_brands.cpp" line="30"/>
         <source>Brand Name</source>
-        <translation type="unfinished"></translation>
+        <translation>إسم العلامة التجارية</translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="113"/>
         <location filename="../Settings/f_brands.cpp" line="31"/>
         <source>Code</source>
-        <translation type="unfinished">الرمز</translation>
+        <translation>الرمز</translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="120"/>
         <source>(-_-)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="127"/>
         <source>Save</source>
-        <translation type="unfinished">حفظ</translation>
+        <translation>حفظ</translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="130"/>
         <source>Return</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="137"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="140"/>
         <source>Esc</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="163"/>
         <source>1 to 10 elements from 400</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="189"/>
         <source>&lt;-</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.ui" line="199"/>
         <source>-&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_brands.cpp" line="29"/>
         <source>N#</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -791,23 +791,23 @@
     <message>
         <location filename="../Settings/f_categories.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="35"/>
         <source>Categories</source>
-        <translation type="unfinished"></translation>
+        <translation>الفئات</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="44"/>
         <source>New Category +</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة فئة</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="112"/>
         <location filename="../Settings/f_categories.cpp" line="31"/>
         <source>Category Name</source>
-        <translation type="unfinished"></translation>
+        <translation>إسم الفئة</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="122"/>
@@ -815,88 +815,88 @@
         <location filename="../Settings/f_categories.cpp" line="32"/>
         <location filename="../Settings/f_categories.cpp" line="77"/>
         <source>Code</source>
-        <translation type="unfinished">الرمز</translation>
+        <translation>الرمز</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="129"/>
         <location filename="../Settings/f_categories.ui" line="345"/>
         <source>(-_-)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="136"/>
         <location filename="../Settings/f_categories.ui" line="352"/>
         <source>Save</source>
-        <translation type="unfinished">حفظ</translation>
+        <translation>حفظ</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="139"/>
         <location filename="../Settings/f_categories.ui" line="355"/>
         <source>Return</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="146"/>
         <location filename="../Settings/f_categories.ui" line="362"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="149"/>
         <location filename="../Settings/f_categories.ui" line="365"/>
         <source>Esc</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="172"/>
         <location filename="../Settings/f_categories.ui" line="388"/>
         <source>1 to 10 elements from 400</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="198"/>
         <location filename="../Settings/f_categories.ui" line="414"/>
         <source>&lt;-</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="208"/>
         <location filename="../Settings/f_categories.ui" line="424"/>
         <source>-&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="244"/>
         <source>Sub Category</source>
-        <translation type="unfinished"></translation>
+        <translation>الفئات الفرعية</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="253"/>
         <source>New Sub Category +</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة فئة فرعية</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.ui" line="321"/>
         <location filename="../Settings/f_categories.cpp" line="76"/>
         <source>Sub Category Name</source>
-        <translation type="unfinished"></translation>
+        <translation>إسم الفئة الفرعية</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.cpp" line="30"/>
         <location filename="../Settings/f_categories.cpp" line="75"/>
         <source>N#</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.cpp" line="33"/>
         <location filename="../Settings/f_categories.cpp" line="78"/>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>صورة</translation>
     </message>
     <message>
         <location filename="../Settings/f_categories.cpp" line="79"/>
         <source>ID Parent</source>
-        <translation type="unfinished"></translation>
+        <translation>رقم الأب</translation>
     </message>
 </context>
 <context>
@@ -904,7 +904,7 @@
     <message>
         <location filename="../Reports/f_categoriesreport.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -912,7 +912,7 @@
     <message>
         <location filename="../Settings/f_changelogo.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -920,7 +920,7 @@
     <message>
         <location filename="../Products/f_countstock.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -928,7 +928,7 @@
     <message>
         <location filename="../Settings/f_currencies.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -936,7 +936,7 @@
     <message>
         <location filename="../Settings/f_customergroups.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -944,7 +944,7 @@
     <message>
         <location filename="../Reports/f_dailysales.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -952,7 +952,7 @@
     <message>
         <location filename="../Sales/f_deliveries.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -960,7 +960,7 @@
     <message>
         <location filename="../Settings/f_emailtemplates.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -968,7 +968,7 @@
     <message>
         <location filename="../Settings/f_expensecategories.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -976,7 +976,7 @@
     <message>
         <location filename="../Settings/f_grouppermissions.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -984,7 +984,7 @@
     <message>
         <location filename="../Products/f_importproducts.ui" line="20"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -992,7 +992,7 @@
     <message>
         <location filename="../People/f_listbillers.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="26"/>
@@ -1042,67 +1042,67 @@
     <message>
         <location filename="../People/f_listbillers.ui" line="112"/>
         <source>Search : </source>
-        <translation type="unfinished"></translation>
+        <translation>البحث : </translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="157"/>
         <source>Company</source>
-        <translation type="unfinished"></translation>
+        <translation>الشركة</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="171"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>الإسم *</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="185"/>
         <source>Vat Number</source>
-        <translation type="unfinished"></translation>
+        <translation>VTA رقم</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="199"/>
         <source>Phone</source>
-        <translation type="unfinished"></translation>
+        <translation>الهاتف *</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="213"/>
         <source>Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>البريد الإلكتروني</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="227"/>
         <source>City</source>
-        <translation type="unfinished"></translation>
+        <translation>المدينة *</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="241"/>
         <source>Country</source>
-        <translation type="unfinished"></translation>
+        <translation>الدولة</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="257"/>
         <source>Save</source>
-        <translation type="unfinished">حفظ</translation>
+        <translation>حفظ</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="264"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>حذف</translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="281"/>
         <source>Showing 1 to 2 of 2 entries</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="306"/>
         <source>&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_listbillers.ui" line="316"/>
         <source>&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1110,7 +1110,7 @@
     <message>
         <location filename="../People/f_listcustomers.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../People/f_listcustomers.ui" line="26"/>
@@ -2331,367 +2331,367 @@ AN	ANT	530	NT	Netherlands Antilles	Willemstad	960	300000	NA	.an	ANG	Guilder	599	
     <message>
         <location filename="../side_navigator.ui" line="26"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../side_navigator.ui" line="126"/>
         <source>Products</source>
-        <translation type="unfinished"></translation>
+        <translation>المنتوجات</translation>
     </message>
     <message>
         <location filename="../side_navigator.ui" line="172"/>
         <source>Sales</source>
-        <translation type="unfinished"></translation>
+        <translation>المبيعات</translation>
     </message>
     <message>
         <location filename="../side_navigator.ui" line="215"/>
         <source>Quotations</source>
-        <translation type="unfinished"></translation>
+        <translation>الأسعار</translation>
     </message>
     <message>
         <location filename="../side_navigator.ui" line="252"/>
         <source>Purchases</source>
-        <translation type="unfinished"></translation>
+        <translation>المشتريات</translation>
     </message>
     <message>
         <location filename="../side_navigator.ui" line="289"/>
         <source>Transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>التحويلات</translation>
     </message>
     <message>
         <location filename="../side_navigator.ui" line="326"/>
         <source>People</source>
-        <translation type="unfinished"></translation>
+        <translation>الأشخاص</translation>
     </message>
     <message>
         <location filename="../side_navigator.ui" line="363"/>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>الإشعارات</translation>
     </message>
     <message>
         <location filename="../side_navigator.ui" line="400"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>الإعدادات</translation>
     </message>
     <message>
         <location filename="../side_navigator.ui" line="437"/>
         <source>Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>التقريرات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="132"/>
         <source>List products</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة المنتوجات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="135"/>
         <source>Add Products</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة منتوج</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="138"/>
         <source>Import Products</source>
-        <translation type="unfinished"></translation>
+        <translation>إستيراد المنتوجات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="139"/>
         <source>Print Barcode/Label</source>
-        <translation type="unfinished"></translation>
+        <translation>طباعة الملصق/ الباركود</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="140"/>
         <source>Quantity Adjustments</source>
-        <translation type="unfinished"></translation>
+        <translation>تعديل الكميات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="141"/>
         <source>Add Adjustments</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة تعديل</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="142"/>
         <source>Stock Counts</source>
-        <translation type="unfinished"></translation>
+        <translation>عدد الأسهم</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="143"/>
         <source>Count Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>عد الأسهم</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="157"/>
         <source>List Sales</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة المبيعات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="159"/>
         <source>POS Sales</source>
-        <translation type="unfinished"></translation>
+        <translation>نقاط البيع</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="161"/>
         <source>Add Sales</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة مبيعات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="162"/>
         <source>Add Sales by CSV</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة المبيعات بـ CSV</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="163"/>
         <source>Deliveries</source>
-        <translation type="unfinished"></translation>
+        <translation>تسليم البضائع</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="164"/>
         <source>List Gift Cards</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة المنح</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="176"/>
         <source>List Quotations</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة الأسعار</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="177"/>
         <source>Add Quotations</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة الأسعار</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="185"/>
         <source>List Purchases</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة المشتريات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="187"/>
         <source>Add Purchase</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة شراء</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="188"/>
         <source>Add Purchases by CSV</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة المشتريات بـ CSV</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="189"/>
         <source>List Expenses</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة النفقات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="190"/>
         <source>Add Expense</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة نفقة</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="201"/>
         <source>List Transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة التحويلات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="203"/>
         <source>Add Transfer</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة تحويل</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="204"/>
         <source>Add Transfer by CSV</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة تحويل ب CSV</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="213"/>
         <source>List Users</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة المستخدمين</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="215"/>
         <source>Add User</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة مستخدم</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="218"/>
         <source>List Billers</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة المفوترين</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="220"/>
         <source>Add Biller</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة مفوتر</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="223"/>
         <source>List Customers</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة الزبائن</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="225"/>
         <source>Add Customer</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة زبون</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="228"/>
         <source>List Suppliers</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة المزودين</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="230"/>
         <source>Add Supplier</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة مزود</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="253"/>
         <source>System Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>تعديلات النظام</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="254"/>
         <source>POS Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>تعديل نقاط البيع</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="255"/>
         <source>List Printers</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة الطابعات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="257"/>
         <source>Add Printer</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة طابعة</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="258"/>
         <source>Change Logo</source>
-        <translation type="unfinished"></translation>
+        <translation>تغيير الشعار</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="259"/>
         <source>Currencies</source>
-        <translation type="unfinished"></translation>
+        <translation>العملات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="260"/>
         <source>Customer Groups</source>
-        <translation type="unfinished"></translation>
+        <translation>مجموعات الزبائن</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="261"/>
         <source>Price Groups</source>
-        <translation type="unfinished"></translation>
+        <translation>مجموعات الثمن</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="262"/>
         <source>Categories</source>
-        <translation type="unfinished"></translation>
+        <translation>الفئات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="263"/>
         <source>Expense Categories</source>
-        <translation type="unfinished"></translation>
+        <translation>فئات النفقة</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="264"/>
         <source>Units</source>
-        <translation type="unfinished"></translation>
+        <translation>الوحدات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="265"/>
         <source>Brands</source>
-        <translation type="unfinished"></translation>
+        <translation>العلامات التجارية</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="266"/>
         <source>Variants</source>
-        <translation type="unfinished"></translation>
+        <translation>المتغييرات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="267"/>
         <source>Tax Rates</source>
-        <translation type="unfinished"></translation>
+        <translation>معدلات الضريبة</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="268"/>
         <source>Warhouses</source>
-        <translation type="unfinished"></translation>
+        <translation>المخازن</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="269"/>
         <source>Email Templates</source>
-        <translation type="unfinished"></translation>
+        <translation>نموذج البريد الإلكتروني</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="270"/>
         <source>Group Permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>مجموعة الرخص</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="271"/>
         <source>BackUps</source>
-        <translation type="unfinished"></translation>
+        <translation>النسخ الإحتياطي</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="272"/>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>تحديثات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="297"/>
         <source>Overview Chart</source>
-        <translation type="unfinished"></translation>
+        <translation>نظرة عامة للرسوم البيانية</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="298"/>
         <source>Warehouse Stock Chart</source>
-        <translation type="unfinished"></translation>
+        <translation>الرسم البياني للمخزن</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="299"/>
         <source>Best Sellers</source>
-        <translation type="unfinished"></translation>
+        <translation>أفضل البائعيين</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="300"/>
         <source>Register Report</source>
-        <translation type="unfinished"></translation>
+        <translation>مقرر السجلات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="301"/>
         <source>Product Quantity Alerts</source>
-        <translation type="unfinished"></translation>
+        <translation>تنبيهات كمية المنتوج</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="302"/>
         <source>Products Report</source>
-        <translation type="unfinished"></translation>
+        <translation>مقرر المنتوجات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="303"/>
         <source>Adjutments Report</source>
-        <translation type="unfinished"></translation>
+        <translation>مقرر التعديلات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="304"/>
         <source>Categories Report</source>
-        <translation type="unfinished"></translation>
+        <translation>مقرر الفئات</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="305"/>
         <source>Bands Report</source>
-        <translation type="unfinished"></translation>
+        <translation>مقرر العلامات التجارية</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="306"/>
         <source>Daily Sales</source>
-        <translation type="unfinished"></translation>
+        <translation>المبيعات اليومية</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="307"/>
         <source>Monthly Sales</source>
-        <translation type="unfinished"></translation>
+        <translation>المبيعات الشهرية</translation>
     </message>
     <message>
         <location filename="../side_navigator.cpp" line="308"/>
         <source>Sales Report</source>
-        <translation type="unfinished"></translation>
+        <translation>تقارير المبيعات</translation>
     </message>
 </context>
 <context>
@@ -2699,7 +2699,7 @@ AN	ANT	530	NT	Netherlands Antilles	Willemstad	960	300000	NA	.an	ANG	Guilder	599	
     <message>
         <location filename="../toast.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2707,12 +2707,12 @@ AN	ANT	530	NT	Netherlands Antilles	Willemstad	960	300000	NA	.an	ANG	Guilder	599	
     <message>
         <location filename="../top_navigator.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../top_navigator.ui" line="26"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:600;&quot;&gt;Stock Manager Pro &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 </TS>
