@@ -135,11 +135,11 @@ void Camera::changeCameraState()
     {
         camera->stop();
         isCameraActive = false;
-        Bt_code->setIcon(QIcon(":/icons/ic_replay_2x.png"));
+        Bt_code->setIcon(QIcon(":/b/icons/b/ic_replay_2x.png"));
     }else{
         camera->start();
         isCameraActive = true;
-        Bt_code->setIcon(QIcon(":/icons/ic_pause_white_2x.png"));
+        Bt_code->setIcon(QIcon(":/w/icons/w/ic_pause_white_2x.png"));
     }
 }
 
@@ -199,16 +199,18 @@ void Camera::DisplayCodeNow(QImage image)
     QTime t;
     t.start();
 
-    decoder.setDecoder( QZXing::DecoderFormat_QR_CODE | QZXing::DecoderFormat_EAN_13 |
-                        QZXing::DecoderFormat_CODE_128 );
+//    decoder.setDecoder( QZXing::DecoderFormat_QR_CODE | QZXing::DecoderFormat_EAN_13 |
+//                        QZXing::DecoderFormat_CODE_128 );
     // Use all CodeBar exists
     // decoder.setTryHarder(true);
+
     QString result = decoder.decodeImage(image);
 
     if(!result.isEmpty())
     {
         QSound::play("://sounds/beepBarCode.wav");
-        L_displayTextCode->setText("Code :"+result+"  "+QString::number(t.elapsed())+" ms.");
+        L_displayTextCode->setText("Code :"+result+"  "+QString::number(t.elapsed())+" ms."+
+                                   decoder.foundedFormat());
         emit codeAvailable(result);
         camera->stop();
         QTimer::singleShot(5000,camera,SLOT(start()));

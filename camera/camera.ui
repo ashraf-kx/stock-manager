@@ -194,10 +194,6 @@
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset resource="../StockManager/icons.qrc">
-           <normaloff>:/w/icons/w/ic_pause_circle_outline_white_2x.png</normaloff>:/w/icons/w/ic_pause_circle_outline_white_2x.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
            <width>50</width>
