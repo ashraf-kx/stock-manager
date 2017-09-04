@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file alias="language_fr">languages/StockManager_fr.ts</file>
-        <file alias="language_ar">languages/StockManager_ar.ts</file>
-        <file alias="language_en">languages/StockManager_en.ts</file>
+        <file alias="language_fr_ts">languages/StockManager_fr.ts</file>
+        <file alias="language_ar_ts">languages/StockManager_ar.ts</file>
+        <file alias="language_en-ts">languages/StockManager_en.ts</file>
         <file alias="language_ar">languages/StockManager_ar.qm</file>
         <file alias="language_en">languages/StockManager_en.qm</file>
         <file alias="language_fr">languages/StockManager_fr.qm</file>

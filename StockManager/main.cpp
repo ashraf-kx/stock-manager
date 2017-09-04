@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QTranslator translator;
-    translator.load(":language_fr");
+    translator.load(":language_en");
     app.installTranslator(&translator);
 
     Dashboard w;

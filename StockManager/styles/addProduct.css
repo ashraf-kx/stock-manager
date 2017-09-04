@@ -89,7 +89,7 @@ QComboBox QAbstractItemView:pressed, QComboBox QAbstractItemView:Hover{
      /*color:Black;*/
 }
 /************ QPushButton Style ********************/
-QPushButton
+/*QPushButton
 {
         width: 64 dp;
         min-width: 64 dp;
@@ -117,7 +117,7 @@ QPushButton:pressed
 QPushButton:disabled
 {
         background-color: #bdbdbd;
-}
+}*/
 /************  MDLineEdit Style *******************/
 #MDLineEdit
 {

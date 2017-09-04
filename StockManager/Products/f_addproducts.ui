@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>712</width>
-    <height>580</height>
+    <width>882</width>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,43 +21,41 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_3">
    <item>
+    <spacer name="horizontalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
     <layout class="QVBoxLayout" name="layoutLeftSide">
-     <item>
-      <widget class="QLabel" name="L_ProductsType">
-       <property name="minimumSize">
-        <size>
-         <width>200</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Product Type *</string>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
+     <property name="leftMargin">
+      <number>5</number>
+     </property>
+     <property name="rightMargin">
+      <number>5</number>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
      <item>
       <widget class="QComboBox" name="Cb_ProductType">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>300</width>
          <height>25</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>16777215</width>
-         <height>30</height>
+         <width>300</width>
+         <height>16777215</height>
         </size>
        </property>
        <property name="font">
@@ -71,6 +69,11 @@
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
+       <item>
+        <property name="text">
+         <string>Product Type *</string>
+        </property>
+       </item>
        <item>
         <property name="text">
          <string>Standard</string>
@@ -90,6 +93,18 @@
      </item>
      <item>
       <widget class="MDLineEdit" name="Le_productName">
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>524287</width>
+         <height>524287</height>
+        </size>
+       </property>
        <property name="labelText">
         <string>Product Name *</string>
        </property>
@@ -106,6 +121,18 @@
      </item>
      <item>
       <widget class="QLabel" name="L_ProductCode">
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>Calibri</family>
@@ -159,6 +186,18 @@
      </item>
      <item>
       <widget class="QLabel" name="L_info">
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>You can scan your barcode and select the
  correct symbology below</string>
@@ -170,6 +209,18 @@
      </item>
      <item>
       <widget class="QLabel" name="L_barcodeSymbology">
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>Calibri</family>
@@ -190,13 +241,13 @@
       <widget class="QComboBox" name="Cb_BarcodeSym">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>300</width>
          <height>25</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>16777215</width>
+         <width>300</width>
          <height>16777215</height>
         </size>
        </property>
@@ -211,37 +262,117 @@
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
+       <item>
+        <property name="text">
+         <string>AZTEC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CODEBAR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CODE 39</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CODE 93</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CODE 128</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DATA MATRIX</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EAN 8</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EAN 13</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ITF</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MAXICODE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>QR CODE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>RSS 14</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>RSS EXPANDED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UPC A</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UPC E</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UPC EAN EXTENSION</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PDF 417</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="L_Band">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
+      <spacer name="verticalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Brand</string>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
        </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
+      </spacer>
      </item>
      <item>
       <widget class="QComboBox" name="Cb_Brand">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>300</width>
          <height>25</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>16777215</width>
+         <width>300</width>
          <height>16777215</height>
         </size>
        </property>
@@ -259,34 +390,29 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="L_Category">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Category *</string>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
        </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
+      </spacer>
      </item>
      <item>
       <widget class="QComboBox" name="Cb_Category">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>300</width>
          <height>25</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>16777215</width>
+         <width>300</width>
          <height>16777215</height>
         </size>
        </property>
@@ -300,24 +426,6 @@
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="L_SubCategory">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Sub Category</string>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -325,13 +433,13 @@
       <widget class="QComboBox" name="Cb_SubCategory">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>300</width>
          <height>25</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>16777215</width>
+         <width>300</width>
          <height>16777215</height>
         </size>
        </property>
@@ -345,24 +453,6 @@
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="L_ProductUnit">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Product Unit *</string>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -370,13 +460,13 @@
       <widget class="QComboBox" name="Cb_ProductUnit">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>300</width>
          <height>25</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>16777215</width>
+         <width>300</width>
          <height>16777215</height>
         </size>
        </property>
@@ -393,7 +483,33 @@
        </property>
       </widget>
      </item>
+     <item>
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <layout class="QVBoxLayout" name="layoutRightSide">
@@ -486,6 +602,15 @@
          </layout>
         </item>
         <item>
+         <widget class="QComboBox" name="comboBox">
+          <item>
+           <property name="text">
+            <string>Select Supplier</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
            <widget class="QLineEdit" name="Le_SupplierPartNum">
@@ -567,6 +692,19 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

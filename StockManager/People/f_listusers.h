@@ -29,7 +29,7 @@ public slots:
     void initListRowsPerPage();
     void initListNumberPages();
     void updateTableViewRows();
-    void selectedColumn();
+    void selectedColumn(QModelIndex idx,QModelIndex idx2);
     void nextPage();
     void previousPage();
     void updateMessageInfo();
@@ -38,6 +38,7 @@ public slots:
     void visibility();
     void slideIn();
     void slideOut();
+    void setmModelIndex(QModelIndex idx, QModelIndex idx2);
 private:
     Ui::F_ListUsers *ui;
     Toast *mToast;

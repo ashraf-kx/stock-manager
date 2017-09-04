@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>518</width>
-    <height>390</height>
+    <width>954</width>
+    <height>587</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,6 +41,19 @@
    <item>
     <layout class="QHBoxLayout" name="layoutMain">
      <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <layout class="QVBoxLayout" name="layoutLeftSide">
        <property name="leftMargin">
         <number>5</number>
@@ -50,6 +63,18 @@
        </property>
        <item>
         <widget class="QLabel" name="L_company">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>320</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Calibri</family>
@@ -67,8 +92,14 @@
         <widget class="QComboBox" name="Cb_company">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>200</width>
            <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -102,6 +133,18 @@
        </item>
        <item>
         <widget class="MDLineEdit" name="W_name">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>524287</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -110,9 +153,6 @@
          <property name="labelText">
           <string>Name *</string>
          </property>
-         <property name="fontSize">
-          <number>15</number>
-         </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
          </property>
@@ -122,10 +162,25 @@
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
          </property>
+         <property name="fontSize" stdset="0">
+          <number>15</number>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="MDLineEdit" name="W_vtaNumber">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>524287</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -134,9 +189,6 @@
          <property name="labelText">
           <string>VTA Number *</string>
          </property>
-         <property name="fontSize">
-          <number>15</number>
-         </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
          </property>
@@ -146,10 +198,25 @@
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
          </property>
+         <property name="fontSize" stdset="0">
+          <number>15</number>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="MDLineEdit" name="W_email">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>524287</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -158,9 +225,6 @@
          <property name="labelText">
           <string>Address Email *</string>
          </property>
-         <property name="fontSize">
-          <number>15</number>
-         </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
          </property>
@@ -170,10 +234,25 @@
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
          </property>
+         <property name="fontSize" stdset="0">
+          <number>15</number>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="MDLineEdit" name="W_phone">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>524287</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -182,9 +261,6 @@
          <property name="labelText">
           <string>Phone *</string>
          </property>
-         <property name="fontSize">
-          <number>15</number>
-         </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
          </property>
@@ -193,6 +269,9 @@
          </property>
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
+         </property>
+         <property name="fontSize" stdset="0">
+          <number>15</number>
          </property>
         </widget>
        </item>
@@ -217,6 +296,19 @@
         </widget>
        </item>
       </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,0,0,0,0">
@@ -248,8 +340,14 @@
         <widget class="QComboBox" name="Cb_customerGroup">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>200</width>
            <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -270,6 +368,18 @@
        </item>
        <item>
         <widget class="QLabel" name="label_3">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>320</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Calibri</family>
@@ -287,8 +397,14 @@
         <widget class="QComboBox" name="comboBox_2">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>200</width>
            <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -309,6 +425,18 @@
        </item>
        <item>
         <widget class="QLabel" name="label_4">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>320</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Calibri</family>
@@ -324,6 +452,18 @@
        </item>
        <item>
         <widget class="QTextEdit" name="Te_remarque">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Calibri</family>
@@ -351,6 +491,19 @@
       </layout>
      </item>
      <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <layout class="QVBoxLayout" name="layoutRightSide">
        <property name="leftMargin">
         <number>5</number>
@@ -363,6 +516,18 @@
        </property>
        <item>
         <widget class="QLabel" name="L_country">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>320</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Calibri</family>
@@ -380,8 +545,14 @@
         <widget class="QComboBox" name="Cb_country">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>200</width>
            <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -412,6 +583,18 @@
        </item>
        <item>
         <widget class="MDLineEdit" name="W_city">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>524287</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -420,9 +603,6 @@
          <property name="labelText">
           <string>City *</string>
          </property>
-         <property name="fontSize">
-          <number>15</number>
-         </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
          </property>
@@ -432,10 +612,25 @@
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
          </property>
+         <property name="fontSize" stdset="0">
+          <number>15</number>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="MDLineEdit" name="W_state">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>524287</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -444,9 +639,6 @@
          <property name="labelText">
           <string>State</string>
          </property>
-         <property name="fontSize">
-          <number>15</number>
-         </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
          </property>
@@ -456,10 +648,25 @@
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
          </property>
+         <property name="fontSize" stdset="0">
+          <number>15</number>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="MDLineEdit" name="W_address">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>524287</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -468,9 +675,6 @@
          <property name="labelText">
           <string>Address *</string>
          </property>
-         <property name="fontSize">
-          <number>15</number>
-         </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
          </property>
@@ -480,10 +684,25 @@
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
          </property>
+         <property name="fontSize" stdset="0">
+          <number>15</number>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="MDLineEdit" name="W_postalcode">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>524287</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -492,9 +711,6 @@
          <property name="labelText">
           <string>Postal Code</string>
          </property>
-         <property name="fontSize">
-          <number>15</number>
-         </property>
          <property name="helperVisible" stdset="0">
           <bool>false</bool>
          </property>
@@ -503,6 +719,9 @@
          </property>
          <property name="rightIconVisible" stdset="0">
           <bool>false</bool>
+         </property>
+         <property name="fontSize" stdset="0">
+          <number>15</number>
          </property>
         </widget>
        </item>
@@ -527,6 +746,19 @@
         </widget>
        </item>
       </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>

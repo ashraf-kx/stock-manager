@@ -11,11 +11,11 @@ F_AddSupplier::F_AddSupplier(QWidget *parent) :
     QTime t;
     t.start();
     // ######### Graphics Effects #######################
-    QGraphicsDropShadowEffect *sh = new QGraphicsDropShadowEffect();
-    sh->setBlurRadius(8);
-    sh->setOffset(2);
-    sh->setColor(QColor(63, 63, 63, 180));
-    this->setGraphicsEffect(sh);
+//    QGraphicsDropShadowEffect *sh = new QGraphicsDropShadowEffect();
+//    sh->setBlurRadius(8);
+//    sh->setOffset(2);
+//    sh->setColor(QColor(63, 63, 63, 180));
+//    this->setGraphicsEffect(sh);
 
     qCDebug(LC_XD)<<"Add Supplier Fram is Windows : "<<this->isWindow();
     qCDebug(LC_XD)<<"Get Modality : "<<this->windowModality();

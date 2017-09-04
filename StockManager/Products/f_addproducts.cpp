@@ -12,14 +12,14 @@ F_AddProducts::F_AddProducts(QWidget *parent) :
     ui->setupUi(this);
     this->setStyleSheet(Style::loadStyle("addProduct"));
 
-    qCDebug(LC_ADDpro)<<"Add product fram isWindows ? "<<this->isWindow();
-    qCDebug(LC_ADDpro)<<"Get Modilarity : "<<this->windowModality();
+//    qCDebug(LC_ADDpro)<<"Add product fram isWindows ? "<<this->isWindow();
+//    qCDebug(LC_ADDpro)<<"Get Modilarity : "<<this->windowModality();
 
-    QGraphicsDropShadowEffect *sh = new QGraphicsDropShadowEffect();
-    sh->setBlurRadius(8);
-    sh->setOffset(2);
-    sh->setColor(QColor(63, 63, 63, 180));
-    this->setGraphicsEffect(sh);
+//    QGraphicsDropShadowEffect *sh = new QGraphicsDropShadowEffect();
+//    sh->setBlurRadius(8);
+//    sh->setOffset(2);
+//    sh->setColor(QColor(63, 63, 63, 180));
+//    this->setGraphicsEffect(sh);
 
     mCfgDb = new Cfg_Db();
 
@@ -82,12 +82,14 @@ F_AddProducts::~F_AddProducts()
 void F_AddProducts::updateBrandCombo()
 {
     ui->Cb_Brand->clear();
+    ui->Cb_Brand->addItem(tr("Select The Brand"));
     ui->Cb_Brand->addItems(DB->getAllBrands());
 }
 
 void F_AddProducts::updateCategoryCombo()
 {
     ui->Cb_Category->clear();
+    ui->Cb_Category->addItem(tr("Select Category"));
     ui->Cb_Category->addItems(DB->getAllCategories());
 }
 
@@ -95,18 +97,20 @@ void F_AddProducts::updateSubCategoryCombo()
 {
     ui->Cb_SubCategory->clear();
     int category_id = DB->getCategoryID(ui->Cb_Category->currentText());
+    ui->Cb_SubCategory->addItem(tr("Select Sub-Category"));
     ui->Cb_SubCategory->addItems(DB->getAllSubCategories(category_id));
 }
 
 void F_AddProducts::updateUnitCombo()
 {
     ui->Cb_ProductUnit->clear();
+    ui->Cb_ProductUnit->addItem(tr("Select Unit"));
     ui->Cb_ProductUnit->addItems(DB->getAllUnits());
 }
 
 void F_AddProducts::keyPressEvent(QKeyEvent *e)
 {
-    e->key();
+    //e->key();
 }
 
 void F_AddProducts::addProduct()
@@ -170,8 +174,8 @@ void F_AddProducts::createSupplierWidgetHundler()
 {
     QString ObjName = "add Supplier";
 
-    qCDebug(LC_ADDpro)<<"Add product fram isWindows ? "<<this->isWindow();
-    qCDebug(LC_ADDpro)<<"Get Modilarity : "<<this->windowModality();
+//    qCDebug(LC_ADDpro)<<"Add product fram isWindows ? "<<this->isWindow();
+//    qCDebug(LC_ADDpro)<<"Get Modilarity : "<<this->windowModality();
 
     QFrame *frame            = new QFrame(this);
 
@@ -181,8 +185,8 @@ void F_AddProducts::createSupplierWidgetHundler()
     frame->setStyleSheet(this->styleSheet());
 
     frame->setObjectName(ObjName);
-    frame->setMinimumSize(QSize(600,600));
-    frame->setVisible(true);
+    frame->setMinimumSize(QSize(700,700));
+
 
     QVBoxLayout *layout        = new QVBoxLayout(frame);
     QPushButton *Bt_cancel     = new QPushButton(tr("cancel"));
@@ -193,8 +197,10 @@ void F_AddProducts::createSupplierWidgetHundler()
 
     // frame->setStyleSheet("background-color:#448aff;");
 
-    qCDebug(LC_ADDpro)<<"Add suplier fram isWindows ? "<<frame->isWindow();
-    qCDebug(LC_ADDpro)<<"Get Modilarity : "<<frame->windowModality();
+//    qCDebug(LC_ADDpro)<<"Add suplier fram isWindows ? "<<frame->isWindow();
+//    qCDebug(LC_ADDpro)<<"Get Modilarity : "<<frame->windowModality();
+    frame->move(this->rect().center() - frame->rect().center());
+    frame->setVisible(true);
 
     connect(Bt_cancel,SIGNAL(clicked(bool)),frame,SLOT(close()));
 }

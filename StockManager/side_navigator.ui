@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>200</width>
-    <height>449</height>
+    <height>474</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -21,6 +21,11 @@
     <width>200</width>
     <height>16777215</height>
    </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Titillium Web</family>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Frame</string>
@@ -238,7 +243,7 @@
           <x>0</x>
           <y>0</y>
           <width>196</width>
-          <height>69</height>
+          <height>68</height>
          </rect>
         </property>
         <property name="autoFillBackground">
@@ -275,7 +280,7 @@
           <x>0</x>
           <y>0</y>
           <width>196</width>
-          <height>69</height>
+          <height>68</height>
          </rect>
         </property>
         <property name="autoFillBackground">
@@ -312,7 +317,7 @@
           <x>0</x>
           <y>0</y>
           <width>196</width>
-          <height>69</height>
+          <height>68</height>
          </rect>
         </property>
         <property name="autoFillBackground">
@@ -349,7 +354,7 @@
           <x>0</x>
           <y>0</y>
           <width>196</width>
-          <height>69</height>
+          <height>68</height>
          </rect>
         </property>
         <property name="autoFillBackground">
@@ -386,7 +391,7 @@
           <x>0</x>
           <y>0</y>
           <width>196</width>
-          <height>69</height>
+          <height>68</height>
          </rect>
         </property>
         <property name="autoFillBackground">
@@ -423,7 +428,7 @@
           <x>0</x>
           <y>0</y>
           <width>196</width>
-          <height>69</height>
+          <height>68</height>
          </rect>
         </property>
         <property name="autoFillBackground">

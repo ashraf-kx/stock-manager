@@ -80,21 +80,21 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
 
     ui->Bt_editRow->setGraphicsEffect(Style::shadowbutton());
 
-//    ui->bt_cancel->setGraphicsEffect(Style::shadowbutton());
-//    ui->Bt_save->setGraphicsEffect(Style::shadowbutton());
+    ui->bt_cancel->setGraphicsEffect(Style::shadowbutton());
+    ui->Bt_save->setGraphicsEffect(Style::shadowbutton());
 
     ui->Bt_previous->setGraphicsEffect(Style::shadowbutton());
     ui->Bt_next->setGraphicsEffect(Style::shadowbutton());
 
     ui->frame->setGraphicsEffect(Style::shadow());
-    // FIXME : Warning about signal sent two Parametres & Slot has only One. table View selectionModel ?
+    // NOTE : QModelIndex(nbrRow,nbrColumn)(New Clicked Index); QModelIndex(nbrRow,nbrColumn)(New Clicked Index).
     connect(ui->tableView->selectionModel(),
             SIGNAL(currentRowChanged(QModelIndex,QModelIndex)),
-            mapper, SLOT(setCurrentModelIndex(QModelIndex)));
+            this, SLOT(setmModelIndex(QModelIndex,QModelIndex)));
 
     connect(ui->tableView->selectionModel(),
             SIGNAL(currentRowChanged(QModelIndex,QModelIndex)),
-            this, SLOT(selectedColumn()));
+            this, SLOT(selectedColumn(QModelIndex,QModelIndex)));
 
     connect(ui->Cb_rows,SIGNAL(currentTextChanged(QString)),this,SLOT(updateTableViewRows()));
     connect(ui->Cb_pages,SIGNAL(currentTextChanged(QString)),this,SLOT(showPageRows()));
@@ -111,6 +111,13 @@ F_ListUsers::F_ListUsers(QWidget *parent) :
     isFrameUpdate = false;
     ui->frame->setVisible(false);
 
+}
+
+void F_ListUsers::setmModelIndex(QModelIndex idx,QModelIndex idx2)
+{
+    Q_UNUSED(idx2);
+
+    mapper->setCurrentModelIndex(idx);
 }
 
 void F_ListUsers::showFrameUpdate()
@@ -157,9 +164,12 @@ void F_ListUsers::previousPage()
     }
 }
 
-void F_ListUsers::selectedColumn()
+void F_ListUsers::selectedColumn(QModelIndex idx,QModelIndex idx2)
 {
-   idxColSelected = ui->tableView->currentIndex().column();
+    Q_UNUSED(idx2)
+    qDebug()<<"row : "<<idx.row()<<"Collumn : "<<idx.column();
+
+   idxColSelected = idx.column();//ui->tableView->currentIndex().column();
    if(idxColSelected >= 0 )
    {
        proxyModelUser->setFilterRegExp(QRegExp("", Qt::CaseInsensitive));
